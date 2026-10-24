@@ -32,10 +32,10 @@ interface ChatMessage {
 }
 
 const OPTIONAL_STARTER_PROMPTS = [
+  'Where is Karka Academy located?',
+  'What programs and Pay After Placement are offered?',
   'Teach me Python from scratch',
-  'Tell me something interesting about space',
-  'What programs does You Aspirant offer?',
-  'Help me write an email for an extension',
+  'Tell me about Spike AI & Karka Infini AI',
   'What is the difference between Java & Python?',
 ];
 
@@ -50,7 +50,7 @@ export default function GuidanceAssistant() {
       id: 'welcome',
       role: 'assistant',
       content:
-        "Hey! 👋 I'm **Aspirant Navigator**, your general-purpose conversational AI assistant.\n\nWe can talk about anything: **coding** (Python, Java, algorithms), **science & space**, **brainstorming ideas**, **drafting writing**, or exploring verified career guidance and training from You Aspirant.\n\nWhat would you like to explore today?",
+        "Hey! 👋 I'm **Karka AI Navigator**, your AI assistant for **Karka AI & Tech Academy** in Nagercoil.\n\nWe can talk about anything: **coding** (Python, Next.js, algorithms), **science & tech ideas**, or our **headquarters address in Nagercoil, Pay After Placement**, and official courses.\n\nHow can I help you today?",
       timestamp: 'Just now',
     },
   ]);
@@ -257,24 +257,24 @@ export default function GuidanceAssistant() {
           className={`flex items-center gap-2.5 px-4 py-3 rounded-full shadow-2xl transition-all duration-300 font-semibold text-sm ${
             isOpen
               ? 'bg-slate-900 text-white hover:bg-slate-800'
-              : 'bg-gradient-to-r from-blue-600 via-blue-700 to-teal-500 text-white hover:shadow-blue-500/40 hover:scale-105 active:scale-95'
-          } focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-400`}
-          aria-label={isOpen ? 'Close Assistant' : 'Open Aspirant Navigator AI'}
+              : 'bg-gradient-to-r from-[#4a044e] via-purple-900 to-fuchsia-700 text-white hover:shadow-purple-900/40 hover:scale-105 active:scale-95'
+          } focus:outline-none focus-visible:ring-4 focus-visible:ring-purple-400`}
+          aria-label={isOpen ? 'Close Assistant' : 'Open Karka AI Assistant'}
           aria-expanded={isOpen}
           id="chatgpt-assistant-launcher"
         >
           {isOpen ? (
             <>
               <X className="w-5 h-5" />
-              <span>Close AI Navigator</span>
+              <span>Close AI Assistant</span>
             </>
           ) : (
             <>
-              <Sparkles className="w-5 h-5 text-teal-200 animate-pulse" />
-              <span>Aspirant Navigator</span>
+              <Sparkles className="w-5 h-5 text-amber-300 animate-pulse" />
+              <span>Karka AI Assistant</span>
               <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-300 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-400" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
               </span>
             </>
           )}
@@ -285,7 +285,7 @@ export default function GuidanceAssistant() {
       {isOpen && (
         <div
           role="dialog"
-          aria-label="Aspirant Navigator Free-Talk AI Assistant"
+          aria-label="Karka AI Navigator Conversational Assistant"
           aria-modal="true"
           className={`fixed bottom-20 right-4 sm:right-6 ${
             isExpanded
@@ -296,20 +296,20 @@ export default function GuidanceAssistant() {
           {/* Window Header */}
           <div className="bg-slate-900 px-4 py-3.5 text-white flex items-center justify-between border-b border-slate-800">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-blue-600 to-teal-400 flex items-center justify-center text-white shadow-md">
+              <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-[#4a044e] to-fuchsia-600 flex items-center justify-center text-white shadow-md">
                 <Bot className="w-5 h-5" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
                   <h3 className="font-extrabold text-sm tracking-tight text-white">
-                    Aspirant Navigator
+                    Karka AI Navigator
                   </h3>
-                  <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-teal-950 text-teal-300 border border-teal-700/50">
-                    Conversational AI
+                  <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-purple-950 text-purple-300 border border-purple-700/50">
+                    Karka AI
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-400 flex items-center gap-1">
-                  <span>General Knowledge • Coding • Career Direction</span>
+                  <span>General Knowledge • Coding • Nagercoil HQ</span>
                 </p>
               </div>
             </div>

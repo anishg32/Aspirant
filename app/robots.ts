@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://youaspirant.com/sitemap.xml',
+    sitemap: 'https://karka.academy/sitemap.xml',
   };
 }

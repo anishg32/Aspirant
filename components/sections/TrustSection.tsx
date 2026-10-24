@@ -38,14 +38,14 @@ export default function TrustSection() {
           
           {/* Left: Philosophy & Core Narrative (6 cols) */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-semibold uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
-              <span>The You Aspirant Philosophy</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-900 text-xs font-semibold uppercase tracking-wider">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#4a044e]" />
+              <span>The Karka Academy Philosophy</span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Honest Guidance Over Empty Promises.{' '}
-              <span className="text-blue-600">Verifiable Code</span> Over Outdated Slides.
+              <span className="text-[#4a044e]">Verifiable Code</span> Over Outdated Slides.
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -53,7 +53,7 @@ export default function TrustSection() {
             </p>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              At You Aspirant, we strip away misleading marketing claims. We give every learner personalized diagnostic clarity, pair them with practicing engineers, and guide them to build verifiable software proof on GitHub.
+              At Karka AI & Tech Academy, we strip away misleading marketing claims. We give every learner personalized diagnostic clarity, pair them with practicing engineers, and guide them to build verifiable software proof on GitHub.
             </p>
 
             {/* Transparency Checklist */}

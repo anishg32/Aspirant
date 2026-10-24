@@ -42,15 +42,15 @@ export default function Footer() {
           {/* Col 1: Brand & Mission (2 spans on desktop) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-teal-400 flex items-center justify-center text-white shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4a044e] to-fuchsia-600 flex items-center justify-center text-white shadow-md shadow-purple-900/30">
                 <Compass className="w-6 h-6" />
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold text-xl tracking-tight text-white group-hover:text-blue-400 transition-colors">
-                  YOU<span className="text-blue-400">ASPIRANT</span>
+                <span className="font-extrabold text-xl tracking-tight text-white group-hover:text-purple-400 transition-colors">
+                  KARKA<span className="text-purple-400">.AI</span>
                 </span>
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-teal-400">
-                  Career Guidance & Practical Training
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-purple-300">
+                  AI & Tech Academy · Nagercoil
                 </span>
               </div>
             </Link>
@@ -209,7 +209,7 @@ export default function Footer() {
         <div className="py-6 border-b border-slate-800/80 text-xs text-slate-400 leading-relaxed max-w-4xl">
           <p>
             <strong className="text-slate-300 font-semibold">Ethical Academic Disclosure: </strong>
-            You Aspirant provides career diagnostics, skill acceleration bootcamps, and 1-on-1 industry mentorship. We explicitly reject false marketing promises or guaranteed employment claims. Career advancement and hiring outcomes depend on market availability, personal dedication, and employer interview evaluations.
+            Karka AI & Tech Academy provides career diagnostics, skill acceleration bootcamps, and 1-on-1 industry mentorship. We explicitly reject false marketing promises or guaranteed employment claims. Career advancement and hiring outcomes depend on market availability, personal dedication, and employer interview evaluations.
           </p>
         </div>
 

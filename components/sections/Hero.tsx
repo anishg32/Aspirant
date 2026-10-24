@@ -29,30 +29,30 @@ export default function Hero() {
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
             
             {/* Top Pill / Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-semibold shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-blue-600 animate-ping" />
-              <span>Ethical Career Guidance & Practical Engineering Training</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-[#4a044e] text-xs font-bold shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#4a044e] animate-ping" />
+              <span>The Exclusive AI & Tech Learning Center in Nagercoil</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
-              Your Ambition.{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-500 bg-clip-text text-transparent">
-                Your Skills.
+              AI-Driven{' '}
+              <span className="bg-gradient-to-r from-[#4a044e] via-purple-700 to-fuchsia-600 bg-clip-text text-transparent">
+                Software Developer
               </span>{' '}
-              Your Next Opportunity.
+              & Career Platform
             </h1>
 
             {/* Subheading */}
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Discover verified career pathways, build production-grade software projects, and prepare for competitive engineering hiring with honest 1-on-1 mentorship.
+              Master Full Stack Development, Data Science, and GenAI at Karka AI & Tech Academy. Build real production capstones with working engineer mentorship and Pay After Placement opportunities in Nagercoil.
             </p>
 
             {/* Primary & Secondary CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
               <Link
                 href="/programs"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 hover:-translate-y-0.5 transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-[#4a044e] hover:bg-purple-900 active:bg-purple-950 shadow-lg shadow-purple-950/25 hover:shadow-xl hover:shadow-purple-950/30 hover:-translate-y-0.5 transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                 id="hero-primary-cta"
               >
                 <span>Explore Training Programs</span>
@@ -60,11 +60,11 @@ export default function Hero() {
               </Link>
 
               <Link
-                href="/contact?type=guidance"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-400 shadow-xs transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-400 shadow-xs transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                 id="hero-secondary-cta"
               >
-                <span>Get 1-on-1 Career Guidance</span>
+                <span>Visit Nagercoil Campus / Contact</span>
               </Link>
             </div>
 

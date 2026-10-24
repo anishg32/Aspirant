@@ -105,7 +105,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: false,
-        message: 'A technical error occurred while processing your enquiry. Please try again or email us directly at enquiry@youaspirant.com.',
+        message: 'A technical error occurred while processing your enquiry. Please try again or email us directly at contact@karka.academy.',
       },
       { status: 500 }
     );

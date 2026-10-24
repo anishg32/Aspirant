@@ -20,23 +20,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://youaspirant.com'),
+  metadataBase: new URL('https://karka.academy'),
   title: {
-    default: 'You Aspirant | Career Guidance & Practical Training Platform',
-    template: '%s | You Aspirant',
+    default: 'Karka AI & Tech Academy | AI, Full Stack & Tech Careers in Nagercoil',
+    template: '%s | Karka AI & Tech Academy',
   },
   description:
-    'Discover honest career pathways, develop practical engineering skills, and prepare for tech hiring rounds with personalized 1-on-1 mentorship. Redesigned by Team Nexora Labs.',
+    'Launch your high-impact software career at Karka AI & Tech Academy, Nagercoil. Master AI, Data Science, and Full Stack Development with hands-on projects and Pay After Placement. Redesigned by Team Nexora Labs.',
   keywords: [
-    'Career Guidance',
-    'Tech Training',
-    'Full-Stack Web Development',
-    'Cloud DevOps',
+    'Karka AI Academy',
+    'Karka Academy Nagercoil',
+    'Software courses in Nagercoil',
+    'AI courses in Nagercoil',
+    'Full Stack Development',
     'Data Science AI',
-    'Mock Technical Interviews',
-    'You Aspirant',
+    'Pay After Placement',
+    'Spike AI',
+    'Karka Infini AI',
     'Nexora Labs',
-    'College Student Career Mentorship',
   ],
   icons: {
     icon: '/icon.png',
@@ -47,25 +48,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://youaspirant.com',
-    siteName: 'You Aspirant',
-    title: 'You Aspirant | Career Guidance & Practical Training Platform',
+    url: 'https://karka.academy',
+    siteName: 'Karka AI & Tech Academy',
+    title: 'Karka AI & Tech Academy | AI & Coding in Nagercoil',
     description:
-      'Your Ambition. Your Skills. Your Next Opportunity. High-impact tech training and personalized career guidance with verified capstones.',
+      'The one and only exclusive AI learning center in Nagercoil. High-impact tech training, real Capstone projects, and Pay After Placement.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 675,
-        alt: 'You Aspirant - Career Guidance & Engineering Training',
+        alt: 'Karka AI & Tech Academy - Nagercoil',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'You Aspirant | Career Guidance & Practical Training',
+    title: 'Karka AI & Tech Academy | Coding in Nagercoil',
     description:
-      'Personalized career pathways, verified code capstones, and 1-on-1 engineering mentorship.',
+      'Master AI, Full Stack Development, and Data Science with industry mentorship at Karka AI Academy, Nagercoil.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -82,20 +83,30 @@ export default function RootLayout({
   // Schema.org Structured Data
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
+    '@type': ['LocalBusiness', 'EducationalOrganization'],
     name: COMPANY_DETAILS.name,
+    alternateName: COMPANY_DETAILS.brandName,
     legalName: COMPANY_DETAILS.legalName,
     description: COMPANY_DETAILS.mission,
-    url: 'https://youaspirant.com',
-    logo: 'https://youaspirant.com/icon.png',
+    url: 'https://karka.academy',
+    logo: 'https://karka.academy/logo.png',
+    telephone: COMPANY_DETAILS.contact.phone,
+    email: COMPANY_DETAILS.contact.email,
+    hasMap: COMPANY_DETAILS.contact.mapsUrl,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Nexora Tower, OMR',
-      addressLocality: 'Chennai',
-      addressRegion: 'Tamil Nadu',
-      postalCode: '600096',
+      streetAddress: `${COMPANY_DETAILS.contact.building}, ${COMPANY_DETAILS.contact.street}`,
+      addressLocality: COMPANY_DETAILS.contact.city,
+      addressRegion: COMPANY_DETAILS.contact.state,
+      postalCode: COMPANY_DETAILS.contact.postalCode,
       addressCountry: 'IN',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 8.1833,
+      longitude: 77.4119,
+    },
+    openingHours: 'Mo-Sa 09:00-18:00',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: COMPANY_DETAILS.contact.phone,

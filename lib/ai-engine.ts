@@ -5,7 +5,7 @@ export interface ChatMessageItem {
   content: string;
 }
 
-export const YOU_ASPIRANT_SYSTEM_PROMPT = `You are Aspirant Navigator, a friendly, brilliant, and open-ended AI assistant built by Team NEXORA LABS for the You Aspirant digital platform.
+export const YOU_ASPIRANT_SYSTEM_PROMPT = `You are Karka AI Navigator, a friendly, brilliant, and open-ended AI assistant built by Team NEXORA LABS for the Karka AI & Tech Academy platform.
 
 PRIMARY DIRECTIVE:
 You are a general-purpose, open-ended conversational AI like ChatGPT. You are NOT restricted to career advice or courses. Users can talk with you about ANYTHING appropriate:
@@ -21,17 +21,21 @@ FORMATTING REQUIREMENTS:
 - When sharing code, ALWAYS use syntax-highlighted code blocks with the language identifier (e.g. \`\`\`python, \`\`\`java, \`\`\`javascript).
 - Adapt response length: short and punchy for quick queries; detailed and structured for coding lessons or in-depth explanations.
 
-OFFICIAL YOU ASPIRANT COMPANY KNOWLEDGE (Use when specifically asked about You Aspirant, courses, career guidance, admissions, or fees):
-- You Aspirant is an educational career guidance and training company.
-- 4 Guidance Tracks: Stream & Specialization Discovery (1st/2nd yr), Practical Skills Readiness (3rd/final yr), Resume & GitHub Portfolio Blueprint, 1-on-1 Mentorship & Mock Technical Interviews.
-- 5 Training Programs:
+OFFICIAL KARKA AI & TECH ACADEMY KNOWLEDGE:
+- Karka AI & Tech Academy is the exclusive AI and technology learning center in Nagercoil, Tamil Nadu.
+- Headquarters Address: Ground Floor, SRV Towers, Muthamizh Street (near Girias), Veppamoodu, Nagercoil, Tamil Nadu – 629001, India.
+- Landmark: Near Girias, Veppamoodu Junction.
+- Contact: contact@karka.academy, Admissions: admissions@karka.academy, Hotline / WhatsApp: +91 9487530243.
+- Key Programs & Offerings:
   1. Full-Stack Web Engineering (16 Weeks: Next.js, React, Node.js, PostgreSQL, Docker)
   2. Applied Cloud & DevOps Essentials (12 Weeks: Docker, Kubernetes, Terraform, AWS, CI/CD)
   3. Data Science & Applied AI Foundations (14 Weeks: Python, SQL, ML, LangChain, RAG)
   4. Cyber Security & Network Defense Primer (10 Weeks: OWASP Top 10, Wireshark, SOC triage)
   5. Professional Employability Accelerator (6 Weeks: Quantitative aptitude, STAR framework)
-- Strict Ethical Policy: NO 100% placement guarantees. True capability, verifiable GitHub code, 7-day unconditional refund policy.
-- Contact: enquiry@youaspirant.com, +91 44 2855 9100, Chennai, Tamil Nadu.
+- Ecosystem Platforms:
+  - Spike AI: The AI-powered learning platform by Karka Academy (https://spike.karka.academy/)
+  - Karka Infini AI: Inter-college tech competition with ₹1,00,000 prize pool (https://infini.karka.academy/)
+- Admissions & Pay After Placement: Flexible payment models including Pay After Placement for eligible cohorts.
 - Redesign Team: NEXORA LABS ("Innovate. Design. Transform.").
 `;
 
@@ -453,9 +457,49 @@ Here's how it works:
     };
   }
 
-  // 9. COMPANY-SPECIFIC QUESTIONS (YOU ASPIRANT)
+  // 9. ADDRESS, CONTACT & LOCATION QUESTIONS
   if (
+    q.includes('address') ||
+    q.includes('location') ||
+    q.includes('where are you') ||
+    q.includes('where is karka') ||
+    q.includes('where is the academy') ||
+    q.includes('office') ||
+    q.includes('headquarters') ||
+    q.includes('contact number') ||
+    q.includes('phone') ||
+    q.includes('email') ||
+    q.includes('nagercoil')
+  ) {
+    return {
+      reply: `Here are the official headquarters and contact details for **Karka AI & Tech Academy**:
+
+📍 **Physical Campus Address:**
+${COMPANY_DETAILS.contact.address}
+*(Landmark: ${COMPANY_DETAILS.contact.landmark})*
+
+📞 **Direct Helpline / WhatsApp:** [${COMPANY_DETAILS.contact.phone}](tel:${COMPANY_DETAILS.contact.phone.replace(/\s+/g, '')})
+✉️ **Official Email:** [${COMPANY_DETAILS.contact.email}](mailto:${COMPANY_DETAILS.contact.email})
+⏰ **Hours:** ${COMPANY_DETAILS.contact.workingHours}
+
+🌐 **Ecosystem Platforms:**
+- **Spike AI:** ${COMPANY_DETAILS.platforms.spikeAi}
+- **Karka Infini AI (₹1,00,000 Prize Pool):** ${COMPANY_DETAILS.platforms.infiniAi}
+
+You are welcome to visit our campus in Nagercoil for direct consultations, walk-in evaluations, or project demonstrations!`,
+      quickActions: [
+        { label: 'View Contact Page & Map', href: '/contact' },
+        { label: 'Open in Google Maps', href: COMPANY_DETAILS.contact.mapsUrl },
+        { label: 'Chat on WhatsApp', href: `https://wa.me/919487530243` },
+      ],
+    };
+  }
+
+  // 10. COMPANY-SPECIFIC QUESTIONS (KARKA AI & TECH ACADEMY)
+  if (
+    q.includes('karka') ||
     q.includes('you aspirant') ||
+    q.includes('aspirant') ||
     q.includes('courses') ||
     q.includes('what programs') ||
     q.includes('what training') ||
@@ -463,40 +507,37 @@ Here's how it works:
     q.includes('placement') ||
     q.includes('admission')
   ) {
-    if (q.includes('placement') || q.includes('guarantee')) {
+    if (q.includes('placement') || q.includes('pay after placement')) {
       return {
-        reply: `At You Aspirant, we maintain a strict **Ethical Career Policy**:
-- We **do not make misleading 100% placement guarantees** because hiring outcomes depend on employer interview evaluations, market conditions, and personal dedication.
-- Instead, we guarantee **rigorous project training**, code reviews by working engineers, verifiable GitHub portfolios, and simulated 1-on-1 mock interviews to maximize your hiring readiness.
-- All cohorts include a **7-day unconditional refund window**.`,
+        reply: `At **Karka AI & Tech Academy**, we offer industry-aligned career preparation with **Pay After Placement** options:
+- We believe in real software engineering ability, rigorous GitHub projects, and working engineer code reviews.
+- Learners gain deep hands-on expertise in Full Stack Development, Data Science, AI/GenAI, and Cloud Infrastructure.
+- Physical campus located at **SRV Towers, Veppamoodu, Nagercoil** with dedicated 1-on-1 mentorship.`,
         quickActions: [
-          { label: 'View How It Works', href: '/#how-it-works' },
-          { label: 'Read FAQ', href: '/contact#faq' },
+          { label: 'Explore Programs', href: '/programs' },
+          { label: 'Contact Nagercoil HQ', href: '/contact' },
         ],
       };
     }
 
     return {
-      reply: `I can help with that! Here is the verified information for **You Aspirant**:
+      reply: `I can help with that! Here is the verified information for **Karka AI & Tech Academy** (Nagercoil, Tamil Nadu):
 
-### 🎯 5 Practical Technical Training Programs:
+### 🎯 Practical Technical Programs:
 1. **Full-Stack Web Engineering** (16 Weeks): Next.js App Router, React 19, Node.js, PostgreSQL, Docker, CI/CD.
 2. **Applied Cloud & DevOps Essentials** (12 Weeks): Linux systems, Docker, Kubernetes, Terraform IaC, AWS.
 3. **Data Science & Applied AI Foundations** (14 Weeks): Python, SQL analytics, Scikit-learn, LangChain, RAG.
 4. **Cyber Security & Network Defense Primer** (10 Weeks): OWASP Top 10, Wireshark, SOC triage.
 5. **Professional Employability Accelerator** (6 Weeks): Quantitative aptitude, STAR interview method.
 
-### 🧭 4 Personalized Career Guidance Tracks:
-- **Stream & Specialization Discovery** (1st/2nd yr students)
-- **Practical Skills Readiness** (3rd/final yr students)
-- **Resume, GitHub & Portfolio Blueprint**
-- **1-on-1 Mentorship & Mock Technical Interviews**
+### 📍 Headquarters:
+Ground Floor, SRV Towers, Muthamizh Street (near Girias), Veppamoodu, Nagercoil, Tamil Nadu – 629001.
 
-Every program emphasizes verifiable GitHub capstones over passive video lectures. Would you like details on a specific curriculum?`,
+Would you like details on a specific curriculum, Pay After Placement, or to book an in-person campus visit?`,
       quickActions: [
         { label: 'Explore All Programs', href: '/programs' },
+        { label: 'View Contact & Location', href: '/contact' },
         { label: 'Take 60-Sec Career Quiz', href: '/#career-quiz' },
-        { label: 'Book Guidance Call', href: '/contact?type=guidance' },
       ],
     };
   }

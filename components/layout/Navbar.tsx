@@ -79,18 +79,18 @@ export default function Navbar() {
           {/* Brand Logo & Tag */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-lg p-1"
-            aria-label="You Aspirant - Home"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 rounded-lg p-1"
+            aria-label="Karka AI & Tech Academy - Home"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4a044e] via-purple-900 to-fuchsia-600 flex items-center justify-center text-white shadow-md shadow-purple-900/30 group-hover:scale-105 transition-transform duration-200">
               <Compass className="w-6 h-6 animate-pulse" />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-                YOU<span className="text-blue-600">ASPIRANT</span>
+              <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-[#4a044e] transition-colors">
+                KARKA<span className="text-[#4a044e]">.AI</span>
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-teal-600 flex items-center gap-1">
-                Career Guidance & Skills
+              <span className="text-[10px] font-bold uppercase tracking-wider text-purple-700 flex items-center gap-1">
+                AI & Tech Academy · Nagercoil
               </span>
             </div>
           </Link>

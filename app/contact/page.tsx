@@ -18,6 +18,10 @@ import {
   MessageCircle,
   Copy,
   Check,
+  ExternalLink,
+  Navigation,
+  Building2,
+  ArrowRight,
 } from 'lucide-react';
 import { COMPANY_DETAILS, FAQS } from '@/data/content';
 import { useToast } from '@/components/ui/Toast';
@@ -25,29 +29,95 @@ import { useToast } from '@/components/ui/Toast';
 export default function ContactPage() {
   const { showToast } = useToast();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [copiedAddress, setCopiedAddress] = useState(false);
 
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx);
   };
 
+  const handleCopyAddress = async () => {
+    await navigator.clipboard.writeText(COMPANY_DETAILS.contact.address);
+    setCopiedAddress(true);
+    showToast('Official Academy address copied to clipboard!', 'success', 'Address Copied');
+    setTimeout(() => setCopiedAddress(false), 2500);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-purple-900 selection:text-white">
       <Navbar />
       <main className="flex-1 pt-32 pb-20">
         
         {/* Page Header */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider">
-              <Mail className="w-3.5 h-3.5 text-blue-600" />
-              <span>Direct Mentorship Desk</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-900 text-xs font-bold uppercase tracking-wider">
+              <MapPin className="w-3.5 h-3.5 text-purple-800" />
+              <span>Official Academy Headquarters · Nagercoil, Tamil Nadu</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Get in Touch with Our Guidance Team
+              Visit or Contact <span className="text-[#4a044e]">Karka AI & Tech Academy</span>
             </h1>
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              Have questions about program curricula, diagnostic consultations, or admissions? Reach out directly via phone, email, or our validated enquiry portal.
+              Align your ambition with market demand. Connect with our admissions counselors, mentors, or visit our primary campus at Veppamoodu, Nagercoil.
             </p>
+          </div>
+        </div>
+
+        {/* Highlight Banner: Exact Address & Quick Contact Actions */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+          <div className="bg-gradient-to-r from-[#4a044e] to-purple-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-purple-950/15 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+              <div className="space-y-2 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-amber-300 uppercase tracking-wide">
+                  <Building2 className="w-3.5 h-3.5" />
+                  <span>Physical Campus & Inquiry Center</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+                  {COMPANY_DETAILS.contact.building}, {COMPANY_DETAILS.contact.street}
+                </h2>
+                <p className="text-sm text-purple-200 leading-relaxed">
+                  {COMPANY_DETAILS.contact.address}
+                </p>
+                <div className="flex items-center gap-2 text-xs text-purple-300 font-medium pt-1">
+                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Landmark: {COMPANY_DETAILS.contact.landmark}</span>
+                  <span className="text-purple-400">•</span>
+                  <span>{COMPANY_DETAILS.contact.city}, {COMPANY_DETAILS.contact.state} – {COMPANY_DETAILS.contact.postalCode}</span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+                <button
+                  type="button"
+                  onClick={handleCopyAddress}
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold transition-all"
+                >
+                  {copiedAddress ? <Check className="w-4 h-4 text-emerald-300" /> : <Copy className="w-4 h-4" />}
+                  <span>{copiedAddress ? 'Address Copied!' : 'Copy Address'}</span>
+                </button>
+
+                <a
+                  href={COMPANY_DETAILS.contact.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#4a044e] hover:bg-purple-50 text-xs font-bold shadow-md hover:scale-105 transition-all"
+                >
+                  <Navigation className="w-4 h-4 text-[#4a044e]" />
+                  <span>Get Directions</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+                </a>
+
+                <a
+                  href={`tel:${COMPANY_DETAILS.contact.phone.replace(/\s+/g, '')}`}
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-400 text-slate-950 hover:bg-amber-300 text-xs font-bold transition-all shadow-md"
+                >
+                  <Phone className="w-4 h-4 text-slate-950" />
+                  <span>Call {COMPANY_DETAILS.contact.phone}</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -64,24 +134,67 @@ export default function ContactPage() {
                     Official Contact Channels
                   </h2>
                   <p className="text-xs text-slate-500 mt-1">
-                    Direct access to our admissions and guidance coordinators.
+                    Direct access to our admissions, training counselors, and leadership desk.
                   </p>
                 </div>
 
                 <div className="space-y-4 text-xs sm:text-sm">
-                  {/* Channel 1: Email */}
+                  {/* Channel 1: Phone & WhatsApp */}
+                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div className="w-9 h-9 rounded-xl bg-purple-100 text-[#4a044e] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="font-bold text-slate-900 block text-xs">
+                        Admissions Hotline & WhatsApp
+                      </span>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <a
+                          href={`tel:${COMPANY_DETAILS.contact.phone.replace(/\s+/g, '')}`}
+                          className="text-[#4a044e] font-bold hover:underline text-sm"
+                        >
+                          {COMPANY_DETAILS.contact.phone}
+                        </a>
+                        <button
+                          type="button"
+                          onClick={async () => {
+                            await navigator.clipboard.writeText(COMPANY_DETAILS.contact.phone);
+                            showToast('Hotline phone number copied!', 'success', 'Copied');
+                          }}
+                          className="text-slate-400 hover:text-[#4a044e] p-0.5"
+                          title="Copy phone number"
+                        >
+                          <Copy className="w-3 h-3" />
+                        </button>
+                      </div>
+                      <div className="mt-2 flex items-center gap-2">
+                        <a
+                          href={`https://wa.me/919487530243?text=Hi%20Karka%20Academy%20Team%2C%20I%20would%20like%20to%20know%20more%20about%20your%20courses%20and%20admissions`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-600 text-white font-semibold text-[11px] hover:bg-emerald-700 transition-colors"
+                        >
+                          <MessageCircle className="w-3.5 h-3.5" />
+                          <span>Chat on WhatsApp</span>
+                        </a>
+                        <span className="text-[11px] text-slate-400">Direct response</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Channel 2: Email */}
                   <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
                     <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div className="flex-1">
                       <span className="font-bold text-slate-900 block text-xs">
-                        Admissions & General Enquiries
+                        Official Email Inquiries
                       </span>
                       <div className="flex items-center gap-2 mt-0.5">
                         <a
                           href={`mailto:${COMPANY_DETAILS.contact.email}`}
-                          className="text-blue-600 font-medium hover:underline text-xs"
+                          className="text-blue-600 font-semibold hover:underline text-xs"
                         >
                           {COMPANY_DETAILS.contact.email}
                         </a>
@@ -97,58 +210,54 @@ export default function ContactPage() {
                           <Copy className="w-3 h-3" />
                         </button>
                       </div>
-                      <span className="block text-[11px] text-slate-400 mt-0.5">
-                        Counseling desk: {COMPANY_DETAILS.contact.counselingEmail}
+                      <span className="block text-[11px] text-slate-500 mt-1">
+                        Admissions desk: <a href={`mailto:${COMPANY_DETAILS.contact.counselingEmail}`} className="text-slate-700 font-medium hover:underline">{COMPANY_DETAILS.contact.counselingEmail}</a>
                       </span>
                     </div>
                   </div>
 
-                  {/* Channel 2: Phone */}
-                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                    <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1">
-                      <span className="font-bold text-slate-900 block text-xs">
-                        Counseling Hotline
-                      </span>
-                      <div className="flex items-center gap-2 mt-0.5">
-                        <a
-                          href={`tel:${COMPANY_DETAILS.contact.phone.replace(/\s+/g, '')}`}
-                          className="text-slate-800 font-semibold hover:text-blue-600 text-xs"
-                        >
-                          {COMPANY_DETAILS.contact.phone}
-                        </a>
-                        <button
-                          type="button"
-                          onClick={async () => {
-                            await navigator.clipboard.writeText(COMPANY_DETAILS.contact.phone);
-                            showToast('Hotline phone number copied!', 'success', 'Copied');
-                          }}
-                          className="text-slate-400 hover:text-blue-600 p-0.5"
-                          title="Copy phone number"
-                        >
-                          <Copy className="w-3 h-3" />
-                        </button>
-                      </div>
-                      <span className="block text-[11px] text-slate-500">
-                        Mobile / WhatsApp: {COMPANY_DETAILS.contact.mobile}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Channel 3: Address */}
-                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                    <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  {/* Channel 3: Exact Address */}
+                  <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-purple-50/60 border border-purple-100">
+                    <div className="w-9 h-9 rounded-xl bg-purple-100 text-[#4a044e] flex items-center justify-center flex-shrink-0 mt-0.5">
                       <MapPin className="w-4 h-4" />
                     </div>
-                    <div>
-                      <span className="font-bold text-slate-900 block text-xs">
-                        Office Location
-                      </span>
-                      <p className="text-slate-600 text-xs leading-relaxed mt-0.5">
-                        {COMPANY_DETAILS.contact.address}
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-slate-900 block text-xs">
+                          Academy Headquarters Location
+                        </span>
+                        <span className="text-[10px] font-bold text-[#4a044e] bg-purple-100 px-2 py-0.5 rounded-full">
+                          Nagercoil HQ
+                        </span>
+                      </div>
+                      <p className="text-slate-700 text-xs leading-relaxed mt-1 font-medium">
+                        {COMPANY_DETAILS.contact.building}, {COMPANY_DETAILS.contact.street}
                       </p>
+                      <p className="text-slate-500 text-[11px] leading-relaxed mt-0.5">
+                        {COMPANY_DETAILS.contact.city}, {COMPANY_DETAILS.contact.district}, {COMPANY_DETAILS.contact.state} – {COMPANY_DETAILS.contact.postalCode}, India
+                      </p>
+                      <p className="text-[11px] text-[#4a044e] font-semibold mt-1">
+                        Landmark: {COMPANY_DETAILS.contact.landmark}
+                      </p>
+                      <div className="mt-2.5 flex items-center gap-3">
+                        <a
+                          href={COMPANY_DETAILS.contact.mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[11px] font-bold text-[#4a044e] hover:underline"
+                        >
+                          <span>Open in Google Maps</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                        <span className="text-slate-300">•</span>
+                        <button
+                          type="button"
+                          onClick={handleCopyAddress}
+                          className="text-[11px] font-semibold text-slate-600 hover:text-slate-900"
+                        >
+                          Copy Address
+                        </button>
+                      </div>
                     </div>
                   </div>
 
@@ -159,32 +268,111 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <span className="font-bold text-slate-900 block text-xs">
-                        Office & Mentorship Hours
+                        Campus & Mentorship Hours
                       </span>
-                      <p className="text-slate-600 text-xs mt-0.5">
+                      <p className="text-slate-700 text-xs font-semibold mt-0.5">
                         {COMPANY_DETAILS.contact.workingHours}
+                      </p>
+                      <p className="text-[11px] text-slate-500 mt-0.5">
+                        Sunday: Prior appointments & technical project labs
                       </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="pt-2 border-t border-slate-100 text-xs text-slate-500 flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-teal-600 flex-shrink-0" />
-                  <span>No spam or marketing calls. All enquiries handled by mentors.</span>
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span>Strict privacy pledge: No spam marketing. Consult directly with engineers.</span>
                 </div>
               </div>
 
-              {/* Consultation Booking Process Info */}
-              <div className="bg-blue-900 text-white rounded-3xl p-6 sm:p-8 space-y-3">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-teal-300">
-                  Appointment Scheduling
-                </span>
-                <h3 className="text-lg font-bold">1-on-1 Consultation Process</h3>
-                <p className="text-xs text-blue-200 leading-relaxed">
-                  1. Fill out the form on the right.<br />
-                  2. Choose your preferred guidance track or program.<br />
-                  3. Our advisor will confirm your Google Meet or in-person time slot within 24 hours.
-                </p>
+              {/* Interactive OpenStreetMap Embed */}
+              <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-[#4a044e]" />
+                    <span className="font-bold text-xs text-slate-900">
+                      Live Map View · Nagercoil Center
+                    </span>
+                  </div>
+                  <a
+                    href={COMPANY_DETAILS.contact.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] font-bold text-[#4a044e] hover:underline inline-flex items-center gap-1"
+                  >
+                    <span>Full Map</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+
+                <div className="relative w-full h-56 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
+                  <iframe
+                    title="Karka AI & Tech Academy Location"
+                    className="w-full h-full border-0"
+                    loading="lazy"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=77.4050,8.1780,77.4180,8.1880&layer=mapnik&marker=8.1833,77.4119"
+                  />
+                  <div className="absolute bottom-2 left-2 right-2 bg-white/95 backdrop-blur-md px-3 py-2 rounded-xl text-[11px] shadow-sm flex items-center justify-between border border-slate-200/80">
+                    <span className="font-bold text-slate-800 truncate">
+                      SRV Towers, Veppamoodu, Nagercoil
+                    </span>
+                    <a
+                      href={COMPANY_DETAILS.contact.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2 py-1 bg-[#4a044e] text-white font-bold rounded-lg text-[10px] hover:bg-purple-900 shrink-0 ml-2"
+                    >
+                      Directions
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Official Platforms Callout: Spike AI & Infini */}
+              <div className="bg-slate-950 text-white rounded-3xl p-6 sm:p-7 space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300">
+                    Official Platforms
+                  </span>
+                  <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded text-purple-200">
+                    Ecosystem
+                  </span>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+                    <div>
+                      <h4 className="text-sm font-bold text-white">Spike AI</h4>
+                      <p className="text-[11px] text-slate-400">AI-guided hands-on learning platform</p>
+                    </div>
+                    <a
+                      href={COMPANY_DETAILS.platforms.spikeAi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-bold text-amber-300 hover:text-amber-200 inline-flex items-center gap-1"
+                    >
+                      <span>Open Spike</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+                    <div>
+                      <h4 className="text-sm font-bold text-white">Karka Infini AI</h4>
+                      <p className="text-[11px] text-slate-400">Inter-college tech contest · ₹1,00,000 pool</p>
+                    </div>
+                    <a
+                      href={COMPANY_DETAILS.platforms.infiniAi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-bold text-purple-300 hover:text-purple-200 inline-flex items-center gap-1"
+                    >
+                      <span>Register</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -202,7 +390,7 @@ export default function ContactPage() {
         {/* Interactive FAQ Accordion */}
         <div id="faq" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="text-center space-y-3 mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+            <span className="text-xs font-bold uppercase tracking-wider text-purple-900 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
               Frequently Asked Questions
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
@@ -222,13 +410,13 @@ export default function ContactPage() {
                 <button
                   type="button"
                   onClick={() => toggleFaq(idx)}
-                  className="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-slate-900 flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                  className="w-full p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-slate-900 flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                   aria-expanded={openFaq === idx}
                 >
                   <span>{faq.question}</span>
                   <ChevronDown
                     className={`w-4 h-4 text-slate-400 transition-transform duration-200 flex-shrink-0 ${
-                      openFaq === idx ? 'rotate-180 text-blue-600' : ''
+                      openFaq === idx ? 'rotate-180 text-[#4a044e]' : ''
                     }`}
                   />
                 </button>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -65,13 +66,13 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'glass-nav shadow-sm py-3'
-          : 'bg-white/95 backdrop-blur-md py-4 border-b border-slate-100'
+          ? 'glass-nav shadow-sm py-2.5'
+          : 'bg-white/95 backdrop-blur-md py-3.5 border-b border-slate-100'
       }`}
     >
       {/* Top Scroll Indicator */}
       <div
-        className="absolute top-0 left-0 h-[2.5px] bg-gradient-to-r from-blue-600 via-teal-400 to-blue-600 transition-all duration-150 ease-out z-50 pointer-events-none"
+        className="absolute top-0 left-0 h-[2.5px] bg-gradient-to-r from-[#4a044e] via-purple-600 to-amber-400 transition-all duration-150 ease-out z-50 pointer-events-none"
         style={{ width: `${scrollProgress}%` }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,15 +83,22 @@ export default function Navbar() {
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 rounded-lg p-1"
             aria-label="Karka AI & Tech Academy - Home"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#4a044e] via-purple-900 to-fuchsia-600 flex items-center justify-center text-white shadow-md shadow-purple-900/30 group-hover:scale-105 transition-transform duration-200">
-              <Compass className="w-6 h-6 animate-pulse" />
+            <div className="relative h-8 sm:h-9 w-28 sm:w-32 flex-shrink-0">
+              <Image
+                src="/images/karka-official-logo.webp"
+                alt="Karka AI Academy"
+                fill
+                sizes="(max-width: 640px) 112px, 128px"
+                className="object-contain object-left group-hover:scale-105 transition-transform"
+                priority
+              />
             </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-[#4a044e] transition-colors">
-                KARKA<span className="text-[#4a044e]">.AI</span>
+            <div className="hidden sm:flex flex-col border-l border-slate-200 pl-2.5">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#4a044e]">
+                AI & Tech Academy
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-purple-700 flex items-center gap-1">
-                AI & Tech Academy · Nagercoil
+              <span className="text-[9px] font-semibold text-slate-500">
+                Nagercoil · SRV Towers
               </span>
             </div>
           </Link>

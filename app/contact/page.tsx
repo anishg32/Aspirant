@@ -308,10 +308,12 @@ export default function ContactPage() {
 
                 <div className="relative w-full h-56 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
                   <iframe
-                    title="Karka AI & Tech Academy Location"
+                    title="Karka AI & Tech Academy Location at SRV Towers Nagercoil"
                     className="w-full h-full border-0"
                     loading="lazy"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=77.4050,8.1780,77.4180,8.1880&layer=mapnik&marker=8.1833,77.4119"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d500!2d77.4311084!3d8.1801487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04f15dde0aa367%3A0xd5eb331016b805d0!2sKarka%20AI%20%26%20Tech%20Academy!5e0!3m2!1sen!2sin!4v1700000000000"
                   />
                   <div className="absolute bottom-2 left-2 right-2 bg-white/95 backdrop-blur-md px-3 py-2 rounded-xl text-[11px] shadow-sm flex items-center justify-between border border-slate-200/80">
                     <span className="font-bold text-slate-800 truncate">

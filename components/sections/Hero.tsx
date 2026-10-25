@@ -16,206 +16,174 @@ import {
   Target,
   Play,
   MapPin,
+  Bot,
+  Zap,
 } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/data/content';
 
 export default function Hero() {
+  const partnerLogos = [
+    { name: 'Amazon', src: '/images/partners/amazon.webp' },
+    { name: 'TCS', src: '/images/partners/tcs.webp' },
+    { name: 'HCL', src: '/images/partners/hcl.webp' },
+    { name: 'Matrimony', src: '/images/partners/matrimony.webp' },
+    { name: 'Novac', src: '/images/partners/novac.webp' },
+    { name: 'Capecom', src: '/images/partners/capecom.webp' },
+    { name: 'Flow', src: '/images/partners/flow.webp' },
+    { name: 'Sodisys', src: '/images/partners/sodisys.webp' },
+  ];
+
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-radial-glow">
-      {/* Background Subtle Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
+    <section className="relative pt-32 pb-16 lg:pt-36 lg:pb-20 overflow-hidden bg-gradient-to-b from-purple-50/40 via-white to-slate-50">
+      {/* Background Subtle Gradient Blobs matching official karka.academy */}
+      <div className="absolute -top-24 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-[#4a044e]/15 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 -left-24 -z-10 h-[400px] w-[400px] rounded-full bg-[#4a044e]/15 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        {/* Main 2-Column Hero Viewport */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
-          {/* Left Column: Value Proposition & CTAs (7 cols) */}
-          <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
+          {/* Left Column: Official Headline & Value Proposition (7 cols) */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Top Pill / Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-[#4a044e] text-xs font-bold shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#4a044e] animate-ping" />
-              <span>The Exclusive AI & Tech Learning Center in Nagercoil</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
+              <span>The one and only exclusive AI Learning Center in Nagercoil</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
-              AI-Driven{' '}
-              <span className="bg-gradient-to-r from-[#4a044e] via-purple-700 to-fuchsia-600 bg-clip-text text-transparent">
+              <span className="text-[#4a044e] block">
+                AI-Driven
+              </span>
+              <span className="text-slate-700 text-3xl sm:text-4xl lg:text-5xl block mt-1">
                 Software Developer
-              </span>{' '}
-              & Career Platform
+              </span>
             </h1>
 
             {/* Subheading */}
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Master Full Stack Development, Data Science, and GenAI at Karka AI & Tech Academy. Build real production capstones with working engineer mentorship and Pay After Placement opportunities in Nagercoil.
+              Master Full Stack Web Engineering, Data Science, and GenAI at Karka AI & Tech Academy. Build real production capstones with working senior engineer mentorship and Pay After Placement at SRV Towers, Nagercoil.
             </p>
 
             {/* Primary & Secondary CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
               <Link
                 href="/programs"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-[#4a044e] hover:bg-purple-900 active:bg-purple-950 shadow-lg shadow-purple-950/25 hover:shadow-xl hover:shadow-purple-950/30 hover:-translate-y-0.5 transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-bold text-sm text-white bg-[#4a044e] hover:bg-[#5e0563] active:bg-purple-950 shadow-xl shadow-[#4a044e]/25 hover:shadow-2xl hover:scale-105 transition-all text-center uppercase tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                 id="hero-primary-cta"
               >
-                <span>Explore Training Programs</span>
+                <span>Start Your Transformation</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
               <a
                 href="#academy-tour"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-bold text-sm text-purple-950 bg-purple-100 hover:bg-purple-200 border border-purple-300 shadow-xs hover:-translate-y-0.5 transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-4 rounded-xl font-bold text-sm text-[#4a044e] bg-white hover:bg-purple-50 border border-purple-200 shadow-xs hover:-translate-y-0.5 transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 group"
                 id="hero-video-cta"
               >
                 <span className="w-6 h-6 rounded-full bg-[#4a044e] text-white flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
                   <Play className="w-3 h-3 fill-white ml-0.5" />
                 </span>
-                <span>Watch Campus Tour (Video)</span>
+                <span>Watch Campus Tour Video</span>
               </a>
-
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-400 shadow-xs transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
-                id="hero-secondary-cta"
-              >
-                <span>Visit Campus</span>
-              </Link>
             </div>
 
             {/* Micro Trust Bullets */}
-            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-slate-500 font-medium">
+            <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-slate-600 font-medium">
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                <span>Zero fake placement gimmicks</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>Pay After Placement</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                <span>Working engineer code reviews</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>1-on-1 Code Reviews</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                <span>Beginner to advanced cohorts</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>SRV Towers, Nagercoil Campus</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Trust Card & Key Metrics (5 cols) */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Official 3D Bot Mascot & Campus Preview (5 cols) */}
+          <div className="lg:col-span-5 relative flex justify-center">
             
             {/* Visual Decorative Glow */}
-            <div className="absolute -top-10 -right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-10 -right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
             
-            <div className="glass-card rounded-3xl p-6 sm:p-8 space-y-6 relative z-10 border border-slate-200/90 shadow-xl">
+            {/* Mascot Container Card with Floating Badges */}
+            <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-white/80 shadow-2xl bg-gradient-to-tr from-purple-100 via-white to-purple-50 p-4">
               
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-teal-500 flex items-center justify-center text-white shadow-md">
-                    <Compass className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h2 className="font-extrabold text-base text-slate-900 leading-tight">
-                      Career Roadmap Blueprint
-                    </h2>
-                    <p className="text-xs text-teal-600 font-medium">
-                      Personalized & Verified Pathway
-                    </p>
-                  </div>
-                </div>
-                <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-teal-50 text-teal-700 border border-teal-200">
-                  Live Cohorts
-                </span>
-              </div>
-
-              {/* Campus Innovation Lab & Mascot Video Preview */}
-              <a
-                href="#academy-tour"
-                className="relative block rounded-2xl overflow-hidden border border-slate-200/80 group shadow-sm bg-slate-950 aspect-[16/9]"
-                id="hero-campus-preview-card"
-              >
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner bg-slate-900/5">
                 <Image
-                  src="/images/hero-campus.jpg"
-                  alt="Karka AI Innovation Lab at SRV Towers Nagercoil"
+                  src="/images/karka-official-bot.webp"
+                  alt="Karka AI Official Robot Mascot"
                   fill
                   sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                  className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
-                
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-white/90 text-purple-900 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-white transition-all">
-                    <Play className="w-5 h-5 fill-[#4a044e] ml-0.5" />
-                  </div>
-                </div>
+              </div>
 
-                {/* Bottom Pill Details */}
-                <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-[11px]">
-                  <div className="flex items-center gap-1.5 font-bold">
-                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                    <span>SRV Towers, Nagercoil Campus</span>
-                  </div>
-                  <span className="px-2 py-0.5 rounded-full bg-purple-900/80 border border-purple-400/30 text-[10px] font-bold text-purple-200">
-                    Campus Tour Video
-                  </span>
-                </div>
+              {/* Floating Glassy Badge: Top Left */}
+              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white shadow-lg text-[11px] font-bold text-[#4a044e] flex items-center gap-1.5">
+                <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
+                <span>AI Powered Learning</span>
+              </div>
+
+              {/* Floating Glassy Badge: Bottom Right */}
+              <div className="absolute bottom-6 right-6 bg-[#4a044e]/95 backdrop-blur-md px-4 py-2 rounded-xl border border-purple-400/40 shadow-xl text-[11px] font-bold text-white flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>Pay After Placement</span>
+              </div>
+
+              {/* Play Video Pill Overlay: Bottom Left */}
+              <a
+                href="#academy-tour"
+                className="absolute bottom-6 left-6 bg-white/95 hover:bg-white text-slate-800 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200 shadow-lg text-[11px] font-bold flex items-center gap-1.5 transition-transform hover:scale-105"
+              >
+                <Play className="w-3.5 h-3.5 fill-[#4a044e] text-[#4a044e]" />
+                <span>Tour Video</span>
               </a>
-
-              {/* 3 Step Interactive Visual in Card */}
-              <div className="space-y-3.5">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                    01
-                  </div>
-                  <div className="text-xs">
-                    <span className="font-bold text-slate-900 block">Diagnostic Career Assessment</span>
-                    <span className="text-slate-500">Uncover aptitude, strengths & target domain</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-7 h-7 rounded-lg bg-teal-100 text-teal-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                    02
-                  </div>
-                  <div className="text-xs">
-                    <span className="font-bold text-slate-900 block">Hands-on Engineering Labs</span>
-                    <span className="text-slate-500">Next.js, Cloud, DevOps, or Data Science capstones</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                    03
-                  </div>
-                  <div className="text-xs">
-                    <span className="font-bold text-slate-900 block">1-on-1 Senior Mock Interviews</span>
-                    <span className="text-slate-500">Rigorous technical rounds with line-by-line feedback</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Quick Test Tool Link */}
-              <div className="pt-2 border-t border-slate-100">
-                <Link
-                  href="/#career-quiz"
-                  className="w-full inline-flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-200/60 text-xs font-bold text-blue-900 hover:border-blue-400 transition-colors group"
-                >
-                  <span className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-teal-600" />
-                    <span>Take the 60-Second Career Matcher</span>
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
             </div>
 
-            {/* Subtle Floating Verified Pill */}
-            <div className="hidden sm:flex items-center gap-2.5 absolute -bottom-4 -left-6 bg-white py-2.5 px-4 rounded-xl border border-slate-200 shadow-lg text-xs font-semibold text-slate-800 z-20">
-              <ShieldCheck className="w-4 h-4 text-teal-500" />
-              <span>4,800+ Students Mentored 1-on-1</span>
-            </div>
           </div>
 
         </div>
+
+        {/* Official Hiring Partners Logo Marquee */}
+        <div className="mt-14 pt-8 border-t border-slate-200/80">
+          <div className="text-center mb-6">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#4a044e]" />
+              <span>Where Our Learners are Making an Impact</span>
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 items-center justify-center">
+            {partnerLogos.map((partner, pIdx) => (
+              <div
+                key={pIdx}
+                className="h-14 p-2 rounded-xl bg-white border border-slate-100 shadow-2xs hover:shadow-md hover:border-purple-200 transition-all flex items-center justify-center group"
+                title={`Hiring Partner: ${partner.name}`}
+              >
+                <div className="relative w-full h-8">
+                  <Image
+                    src={partner.src}
+                    alt={partner.name}
+                    fill
+                    sizes="120px"
+                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

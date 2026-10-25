@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
 import TrustSection from '@/components/sections/TrustSection';
 import AcademyVideoTour from '@/components/sections/AcademyVideoTour';
+import KarkaPlatforms from '@/components/sections/KarkaPlatforms';
 import CareerGuidanceSection from '@/components/sections/CareerGuidanceSection';
 import ProgramsSection from '@/components/sections/ProgramsSection';
 import CareerQuiz from '@/components/sections/CareerQuiz';
@@ -19,6 +20,7 @@ export default function Home() {
       <Navbar />
       <main id="main-content" className="flex-1">
         <Hero />
+        <KarkaPlatforms />
         <AcademyVideoTour />
         <TrustSection />
         <CareerGuidanceSection />

@@ -9,7 +9,12 @@ import {
   CheckCircle2,
   Sparkles,
   Play,
+  Pause,
   Zap,
+  Volume2,
+  VolumeX,
+  Maximize2,
+  X,
 } from 'lucide-react';
 
 export default function Hero() {
@@ -23,6 +28,36 @@ export default function Hero() {
     { name: 'Flow', src: '/images/partners/flow.webp' },
     { name: 'Sodisys', src: '/images/partners/sodisys.webp' },
   ];
+
+  const [viewMode, setViewMode] = React.useState<'mascot' | 'video'>('mascot');
+  const [isPlaying, setIsPlaying] = React.useState(true);
+  const [isMuted, setIsMuted] = React.useState(true);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  const handleOpenVideo = () => {
+    setViewMode('video');
+    setIsPlaying(true);
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleTogglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+    }
+  };
+
+  const handleToggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
 
   return (
     <section className="relative pt-36 pb-16 lg:pt-40 lg:pb-20 overflow-hidden bg-linear-to-b from-[#4a044e]/5 via-purple-50/30 to-white">
@@ -70,16 +105,17 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
-              <a
-                href="#academy-tour"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-sm btn-karka-secondary text-center group font-readex"
+              <button
+                type="button"
+                onClick={handleOpenVideo}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-sm btn-karka-secondary text-center group font-readex cursor-pointer"
                 id="hero-video-cta"
               >
                 <span className="w-6 h-6 rounded-full bg-[#4a044e] text-white flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
                   <Play className="w-3 h-3 fill-white ml-0.5" />
                 </span>
                 <span>Watch Campus Tour Video</span>
-              </a>
+              </button>
             </div>
 
             {/* Micro Trust Bullets */}
@@ -103,43 +139,132 @@ export default function Hero() {
           <div className="lg:col-span-5 relative flex justify-center">
             
             {/* Visual Decorative Glow */}
-            <div className="absolute -top-6 -right-6 w-64 h-64 bg-purple-200/50 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-6 -left-6 w-64 h-64 bg-fuchsia-200/50 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-8 -right-8 w-72 h-72 bg-purple-300/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+            <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-fuchsia-300/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
             
-            {/* Mascot Container Card with Floating Badges */}
-            <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-slate-200/80 shadow-2xl bg-white p-4">
+            {/* Mascot Container Card with Floating Badges and Interactive Video Player */}
+            <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-4 group transition-all duration-300 hover:shadow-purple-900/15">
               
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner bg-slate-50">
-                <Image
-                  src="/images/karka-official-bot.webp"
-                  alt="Karka AI Official Robot Mascot"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                  priority
-                />
+              {/* Inner Display Area */}
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner bg-slate-950">
+                
+                {/* STATE 1: Animated 3D Bot Mascot */}
+                {viewMode === 'mascot' ? (
+                  <div className="relative w-full h-full bg-linear-to-b from-slate-100 to-purple-50 flex items-center justify-center">
+                    <div className="relative w-full h-full animate-float-bot">
+                      <Image
+                        src="/images/karka-official-bot.webp"
+                        alt="Karka AI Official Robot Mascot"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 420px"
+                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        priority
+                      />
+                    </div>
+
+                    {/* Central Animated Play Pulse Button (Triggers Video) */}
+                    <button
+                      type="button"
+                      onClick={handleOpenVideo}
+                      className="absolute inset-0 m-auto w-16 h-16 rounded-full bg-[#4a044e]/90 hover:bg-[#5e0563] text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300 cursor-pointer z-20 backdrop-blur-xs border-2 border-white/40"
+                      aria-label="Play Tour Video"
+                    >
+                      <span className="absolute inset-0 rounded-full bg-[#4a044e]/40 animate-ping pointer-events-none" />
+                      <Play className="w-6 h-6 fill-white text-white ml-1" />
+                    </button>
+                  </div>
+                ) : (
+                  /* STATE 2: Animated Inline Video Player */
+                  <div className="relative w-full h-full bg-black flex items-center justify-center">
+                    <video
+                      ref={videoRef}
+                      src="/videos/karka-tour.mp4"
+                      autoPlay
+                      playsInline
+                      muted={isMuted}
+                      loop
+                      className="w-full h-full object-cover"
+                      onPlay={() => setIsPlaying(true)}
+                      onPause={() => setIsPlaying(false)}
+                    />
+
+                    {/* Video Top Controls Overlay */}
+                    <div className="absolute top-3 inset-x-3 flex items-center justify-between z-30 pointer-events-auto">
+                      <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>Campus Tour Video</span>
+                      </div>
+
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() => setViewMode('mascot')}
+                          className="px-2.5 py-1 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold transition-all flex items-center gap-1"
+                        >
+                          <span>🤖 Mascot</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setIsModalOpen(true)}
+                          className="p-1 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white transition-all"
+                          title="Fullscreen Modal"
+                        >
+                          <Maximize2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Video Bottom Floating Quick Controls */}
+                    <div className="absolute bottom-3 inset-x-3 flex items-center justify-between z-30 pointer-events-auto px-2 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs">
+                      <button
+                        type="button"
+                        onClick={handleTogglePlay}
+                        className="flex items-center gap-1 font-bold hover:text-amber-300 transition-colors"
+                      >
+                        {isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white" />}
+                        <span>{isPlaying ? 'Pause' : 'Play'}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={handleToggleMute}
+                        className="flex items-center gap-1 font-bold hover:text-amber-300 transition-colors"
+                      >
+                        {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
+                        <span>{isMuted ? 'Unmute' : 'Muted'}</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Floating Glassy Badge: Top Left */}
-              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-200 shadow-md text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                <span>AI Powered Learning</span>
-              </div>
+              {/* Floating Glassy Badge: Top Left (Only in mascot mode) */}
+              {viewMode === 'mascot' && (
+                <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-200 shadow-md text-[11px] font-bold text-slate-800 flex items-center gap-1.5 pointer-events-none transition-opacity">
+                  <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                  <span>AI Powered Learning</span>
+                </div>
+              )}
 
-              {/* Floating Glassy Badge: Bottom Right */}
-              <div className="absolute bottom-6 right-6 bg-[#4a044e] backdrop-blur-md px-4 py-2 rounded-xl shadow-lg text-[11px] font-black text-white flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-300" />
-                <span>Pay After Placement</span>
-              </div>
+              {/* Floating Glassy Badge: Bottom Right (Only in mascot mode) */}
+              {viewMode === 'mascot' && (
+                <div className="absolute bottom-6 right-6 bg-[#4a044e] backdrop-blur-md px-4 py-2 rounded-xl shadow-lg text-[11px] font-black text-white flex items-center gap-1.5 pointer-events-none transition-opacity">
+                  <ShieldCheck className="w-4 h-4 text-emerald-300" />
+                  <span>Pay After Placement</span>
+                </div>
+              )}
 
               {/* Play Video Pill Overlay: Bottom Left */}
-              <a
-                href="#academy-tour"
-                className="absolute bottom-6 left-6 bg-white/95 hover:bg-slate-50 text-slate-800 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200 shadow-md text-[11px] font-bold flex items-center gap-1.5 transition-transform hover:scale-105"
-              >
-                <Play className="w-3.5 h-3.5 fill-[#4a044e] text-[#4a044e]" />
-                <span>Tour Video</span>
-              </a>
+              {viewMode === 'mascot' && (
+                <button
+                  type="button"
+                  onClick={handleOpenVideo}
+                  className="absolute bottom-6 left-6 bg-white/95 hover:bg-slate-50 text-slate-800 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200 shadow-md text-[11px] font-bold flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer z-10"
+                >
+                  <Play className="w-3.5 h-3.5 fill-[#4a044e] text-[#4a044e]" />
+                  <span>Tour Video</span>
+                </button>
+              )}
             </div>
 
           </div>
@@ -175,11 +300,51 @@ export default function Hero() {
                   </div>
                 </div>
               ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+      {/* Cinematic Tour Video Modal */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4 animate-in fade-in duration-200"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-purple-500/30"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-4 bg-slate-900/90 border-b border-white/10 text-white">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="font-bold text-sm font-display">Karka AI &amp; Tech Academy — Campus Tour</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                aria-label="Close Tour Video"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Video Container */}
+            <div className="relative aspect-video w-full bg-black flex items-center justify-center">
+              <video
+                src="/videos/karka-tour.mp4"
+                controls
+                autoPlay
+                playsInline
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
         </div>
-
-      </div>
+      )}
     </section>
   );
 }

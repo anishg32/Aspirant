@@ -9,12 +9,9 @@ import {
   CheckCircle2,
   Sparkles,
   Play,
-  Pause,
   Zap,
-  Volume2,
-  VolumeX,
-  Maximize2,
   X,
+  MapPin,
 } from 'lucide-react';
 
 export default function Hero() {
@@ -29,34 +26,27 @@ export default function Hero() {
     { name: 'Sodisys', src: '/images/partners/sodisys.webp' },
   ];
 
-  const [viewMode, setViewMode] = React.useState<'mascot' | 'video'>('mascot');
-  const [isPlaying, setIsPlaying] = React.useState(true);
-  const [isMuted, setIsMuted] = React.useState(true);
   const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [tilt, setTilt] = React.useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = React.useState(false);
+  const cardRef = React.useRef<HTMLDivElement>(null);
 
-  const handleOpenVideo = () => {
-    setViewMode('video');
-    setIsPlaying(true);
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    // max 8 deg 3D tilt
+    const tiltX = ((y - centerY) / centerY) * -8;
+    const tiltY = ((x - centerX) / centerX) * 8;
+    setTilt({ x: tiltX, y: tiltY });
   };
 
-  const handleTogglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
-    }
-  };
-
-  const handleToggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setTilt({ x: 0, y: 0 });
   };
 
   return (
@@ -107,7 +97,7 @@ export default function Hero() {
 
               <button
                 type="button"
-                onClick={handleOpenVideo}
+                onClick={() => setIsModalOpen(true)}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-sm btn-karka-secondary text-center group font-readex cursor-pointer"
                 id="hero-video-cta"
               >
@@ -135,136 +125,98 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Official 3D Bot Mascot & Campus Preview (5 cols) */}
+          {/* Right Column: Animated 3D Preview Image (Mascot & Interactive Tech Frame) */}
           <div className="lg:col-span-5 relative flex justify-center">
             
-            {/* Visual Decorative Glow */}
-            <div className="absolute -top-8 -right-8 w-72 h-72 bg-purple-300/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
-            <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-fuchsia-300/40 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+            {/* Visual Decorative Glows & Holographic Conic Ring */}
+            <div className="absolute -inset-2 rounded-3xl bg-linear-to-r from-purple-600 via-fuchsia-500 to-cyan-400 opacity-20 blur-xl animate-hologram-spin pointer-events-none" />
+            <div className="absolute -top-8 -right-8 w-72 h-72 bg-purple-300/35 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+            <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-fuchsia-300/35 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
             
-            {/* Mascot Container Card with Floating Badges and Interactive Video Player */}
-            <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl bg-white p-4 group transition-all duration-300 hover:shadow-purple-900/15">
+            {/* Mascot Container Card with Interactive 3D Parallax Tilt */}
+            <div
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(${isHovered ? 1.02 : 1}, ${isHovered ? 1.02 : 1}, 1)`,
+                transition: isHovered ? 'transform 0.12s ease-out' : 'transform 0.5s ease-in-out',
+                transformStyle: 'preserve-3d',
+              }}
+              className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-purple-200/90 shadow-2xl bg-white p-3.5 group select-none transition-shadow hover:shadow-purple-900/20"
+            >
               
               {/* Inner Display Area */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner bg-slate-950">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-linear-to-b from-purple-950/5 via-slate-50 to-purple-100/40 border border-purple-100/80 flex items-center justify-center">
                 
-                {/* STATE 1: Animated 3D Bot Mascot */}
-                {viewMode === 'mascot' ? (
-                  <div className="relative w-full h-full bg-linear-to-b from-slate-100 to-purple-50 flex items-center justify-center">
-                    <div className="relative w-full h-full animate-float-bot">
-                      <Image
-                        src="/images/karka-official-bot.webp"
-                        alt="Karka AI Official Robot Mascot"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 420px"
-                        className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                        priority
-                      />
-                    </div>
+                {/* High-Tech HUD Viewfinder Corner Reticles */}
+                <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t-2 border-l-2 border-[#4a044e]/40 rounded-tl-xs pointer-events-none z-20" />
+                <div className="absolute top-2.5 right-2.5 w-3 h-3 border-t-2 border-r-2 border-[#4a044e]/40 rounded-tr-xs pointer-events-none z-20" />
+                <div className="absolute bottom-2.5 left-2.5 w-3 h-3 border-b-2 border-l-2 border-[#4a044e]/40 rounded-bl-xs pointer-events-none z-20" />
+                <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b-2 border-r-2 border-[#4a044e]/40 rounded-br-xs pointer-events-none z-20" />
 
-                    {/* Central Animated Play Pulse Button (Triggers Video) */}
-                    <button
-                      type="button"
-                      onClick={handleOpenVideo}
-                      className="absolute inset-0 m-auto w-16 h-16 rounded-full bg-[#4a044e]/90 hover:bg-[#5e0563] text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-all duration-300 cursor-pointer z-20 backdrop-blur-xs border-2 border-white/40"
-                      aria-label="Play Tour Video"
-                    >
-                      <span className="absolute inset-0 rounded-full bg-[#4a044e]/40 animate-ping pointer-events-none" />
-                      <Play className="w-6 h-6 fill-white text-white ml-1" />
-                    </button>
-                  </div>
-                ) : (
-                  /* STATE 2: Animated Inline Video Player */
-                  <div className="relative w-full h-full bg-black flex items-center justify-center">
-                    <video
-                      ref={videoRef}
-                      src="/videos/karka-tour.mp4"
-                      autoPlay
-                      playsInline
-                      muted={isMuted}
-                      loop
-                      className="w-full h-full object-cover"
-                      onPlay={() => setIsPlaying(true)}
-                      onPause={() => setIsPlaying(false)}
+                {/* Cyber Radial Ambient Glow */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(124,58,237,0.12),transparent_70%)] pointer-events-none" />
+
+                {/* Holographic Shimmer Light Sheen Sweep */}
+                <div className="absolute inset-0 w-1/2 h-full bg-linear-to-r from-transparent via-white/50 to-transparent animate-shimmer-sweep pointer-events-none z-10" />
+
+                {/* Animated 3D Bot Mascot Preview Image with Levitation Physics */}
+                <div className="relative w-full h-full flex items-center justify-center p-2">
+                  <div className="relative w-full h-full animate-float-bot flex items-center justify-center">
+                    <Image
+                      src="/images/karka-official-bot.webp"
+                      alt="Karka AI Official Robot Mascot"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 420px"
+                      className="object-contain object-center drop-shadow-[0_20px_35px_rgba(74,4,78,0.22)] transition-transform duration-500 group-hover:scale-105"
+                      priority
                     />
-
-                    {/* Video Top Controls Overlay */}
-                    <div className="absolute top-3 inset-x-3 flex items-center justify-between z-30 pointer-events-auto">
-                      <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>Campus Tour Video</span>
-                      </div>
-
-                      <div className="flex items-center gap-1.5">
-                        <button
-                          type="button"
-                          onClick={() => setViewMode('mascot')}
-                          className="px-2.5 py-1 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white text-[10px] font-bold transition-all flex items-center gap-1"
-                        >
-                          <span>🤖 Mascot</span>
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setIsModalOpen(true)}
-                          className="p-1 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white transition-all"
-                          title="Fullscreen Modal"
-                        >
-                          <Maximize2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Video Bottom Floating Quick Controls */}
-                    <div className="absolute bottom-3 inset-x-3 flex items-center justify-between z-30 pointer-events-auto px-2 py-1.5 rounded-xl bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs">
-                      <button
-                        type="button"
-                        onClick={handleTogglePlay}
-                        className="flex items-center gap-1 font-bold hover:text-amber-300 transition-colors"
-                      >
-                        {isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white" />}
-                        <span>{isPlaying ? 'Pause' : 'Play'}</span>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={handleToggleMute}
-                        className="flex items-center gap-1 font-bold hover:text-amber-300 transition-colors"
-                      >
-                        {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
-                        <span>{isMuted ? 'Unmute' : 'Muted'}</span>
-                      </button>
-                    </div>
                   </div>
-                )}
-              </div>
 
-              {/* Floating Glassy Badge: Top Left (Only in mascot mode) */}
-              {viewMode === 'mascot' && (
-                <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-slate-200 shadow-md text-[11px] font-bold text-slate-800 flex items-center gap-1.5 pointer-events-none transition-opacity">
+                  {/* Breathing Ground Levitation Shadow */}
+                  <div className="absolute bottom-4 w-44 h-4 bg-purple-950/20 rounded-full blur-md animate-bot-shadow pointer-events-none" />
+                </div>
+
+                {/* Floating Glassy Badge: Top Left (AI Learning) */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-purple-100 shadow-md text-[11px] font-bold text-slate-800 flex items-center gap-1.5 pointer-events-none z-20 animate-badge-float-1">
                   <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                   <span>AI Powered Learning</span>
                 </div>
-              )}
 
-              {/* Floating Glassy Badge: Bottom Right (Only in mascot mode) */}
-              {viewMode === 'mascot' && (
-                <div className="absolute bottom-6 right-6 bg-[#4a044e] backdrop-blur-md px-4 py-2 rounded-xl shadow-lg text-[11px] font-black text-white flex items-center gap-1.5 pointer-events-none transition-opacity">
+                {/* Floating Glassy Badge: Top Right (Neural Equalizer) */}
+                <div className="absolute top-4 right-4 bg-slate-900/90 backdrop-blur-md px-2.5 py-1.5 rounded-xl border border-purple-500/30 shadow-md text-[10px] font-bold text-white flex items-center gap-1.5 pointer-events-none z-20">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="font-mono text-emerald-300">AI ACTIVE</span>
+                  <div className="flex items-end gap-0.5 h-3.5 pl-0.5">
+                    <span className="w-0.5 bg-emerald-400 rounded-full animate-eq-1" />
+                    <span className="w-0.5 bg-emerald-300 rounded-full animate-eq-2" />
+                    <span className="w-0.5 bg-cyan-300 rounded-full animate-eq-3" />
+                    <span className="w-0.5 bg-emerald-400 rounded-full animate-eq-4" />
+                  </div>
+                </div>
+
+                {/* Floating Glassy Badge: Bottom Right (Pay After Placement) */}
+                <div className="absolute bottom-4 right-4 bg-[#4a044e] backdrop-blur-md px-3.5 py-1.5 rounded-xl shadow-lg text-[11px] font-black text-white flex items-center gap-1.5 pointer-events-none z-20 animate-badge-float-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-300" />
                   <span>Pay After Placement</span>
                 </div>
-              )}
 
-              {/* Play Video Pill Overlay: Bottom Left */}
-              {viewMode === 'mascot' && (
+                {/* Floating Tour Video Trigger Pill: Bottom Left */}
                 <button
                   type="button"
-                  onClick={handleOpenVideo}
-                  className="absolute bottom-6 left-6 bg-white/95 hover:bg-slate-50 text-slate-800 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200 shadow-md text-[11px] font-bold flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer z-10"
+                  onClick={() => setIsModalOpen(true)}
+                  className="absolute bottom-4 left-4 bg-white/95 hover:bg-white text-slate-800 backdrop-blur-md px-3 py-1.5 rounded-xl border border-purple-100 shadow-md text-[11px] font-bold flex items-center gap-1.5 transition-all hover:scale-105 cursor-pointer z-20 group/btn"
+                  title="Watch Campus Tour Video"
                 >
-                  <Play className="w-3.5 h-3.5 fill-[#4a044e] text-[#4a044e]" />
-                  <span>Tour Video</span>
+                  <span className="w-5 h-5 rounded-full bg-[#4a044e] text-white flex items-center justify-center group-hover/btn:scale-110 transition-transform">
+                    <Play className="w-2.5 h-2.5 fill-white text-white ml-0.5" />
+                  </span>
+                  <span>Campus Tour</span>
                 </button>
-              )}
+
+              </div>
             </div>
 
           </div>

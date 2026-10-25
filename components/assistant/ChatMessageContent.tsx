@@ -28,7 +28,7 @@ export function CodeBlock({ language, value }: CodeBlockProps) {
       {/* Top Header */}
       <div className="flex items-center justify-between px-3.5 py-1.5 bg-slate-900 border-b border-slate-800 text-[11px] text-slate-400">
         <span className="flex items-center gap-1.5 uppercase font-semibold text-slate-300">
-          <Terminal className="w-3.5 h-3.5 text-teal-400" />
+          <Terminal className="w-3.5 h-3.5 text-amber-400" />
           {language || 'code'}
         </span>
         <button
@@ -39,8 +39,8 @@ export function CodeBlock({ language, value }: CodeBlockProps) {
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5 text-teal-400" />
-              <span className="text-teal-400 font-medium">Copied!</span>
+              <Check className="w-3.5 h-3.5 text-amber-400" />
+              <span className="text-amber-400 font-medium">Copied!</span>
             </>
           ) : (
             <>

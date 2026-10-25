@@ -128,16 +128,16 @@ export default function CareerQuiz() {
   };
 
   return (
-    <section id="career-quiz" className="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="career-quiz" className="py-20 bg-slate-950 text-white relative overflow-hidden">
       {/* Background radial highlight */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#4a044e]/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs font-semibold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-teal-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950 border border-purple-800 text-purple-300 text-xs font-semibold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
             <span>Interactive Pathway Discovery</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
@@ -155,9 +155,9 @@ export default function CareerQuiz() {
               key={step}
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentStep === step
-                  ? 'w-8 bg-blue-500'
+                  ? 'w-8 bg-fuchsia-500'
                   : currentStep > step
-                  ? 'w-3 bg-teal-400'
+                  ? 'w-3 bg-purple-400'
                   : 'w-3 bg-slate-700'
               }`}
             />
@@ -166,9 +166,9 @@ export default function CareerQuiz() {
 
         {/* Step 1: Background */}
         {currentStep === 1 && (
-          <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl space-y-6 animate-in fade-in duration-200">
+          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl space-y-6 animate-in fade-in duration-200">
             <div className="space-y-1">
-              <span className="text-xs font-bold text-teal-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">
                 Step 1 of 3
               </span>
               <h3 className="text-xl font-bold text-white">
@@ -303,11 +303,11 @@ export default function CareerQuiz() {
 
         {/* Step 4: Tailored Recommendation Result */}
         {currentStep === 4 && recommendation && (
-          <div className="bg-gradient-to-b from-slate-800 to-slate-900 border border-teal-500/40 rounded-2xl p-6 sm:p-10 shadow-2xl space-y-6 animate-in zoom-in-95 duration-300">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/80 pb-4">
+          <div className="bg-gradient-to-b from-slate-900 to-slate-950 border border-purple-800/80 rounded-2xl p-6 sm:p-10 shadow-2xl space-y-6 animate-in zoom-in-95 duration-300">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-bold uppercase tracking-wider">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/80 text-amber-300 border border-purple-800 text-xs font-bold uppercase tracking-wider">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
                   <span>Personalized Recommendation</span>
                 </span>
                 <h3 className="text-2xl font-extrabold text-white mt-2">
@@ -327,8 +327,8 @@ export default function CareerQuiz() {
                 {recommendation.description}
               </p>
 
-              <div className="p-3.5 rounded-xl bg-blue-950/40 border border-blue-500/30 text-xs text-blue-200 leading-relaxed">
-                <strong className="text-blue-300 font-semibold">Why this fits: </strong>
+              <div className="p-3.5 rounded-xl bg-purple-950/40 border border-purple-800/40 text-xs text-purple-200 leading-relaxed">
+                <strong className="text-fuchsia-300 font-semibold">Why this fits: </strong>
                 {recommendation.matchReason}
               </div>
             </div>
@@ -351,10 +351,10 @@ export default function CareerQuiz() {
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-slate-700/80">
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-slate-800">
               <Link
                 href={recommendation.actionLink}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-500 hover:to-teal-400 font-bold text-sm text-white shadow-lg shadow-blue-500/25 transition-all text-center hover:scale-[1.02] active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#4a044e] to-fuchsia-700 hover:from-[#3b023e] hover:to-fuchsia-600 font-bold text-sm text-white shadow-lg shadow-purple-950/40 transition-all text-center hover:scale-[1.02] active:scale-95"
               >
                 <span>Enquire with this Pathway</span>
                 <ArrowRight className="w-4 h-4" />
@@ -371,7 +371,7 @@ export default function CareerQuiz() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-colors"
                 title="Copy result summary"
               >
-                {copied ? <Check className="w-4 h-4 text-teal-400" /> : <Copy className="w-4 h-4" />}
+                {copied ? <Check className="w-4 h-4 text-amber-400" /> : <Copy className="w-4 h-4" />}
                 <span>{copied ? 'Copied!' : 'Copy Summary'}</span>
               </button>
               <button

@@ -178,7 +178,7 @@ export default function Navbar() {
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Navigation
                 </span>
-                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-teal-50 text-teal-700">
+                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-50 text-[#4a044e]">
                   Nexora Labs Redesign
                 </span>
               </div>

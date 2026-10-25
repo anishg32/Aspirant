@@ -60,7 +60,7 @@ export default function TrustSection() {
             <div className="space-y-3 pt-2">
               {COMPANY_DETAILS.transparencyPledge.map((pledge, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-5 h-5 rounded-full bg-purple-100 text-[#4a044e] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CheckCircle className="w-3.5 h-3.5" />
                   </div>
                   <span className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
@@ -73,7 +73,7 @@ export default function TrustSection() {
             <div className="pt-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 group"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#4a044e] hover:text-purple-700 group"
               >
                 <span>Read our full educational mission and mentorship standards</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

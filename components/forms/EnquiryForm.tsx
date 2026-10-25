@@ -211,16 +211,16 @@ export default function EnquiryForm({
   if (submissionResult?.success) {
     return (
       <div
-        className={`bg-white rounded-2xl p-8 border border-teal-200 shadow-xl text-center space-y-5 animate-in fade-in duration-300 ${className}`}
+        className={`bg-white rounded-2xl p-8 border border-purple-200 shadow-xl text-center space-y-5 animate-in fade-in duration-300 ${className}`}
         role="status"
         aria-live="polite"
       >
-        <div className="w-16 h-16 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mx-auto border-4 border-teal-100 shadow-xs">
+        <div className="w-16 h-16 bg-purple-50 text-[#4a044e] rounded-full flex items-center justify-center mx-auto border-4 border-purple-100 shadow-xs">
           <CheckCircle2 className="w-9 h-9" />
         </div>
 
         <div className="space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#4a044e] bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
             Enquiry Confirmed
           </span>
           <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
@@ -242,7 +242,7 @@ export default function EnquiryForm({
                   showToast('Reference ID copied to clipboard!', 'success', 'Copied');
                 }
               }}
-              className="font-mono font-bold text-slate-800 hover:text-blue-600 flex items-center gap-1.5 transition-colors cursor-pointer"
+              className="font-mono font-bold text-slate-800 hover:text-[#4a044e] flex items-center gap-1.5 transition-colors cursor-pointer"
               title="Click to copy Reference ID"
             >
               <span>{submissionResult.referenceId}</span>
@@ -259,7 +259,7 @@ export default function EnquiryForm({
           </div>
           <div className="flex justify-between text-slate-500">
             <span>Response Guarantee:</span>
-            <span className="font-medium text-teal-700">
+            <span className="font-medium text-[#4a044e]">
               Within 24 Business Hours
             </span>
           </div>
@@ -609,7 +609,7 @@ export default function EnquiryForm({
         </button>
 
         <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-slate-500">
-          <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+          <ShieldCheck className="w-3.5 h-3.5 text-[#4a044e]" />
           <span>SSL Secured • 24hr Advisor Response Time</span>
         </div>
       </div>

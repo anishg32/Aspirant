@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import GuidanceAssistant from '@/components/assistant/GuidanceAssistant';
+import CampusAdVideoPlayer from '@/components/sections/CampusAdVideoPlayer';
 import {
   Compass,
   ShieldCheck,
@@ -85,32 +86,9 @@ export default function AboutPage() {
           <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-lg overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
-              {/* Left Photo: Innovation Lab */}
+              {/* Left Column: Campus Advertisement Video Player */}
               <div className="lg:col-span-7 space-y-4">
-                <div className="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-slate-900">
-                  <Image
-                    src="/images/hero-campus.jpg"
-                    alt="Karka AI Innovation Lab at SRV Towers Nagercoil"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                    <div className="flex items-center gap-2 text-xs font-bold">
-                      <MapPin className="w-4 h-4 text-amber-400" />
-                      <span>Karka AI Innovation Lab · Nagercoil</span>
-                    </div>
-                    <Link
-                      href="/#academy-tour"
-                      className="px-3 py-1.5 rounded-xl bg-white/90 hover:bg-white text-[#4a044e] text-xs font-bold flex items-center gap-1.5 shadow transition-all"
-                    >
-                      <Play className="w-3.5 h-3.5 fill-[#4a044e]" />
-                      <span>Watch Tour</span>
-                    </Link>
-                  </div>
-                </div>
+                <CampusAdVideoPlayer initialMode="youtube" />
 
                 {/* Sub-grid with Mentorship Photo & Mascot */}
                 <div className="grid grid-cols-2 gap-4">
@@ -167,7 +145,7 @@ export default function AboutPage() {
                   </div>
 
                   <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                    <CheckCircle2 className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                     <div className="text-xs">
                       <span className="font-bold text-slate-900 block">Pay After Placement Option</span>
                       <span className="text-slate-600">Study with confidence and pay after securing your tech role.</span>
@@ -204,7 +182,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-fuchsia-50 text-fuchsia-700 flex items-center justify-center">
                 <Sparkles className="w-6 h-6" />
               </div>
               <h2 className="text-xl font-bold text-slate-900">Our Vision</h2>

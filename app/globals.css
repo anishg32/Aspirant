@@ -3,16 +3,21 @@
 @layer base {
   :root {
     --brand-navy: #0F172A;
-    --brand-blue: #2563EB;
-    --brand-blue-hover: #1D4ED8;
-    --brand-teal: #0D9488;
-    --brand-teal-light: #14B8A6;
+    --brand-plum: #4a044e;
+    --brand-plum-hover: #3b023e;
+    --brand-plum-light: #701a75;
+    --brand-fuchsia: #c026d3;
+    --brand-fuchsia-light: #e879f9;
+    --brand-blue: #4a044e;
+    --brand-blue-hover: #3b023e;
+    --brand-teal: #701a75;
+    --brand-teal-light: #c026d3;
     --brand-amber: #F59E0B;
     --brand-slate: #64748B;
-    --brand-bg: #F8FAFC;
+    --brand-bg: #FFFFFF;
     --brand-card: #FFFFFF;
-    --brand-border: #E2E8F0;
-    --brand-border-hover: #CBD5E1;
+    --brand-border: #F3E8FF;
+    --brand-border-hover: #E9D5FF;
   }
 
   html {

@@ -174,13 +174,13 @@ export default function ProgramsSection() {
                 <div className="p-6 border-b border-slate-100 space-y-3">
                   <div className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/60">
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-purple-50 text-[#4a044e] border border-purple-200/60">
                         {prog.category}
                       </span>
                       <button
                         type="button"
                         onClick={(e) => handleShareProgram(prog, e)}
-                        className="p-1 rounded-md text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                        className="p-1 rounded-md text-slate-400 hover:text-[#4a044e] hover:bg-purple-50 transition-colors"
                         title="Share pathway"
                         aria-label={`Share ${prog.title}`}
                       >
@@ -193,7 +193,7 @@ export default function ProgramsSection() {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#4a044e] transition-colors leading-snug">
                     {prog.title}
                   </h3>
 
@@ -226,9 +226,9 @@ export default function ProgramsSection() {
                   </div>
 
                   {/* Capstone Preview */}
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs space-y-1">
+                  <div className="p-3 rounded-xl bg-purple-50/60 border border-purple-100 text-xs space-y-1">
                     <span className="font-bold text-slate-800 flex items-center gap-1.5 text-[11px]">
-                      <Sparkles className="w-3 h-3 text-teal-600" />
+                      <Sparkles className="w-3 h-3 text-amber-500" />
                       <span>Featured Capstone Project:</span>
                     </span>
                     <p className="text-slate-600 text-[11px] leading-relaxed">
@@ -251,7 +251,7 @@ export default function ProgramsSection() {
 
                 <Link
                   href={`/contact?program=${prog.slug}`}
-                  className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors flex items-center justify-center gap-1.5 shadow-sm shadow-blue-600/30 text-center"
+                  className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-[#4a044e] hover:bg-purple-900 transition-colors flex items-center justify-center gap-1.5 shadow-sm shadow-purple-950/20 text-center"
                 >
                   <span>Enquire for Cohort</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -278,7 +278,7 @@ export default function ProgramsSection() {
               <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-4">
                 <div>
                   <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700">
+                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-purple-50 text-[#4a044e]">
                       {activeModalProgram.category}
                     </span>
                     <span className="text-xs text-slate-500 font-medium">
@@ -339,8 +339,8 @@ export default function ProgramsSection() {
                 </h4>
                 <ul className="space-y-2 text-xs text-slate-700">
                   {activeModalProgram.capstoneProjects.map((cap, ci) => (
-                    <li key={ci} className="flex items-start gap-2 p-2.5 rounded-lg bg-teal-50/60 border border-teal-200/70">
-                      <CheckCircle2 className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
+                    <li key={ci} className="flex items-start gap-2 p-2.5 rounded-lg bg-purple-50/70 border border-purple-200/70">
+                      <CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                       <span>{cap}</span>
                     </li>
                   ))}
@@ -381,7 +381,7 @@ export default function ProgramsSection() {
                   <Link
                     href={`/contact?program=${activeModalProgram.slug}`}
                     onClick={() => setActiveModalProgram(null)}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs hover:bg-blue-700 shadow-md shadow-blue-600/30 transition-transform active:scale-95"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#4a044e] text-white font-bold text-xs hover:bg-purple-900 shadow-md shadow-purple-950/20 transition-transform active:scale-95"
                   >
                     <span>Enquire for this Program</span>
                     <ArrowRight className="w-4 h-4" />

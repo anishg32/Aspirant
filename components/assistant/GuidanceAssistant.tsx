@@ -365,7 +365,7 @@ export default function GuidanceAssistant() {
           {/* Model Provider Info Drawer (Collapsible) */}
           {showConfigNotice && (
             <div className="bg-slate-800 text-slate-200 p-3.5 text-xs border-b border-slate-700 space-y-1.5 animate-in slide-in-from-top duration-150">
-              <div className="flex items-center justify-between font-bold text-teal-300">
+              <div className="flex items-center justify-between font-bold text-purple-300">
                 <span>AI Model Provider Integration:</span>
                 <button
                   type="button"
@@ -379,7 +379,7 @@ export default function GuidanceAssistant() {
                 {providerNotice ||
                   'The AI backend supports live Google Gemini, OpenAI GPT-4o, and Groq streaming. If no API key is set in .env.local, it seamlessly uses the built-in conversational multi-turn engine.'}
               </p>
-              <div className="font-mono text-[10px] bg-slate-900 p-2 rounded border border-slate-700 text-teal-400">
+              <div className="font-mono text-[10px] bg-slate-900 p-2 rounded border border-slate-700 text-amber-300">
                 # In .env.local:
                 <br />
                 GEMINI_API_KEY=your_key_here
@@ -432,8 +432,8 @@ export default function GuidanceAssistant() {
                       >
                         {copiedId === msg.id ? (
                           <>
-                            <Check className="w-3 h-3 text-teal-600" />
-                            <span className="text-teal-600 font-semibold">Copied</span>
+                            <Check className="w-3 h-3 text-amber-500" />
+                            <span className="text-amber-500 font-semibold">Copied</span>
                           </>
                         ) : (
                           <>

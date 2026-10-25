@@ -22,8 +22,8 @@ export default function StoriesSection() {
         
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider">
-            <Trophy className="w-3.5 h-3.5 text-teal-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-[#4a044e] text-xs font-bold uppercase tracking-wider">
+            <Trophy className="w-3.5 h-3.5 text-amber-500" />
             <span>Verifiable Learning Pathways</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -46,7 +46,7 @@ export default function StoriesSection() {
                 {/* Header & Verification Pill */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-teal-100/80 text-teal-800 border border-teal-200">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-100 text-[#4a044e] border border-purple-200">
                       {story.verifiedStatus}
                     </span>
                     <span className="text-xs text-slate-400 font-medium">Case Study</span>
@@ -117,18 +117,18 @@ export default function StoriesSection() {
                 </div>
 
                 {/* Outcome Statement */}
-                <div className="p-3 rounded-xl bg-blue-50/70 border border-blue-200/60 text-xs space-y-1">
-                  <span className="font-bold text-blue-900 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                <div className="p-3 rounded-xl bg-purple-50/80 border border-purple-200/70 text-xs space-y-1">
+                  <span className="font-bold text-[#4a044e] flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
                     <span>Verifiable Outcome:</span>
                   </span>
-                  <p className="text-blue-800 text-[11px] leading-relaxed">
+                  <p className="text-purple-900 text-[11px] leading-relaxed">
                     {story.keyOutcome}
                   </p>
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-xs italic text-slate-600 border-l-2 border-teal-500 pl-3 leading-relaxed">
+                <blockquote className="text-xs italic text-slate-600 border-l-2 border-[#4a044e] pl-3 leading-relaxed">
                   &ldquo;{story.quote}&rdquo;
                 </blockquote>
               </div>
@@ -136,7 +136,7 @@ export default function StoriesSection() {
               <div className="pt-6 mt-6 border-t border-slate-200/60 flex items-center justify-between">
                 <Link
                   href="/stories"
-                  className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                  className="text-xs font-bold text-[#4a044e] hover:text-purple-700 flex items-center gap-1"
                 >
                   <span>Explore full transition breakdown</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -148,7 +148,7 @@ export default function StoriesSection() {
 
         {/* Transparent Contest Disclaimer */}
         <div className="mt-12 text-center text-xs text-slate-500 max-w-2xl mx-auto">
-          <ShieldCheck className="w-4 h-4 text-teal-600 inline mr-1" />
+          <ShieldCheck className="w-4 h-4 text-[#4a044e] inline mr-1" />
           <span>
             Nexora Labs Competition Disclosure: These project case studies demonstrate the verified curriculum capstones built by learners undergoing Karka AI & Tech Academy training cohorts in Nagercoil.
           </span>

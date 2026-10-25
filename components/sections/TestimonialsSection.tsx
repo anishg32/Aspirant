@@ -18,8 +18,8 @@ export default function TestimonialsSection() {
         
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/70 border border-blue-200 text-blue-800 text-xs font-bold uppercase tracking-wider">
-            <MessageSquare className="w-3.5 h-3.5 text-blue-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100/90 border border-purple-200 text-[#4a044e] text-xs font-bold uppercase tracking-wider">
+            <MessageSquare className="w-3.5 h-3.5 text-amber-500" />
             <span>Learner Feedback</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -47,8 +47,8 @@ export default function TestimonialsSection() {
                   </div>
 
                   {test.verified && (
-                    <div className="flex items-center gap-1 text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200">
-                      <CheckCircle2 className="w-3 h-3 text-teal-600" />
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                       <span>Verified Review</span>
                     </div>
                   )}
@@ -99,7 +99,7 @@ export default function TestimonialsSection() {
         <div className="mt-12 text-center">
           <Link
             href="/testimonials"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-700 group"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#4a044e] hover:text-purple-700 group"
           >
             <span>Read more student reviews or submit your experience</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

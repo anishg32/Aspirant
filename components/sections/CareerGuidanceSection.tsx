@@ -63,10 +63,10 @@ export default function CareerGuidanceSection() {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#4a044e] transition-colors">
                       {track.title}
                     </h3>
-                    <p className="text-xs font-medium text-teal-700 mt-1">
+                    <p className="text-xs font-medium text-[#4a044e] mt-1">
                       {track.tagline}
                     </p>
                   </div>
@@ -92,7 +92,7 @@ export default function CareerGuidanceSection() {
                     <ul className="space-y-1.5 text-xs text-slate-700">
                       {track.deliverables.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -104,7 +104,7 @@ export default function CareerGuidanceSection() {
                 <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between gap-4">
                   <Link
                     href={`/contact?type=guidance&track=${track.id}`}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-50 text-blue-700 font-bold text-xs hover:bg-blue-600 hover:text-white transition-all shadow-xs"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-purple-50 text-[#4a044e] font-bold text-xs hover:bg-[#4a044e] hover:text-white transition-all shadow-xs"
                   >
                     <span>Book Diagnostic Session</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -137,7 +137,7 @@ export default function CareerGuidanceSection() {
               href="/#career-quiz"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 transition-colors"
             >
-              <Sparkles className="w-3.5 h-3.5 text-teal-300" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               <span>Take Career Quiz</span>
             </Link>
           </div>

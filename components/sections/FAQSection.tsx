@@ -17,7 +17,7 @@ export default function FAQSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header matching Official Site */}
-        <div className="text-center space-y-3 mb-14">
+        <div className="text-center space-y-3 mb-14 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider font-readex">
             <HelpCircle className="w-3.5 h-3.5 text-[#4a044e]" />
             <span>Got Questions?</span>

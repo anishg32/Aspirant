@@ -21,7 +21,7 @@ export default function CTASection() {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Content (8 cols) */}
-            <div className="lg:col-span-8 space-y-5 text-center lg:text-left">
+            <div className="lg:col-span-8 space-y-5 text-center lg:text-left scroll-reveal">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-xs font-bold uppercase tracking-wider font-readex">
                 <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                 <span>Take the Next Step Today</span>

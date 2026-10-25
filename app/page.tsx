@@ -22,38 +22,38 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#4a044e] selection:text-white">
       <Navbar />
       <main id="main-content" className="flex-1">
-        {/* 1. Hero: AI-Driven Software Developer */}
+        {/* 1. Hero: AI-Driven Software Developer & Hiring Partners */}
         <Hero />
 
-        {/* 2. Explore Karka Platforms: Karka Infini AI & Spike AI */}
-        <KarkaPlatforms />
-
-        {/* 3. Why Karka? The 6 Core Pillars */}
-        <TrustSection />
-
-        {/* 4. Voices of Our Learners: Filmstrip Video Player & Official Student Reviews */}
-        <AcademyVideoTour />
-
-        {/* 5. Explore Our Programs: 6 Official Bootcamps & Internships */}
+        {/* 2. Explore Our Programs: 6 Official Bootcamps & Internships */}
         <ProgramsSection />
 
-        {/* 6. 4 Pillars of a Job-Ready Tech Career */}
-        <FourPillarsSection />
-
-        {/* 7. Pay After You Get Hired Model: Zero Upfront Fees */}
+        {/* 3. Pay After You Get Hired Model: Zero Upfront Fees */}
         <PayAfterHiredSection />
 
-        {/* 8. Choose Your Career Track: 8 Tracks & Targeted Audience Pathways */}
-        <CareerGuidanceSection />
+        {/* 4. Why Karka? The 6 Core Pillars */}
+        <TrustSection />
 
-        {/* 9. Interactive Career Matcher Diagnostic */}
-        <CareerQuiz />
+        {/* 5. 4 Pillars of a Job-Ready Tech Career */}
+        <FourPillarsSection />
 
-        {/* 10. Where Our Karka Graduates Work: Official Hiring Partners */}
+        {/* 6. Explore Karka Platforms: Karka Infini AI & Spike AI */}
+        <KarkaPlatforms />
+
+        {/* 7. Voices of Our Learners: Filmstrip Video Player & Student Reviews */}
+        <AcademyVideoTour />
+
+        {/* 8. Where Our Karka Graduates Work: Official Hiring Partners */}
         <HiringPartnersSection />
 
-        {/* 11. Real Student Transitions & Capstones */}
+        {/* 9. Real Student Transitions & Capstones */}
         <StoriesSection />
+
+        {/* 10. Choose Your Career Track: 8 Tracks & Targeted Audience Pathways */}
+        <CareerGuidanceSection />
+
+        {/* 11. Interactive Career Matcher Diagnostic */}
+        <CareerQuiz />
 
         {/* 12. Frequently Asked Questions (Official Accordion) */}
         <FAQSection />

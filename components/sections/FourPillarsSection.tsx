@@ -15,11 +15,12 @@ export default function FourPillarsSection() {
   const pillarIcons = [MessageSquare, Code2, Bot, UserCheck];
 
   return (
-    <section id="pillars" className="py-16 lg:py-24 bg-purple-50 relative overflow-hidden">
+    <section id="four-pillars" className="py-16 lg:py-24 bg-purple-50 relative overflow-hidden">
+      <span id="pillars" className="sr-only">Four Pillars</span>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading matching Official Site */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider font-readex">
             <Sparkles className="w-3.5 h-3.5 text-[#4a044e]" />
             <span>Holistic Career Architecture</span>
@@ -33,7 +34,7 @@ export default function FourPillarsSection() {
         </div>
 
         {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 scroll-reveal delay-100">
           {FOUR_PILLARS.map((pillar, idx) => {
             const Icon = pillarIcons[idx] || Sparkles;
             return (

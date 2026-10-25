@@ -70,7 +70,8 @@ export default function GetInTouchSection() {
   };
 
   return (
-    <section id="get-in-touch" className="py-20 lg:py-24 bg-[#2a0a2e] text-white relative overflow-hidden">
+    <section id="contact" className="py-20 lg:py-24 bg-[#2a0a2e] text-white relative overflow-hidden">
+      <span id="get-in-touch" className="sr-only">Contact and Visit Us</span>
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-10 w-96 h-96 bg-fuchsia-500/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-10 w-96 h-96 bg-purple-500/15 rounded-full blur-[140px] pointer-events-none" />
@@ -78,7 +79,7 @@ export default function GetInTouchSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading matching Official Site */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold uppercase tracking-wider font-readex">
             <MessageSquare className="w-3.5 h-3.5 text-amber-300" />
             <span>Connect with Mentors</span>

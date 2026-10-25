@@ -25,7 +25,7 @@ export default function PayAfterHiredSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading matching Official Site */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-xs font-bold uppercase tracking-wider font-readex">
             <Zap className="w-3.5 h-3.5 text-amber-300" />
             <span>Zero Upfront Tuition · Pay After Placement</span>
@@ -42,7 +42,7 @@ export default function PayAfterHiredSection() {
         </div>
 
         {/* 3 Steps Process Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 relative scroll-reveal delay-100">
           {PAY_AFTER_HIRED_MODEL.steps.map((item, idx) => {
             const Icon = stepIcons[idx] || Sparkles;
             return (

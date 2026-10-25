@@ -42,7 +42,7 @@ export default function KarkaPlatforms() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading matching Official Site */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider font-readex">
             <Sparkles className="w-3.5 h-3.5 text-[#4a044e]" />
             <span>Karka Ecosystem</span>
@@ -56,7 +56,7 @@ export default function KarkaPlatforms() {
         </div>
 
         {/* 2-Card Grid (Infini AI 3 cols & Spike AI 2 cols on lg) */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch scroll-reveal delay-100">
           
           {/* Card 1: Karka Infini AI (lg:col-span-3) */}
           <div className="lg:col-span-3 relative flex flex-col justify-between rounded-3xl bg-gradient-to-br from-[#4a044e] via-[#3d0340] to-[#2a0a2e] text-white p-7 sm:p-10 overflow-hidden shadow-2xl shadow-purple-950/20 border border-purple-500/30">

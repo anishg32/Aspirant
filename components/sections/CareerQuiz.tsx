@@ -138,7 +138,7 @@ export default function CareerQuiz() {
     <section id="career-quiz" className="py-16 lg:py-24 bg-slate-50 text-slate-900 relative overflow-hidden border-t border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center space-y-3 mb-12">
+        <div className="text-center space-y-3 mb-12 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider font-readex">
             <Sparkles className="w-3.5 h-3.5 text-[#4a044e]" />
             <span>Interactive Pathway Discovery</span>

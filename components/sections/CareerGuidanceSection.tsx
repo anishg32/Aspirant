@@ -31,6 +31,7 @@ export default function CareerGuidanceSection() {
 
   return (
     <section id="career-tracks" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+      <span id="guidance" className="sr-only">Career Tracks and Guidance</span>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header matching Official Site */}

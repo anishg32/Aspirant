@@ -59,7 +59,8 @@ export default function Navbar() {
   ];
 
   const navLinks = [
-    { name: 'Programs', href: '/programs' },
+    { name: 'Programs', href: '/#programs' },
+    { name: 'Pay After Placement', href: '/#pay-after-hired' },
     { name: 'Why Karka', href: '/#why-karka' },
     { name: 'Platforms', href: '/#platforms' },
     { name: 'Learner Stories', href: '/stories' },
@@ -79,25 +80,27 @@ export default function Navbar() {
       {/* Top Utility Ribbon for Audience Tracks (Desktop) */}
       <div className="hidden lg:block bg-[#4a044e] text-purple-100 py-1.5 px-4 sm:px-6 lg:px-8 border-b border-[#360239]">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-xs">
-          <div className="flex items-center gap-1.5">
-            <span className="text-purple-200 font-bold uppercase tracking-wider text-[10px]">
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="text-purple-200 font-extrabold uppercase tracking-wider text-[11px] shrink-0 mr-1 select-none">
               Programs For:
             </span>
-            {audienceLinks.map((aud) => (
-              <Link
-                key={aud.name}
-                href={aud.href}
-                className="px-2.5 py-0.5 rounded-full text-white/90 hover:text-white hover:bg-white/15 transition-colors font-medium flex items-center gap-1.5"
-              >
-                <span>{aud.name}</span>
-                <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-white/20 text-white font-semibold">
-                  {aud.badge}
-                </span>
-              </Link>
-            ))}
+            <div className="flex items-center gap-1.5 shrink-0">
+              {audienceLinks.map((aud) => (
+                <Link
+                  key={aud.name}
+                  href={aud.href}
+                  className="px-2.5 py-0.5 rounded-full text-white/90 hover:text-white hover:bg-white/15 transition-colors font-medium flex items-center gap-1.5 shrink-0"
+                >
+                  <span>{aud.name}</span>
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/20 text-white font-semibold">
+                    {aud.badge}
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
 
-          <div className="flex items-center gap-4 text-[11px] text-purple-200">
+          <div className="flex items-center gap-4 text-[11px] text-purple-200 shrink-0">
             <span className="text-amber-300 font-bold flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               Pay After You Get Hired Model (₹0 Upfront)
@@ -153,7 +156,7 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <nav
-              className="hidden lg:flex items-center space-x-1 xl:space-x-2"
+              className="hidden lg:flex items-center space-x-0.5 xl:space-x-1.5"
               aria-label="Primary Navigation"
             >
               {navLinks.map((link) => {
@@ -165,7 +168,7 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-3 py-2 rounded-lg text-sm font-bold transition-all duration-150 ${
+                    className={`px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-150 ${
                       isActive
                         ? 'text-[#4a044e] bg-purple-50 font-extrabold shadow-xs'
                         : 'text-slate-700 hover:text-[#4a044e] hover:bg-slate-50'

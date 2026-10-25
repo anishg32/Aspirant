@@ -13,7 +13,8 @@ import { STUDENT_STORIES } from '@/data/content';
 
 export default function StoriesSection() {
   return (
-    <section id="success-stories" className="py-16 lg:py-24 bg-[#F8FAFC] relative border-t border-slate-200">
+    <section id="stories" className="py-16 lg:py-24 bg-[#F8FAFC] relative border-t border-slate-200">
+      <span id="success-stories" className="sr-only">Success Stories</span>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

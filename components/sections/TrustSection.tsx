@@ -44,7 +44,7 @@ export default function TrustSection() {
         </div>
 
         {/* Section Heading matching Official Site */}
-        <div className="text-center max-w-2xl mx-auto pt-14 mb-14 space-y-3">
+        <div className="text-center max-w-2xl mx-auto pt-14 mb-14 space-y-3 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider">
             <ShieldCheck className="w-3.5 h-3.5 text-[#4a044e]" />
             <span>The Karka Advantage</span>
@@ -58,7 +58,7 @@ export default function TrustSection() {
         </div>
 
         {/* 6 Reasons Grid - Matching Official Website */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-20 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-20 max-w-6xl mx-auto scroll-reveal delay-100">
           {WHY_KARKA_REASONS.map((reason, idx) => {
             const Icon = pillarIcons[idx] || Sparkles;
             return (

@@ -160,7 +160,7 @@
 .animate-scroll {
   display: flex;
   width: max-content;
-  animation: scroll 32s linear infinite;
+  animation: scroll 50s linear infinite;
   will-change: transform;
 }
 
@@ -168,10 +168,28 @@
   animation-play-state: paused;
 }
 
+.animate-scroll-slow {
+  display: flex;
+  width: max-content;
+  animation: scroll 68s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-slow:hover {
+  animation-play-state: paused;
+}
+
+.animate-scroll-fast {
+  display: flex;
+  width: max-content;
+  animation: scroll 36s linear infinite;
+  will-change: transform;
+}
+
 .animate-scroll-reverse {
   display: flex;
   width: max-content;
-  animation: scroll-reverse 32s linear infinite;
+  animation: scroll-reverse 52s linear infinite;
   will-change: transform;
 }
 
@@ -183,7 +201,7 @@
 .animate-scroll-y {
   display: flex;
   flex-direction: column;
-  animation: scroll-y 45s linear infinite;
+  animation: scroll-y 55s linear infinite;
   will-change: transform;
 }
 
@@ -194,7 +212,7 @@
 .animate-scroll-y-reverse {
   display: flex;
   flex-direction: column;
-  animation: scroll-y-reverse 45s linear infinite;
+  animation: scroll-y-reverse 55s linear infinite;
   will-change: transform;
 }
 
@@ -207,18 +225,28 @@
   animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Scroll reveal helper classes */
+/* Scroll reveal helper classes for smooth letters & text visibility */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-.scroll-reveal.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
+.scroll-reveal.is-revealed,
+.revealed,
+.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
+
+/* Staggered delay utilities */
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
 
 /* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {

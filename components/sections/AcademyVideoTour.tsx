@@ -410,7 +410,7 @@ export default function AcademyVideoTour() {
         {/* SCROLLING ANIMATION: Continuous Horizontal Reviews Marquee */}
         <div className="mt-16 pt-8 border-t border-slate-200/80">
           <div className="relative w-full overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-            <div className="animate-scroll flex items-center gap-6 py-2">
+            <div className="animate-scroll-slow flex items-center gap-6 py-2">
               {[...LEARNERS, ...LEARNERS].map((l, idx) => (
                 <div
                   key={idx}

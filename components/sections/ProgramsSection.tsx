@@ -68,7 +68,8 @@ export default function ProgramsSection() {
   }, [searchQuery, selectedCategory]);
 
   return (
-    <section id="training-programs" className="py-20 lg:py-28 bg-[#4a044e] text-white relative overflow-hidden">
+    <section id="programs" className="py-20 lg:py-28 bg-[#4a044e] text-white relative overflow-hidden">
+      <span id="training-programs" className="sr-only">Training Programs</span>
       {/* Decorative ambient elements */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-900/30 rounded-full blur-3xl pointer-events-none" />
@@ -76,7 +77,7 @@ export default function ProgramsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header matching Official Site */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
+        <div className="text-center space-y-4 max-w-3xl mx-auto mb-12 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-xs font-bold uppercase tracking-wider font-readex">
             <Laptop className="w-3.5 h-3.5 text-amber-300" />
             <span>Accelerate Your Growth</span>

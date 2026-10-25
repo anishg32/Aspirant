@@ -145,11 +145,11 @@ export default function AcademyVideoTour() {
             <span>Official Karka Academy Experience</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-display">
             Voices of Our Learners
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Hear directly from our graduates about how Karka transformed their careers and helped them land high-growth tech roles.
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-body">
+            Hear directly from our graduates about how Karka transformed their careers and helped them land their dream jobs in tech.
           </p>
 
           {/* Mode Switcher Tabs */}

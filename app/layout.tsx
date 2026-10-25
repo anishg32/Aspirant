@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Readex_Pro, Encode_Sans_Semi_Condensed, DM_Sans } from 'next/font/google';
 import './globals.css';
 import { COMPANY_DETAILS } from '@/data/content';
 
@@ -10,6 +10,27 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+const encodeSans = Encode_Sans_Semi_Condensed({
+  subsets: ['latin'],
+  weight: ['600', '700', '800', '900'],
+  display: 'swap',
+  variable: '--font-display',
+});
+
+const readexPro = Readex_Pro({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-readex',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-dm-sans',
 });
 
 export const viewport: Viewport = {
@@ -118,7 +139,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`} data-scroll-behavior="smooth">
+    <html
+      lang="en"
+      className={`${inter.variable} ${encodeSans.variable} ${readexPro.variable} ${dmSans.variable} scroll-smooth`}
+      data-scroll-behavior="smooth"
+    >
       <head>
         <script
           type="application/ld+json"

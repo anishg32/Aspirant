@@ -36,17 +36,20 @@ export default function TestimonialsPage() {
 
   // Load user submissions from localStorage
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('ya_user_reviews');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setReviews([...parsed, ...TESTIMONIALS]);
+    const frameId = requestAnimationFrame(() => {
+      try {
+        const saved = localStorage.getItem('ya_user_reviews');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setReviews([...parsed, ...TESTIMONIALS]);
+          }
         }
+      } catch (e) {
+        console.warn('Failed to load local reviews', e);
       }
-    } catch (e) {
-      console.warn('Failed to load local reviews', e);
-    }
+    });
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   const categories = ['All', 'Full-Stack', 'Cloud & DevOps', 'Data Science', 'Mentorship'];

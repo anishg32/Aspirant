@@ -35,10 +35,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
+  // Close mobile menu on route change without useEffect cascading render
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -52,13 +54,20 @@ export default function Navbar() {
     };
   }, [mobileMenuOpen]);
 
+  const audienceLinks = [
+    { name: 'School Students', href: '/guidance?audience=school', badge: '8th-12th' },
+    { name: 'College Students', href: '/guidance?audience=college', badge: 'B.E/B.Sc/BCA' },
+    { name: 'Graduates', href: '/guidance?audience=graduates', badge: 'Pay After Hired' },
+    { name: 'Professionals', href: '/guidance?audience=professionals', badge: 'Upskill' },
+  ];
+
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Career Guidance', href: '/guidance' },
-    { name: 'Training Programs', href: '/programs' },
-    { name: 'Success Stories', href: '/stories' },
-    { name: 'Testimonials', href: '/testimonials' },
+    { name: 'Programs', href: '/programs' },
+    { name: 'Why Karka', href: '/#why-karka' },
+    { name: 'Platforms', href: '/#platforms' },
+    { name: 'Learner Stories', href: '/stories' },
+    { name: 'Career Matcher', href: '/#career-quiz' },
+    { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -75,6 +84,43 @@ export default function Navbar() {
         className="absolute top-0 left-0 h-[2.5px] bg-gradient-to-r from-[#00FFFF] via-[#F000FF] to-[#ffdf00] transition-all duration-150 ease-out z-50 pointer-events-none"
         style={{ width: `${scrollProgress}%` }}
       />
+      {/* Top Utility Ribbon for Audience Tracks (Desktop) */}
+      <div className="hidden lg:block border-b border-fuchsia-500/15 bg-[#030014]/90 py-1.5 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between text-xs">
+          <div className="flex items-center gap-1">
+            <span className="text-slate-400 font-semibold mr-2 uppercase tracking-wider text-[10px]">
+              Programs For:
+            </span>
+            {audienceLinks.map((aud) => (
+              <Link
+                key={aud.name}
+                href={aud.href}
+                className="px-2.5 py-0.5 rounded-full text-slate-300 hover:text-cyan-300 hover:bg-white/5 transition-colors font-medium flex items-center gap-1.5"
+              >
+                <span>{aud.name}</span>
+                <span className="text-[9px] px-1 py-0.2 rounded bg-fuchsia-950/80 text-fuchsia-300 border border-fuchsia-500/30 font-semibold">
+                  {aud.badge}
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="flex items-center gap-4 text-[11px] text-slate-400">
+            <span className="text-cyan-300 font-bold flex items-center gap-1">
+              <Sparkles className="w-3 h-3 text-cyan-400" />
+              Pay After You Get Hired Model
+            </span>
+            <span className="text-slate-600">|</span>
+            <a
+              href={`tel:${COMPANY_DETAILS.contact.phone.replace(/\s+/g, '')}`}
+              className="hover:text-cyan-300 transition-colors font-semibold text-slate-300 flex items-center gap-1"
+            >
+              <span>Nagercoil HQ:</span>
+              <span className="text-cyan-400 font-bold">{COMPANY_DETAILS.contact.phone}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo & Tag */}
@@ -117,7 +163,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-150 ${
                     isActive
                       ? 'text-white bg-gradient-to-r from-fuchsia-950/60 to-cyan-950/60 border border-fuchsia-500/40 font-bold shadow-[0_0_15px_rgba(240,0,255,0.25)]'
                       : 'text-slate-300 hover:text-cyan-300 hover:bg-white/5'
@@ -174,13 +220,32 @@ export default function Navbar() {
             onClick={(e) => e.stopPropagation()}
           >
             <div>
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-fuchsia-500/20">
+              <div className="flex items-center justify-between pb-3 mb-3 border-b border-fuchsia-500/20">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Navigation
+                  Select Audience Track
                 </span>
-                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-cyan-300">
-                  Karka Infini AI
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-cyan-300">
+                  ₹0 Upfront
                 </span>
+              </div>
+
+              {/* Audience Tracks in Mobile */}
+              <div className="grid grid-cols-2 gap-2 mb-4 pb-4 border-b border-fuchsia-500/20">
+                {audienceLinks.map((aud) => (
+                  <Link
+                    key={aud.name}
+                    href={aud.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-xl bg-fuchsia-950/40 border border-fuchsia-500/30 text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:border-cyan-400/50 transition-colors"
+                  >
+                    <div className="text-white font-bold">{aud.name}</div>
+                    <div className="text-[10px] text-fuchsia-300 mt-0.5">{aud.badge}</div>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="pb-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                Main Menu
               </div>
               <nav className="flex flex-col space-y-1">
                 {navLinks.map((link) => {
@@ -193,7 +258,7 @@ export default function Navbar() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center justify-between px-3.5 py-3 rounded-lg text-base font-medium transition-colors ${
+                      className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                         isActive
                           ? 'text-cyan-300 bg-fuchsia-950/40 border border-fuchsia-500/30 font-bold'
                           : 'text-slate-300 hover:text-white hover:bg-white/5'
@@ -208,7 +273,7 @@ export default function Navbar() {
               </nav>
             </div>
 
-            <div className="pt-6 border-t border-fuchsia-500/20 mt-6 space-y-3">
+            <div className="pt-4 border-t border-fuchsia-500/20 mt-4 space-y-3">
               <Link
                 href="/contact?type=guidance"
                 onClick={() => setMobileMenuOpen(false)}
@@ -217,7 +282,7 @@ export default function Navbar() {
                 <span>Get Career Guidance</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <div className="text-center text-xs text-slate-400 pt-2">
+              <div className="text-center text-xs text-slate-400 pt-1">
                 Need quick help? Call{' '}
                 <a
                   href={`tel:${COMPANY_DETAILS.contact.phone.replace(/\s+/g, '')}`}

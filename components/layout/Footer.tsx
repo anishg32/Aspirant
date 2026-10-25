@@ -101,44 +101,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Guidance Tracks */}
+          {/* Col 2: Official Programs */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
-              Career Guidance
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-readex">
+              Our Programs
             </h3>
-            <ul className="space-y-2 text-sm text-slate-400">
-              {GUIDANCE_TRACKS.map((track) => (
-                <li key={track.id}>
-                  <Link
-                    href={`/guidance#${track.id}`}
-                    className="hover:text-cyan-300 transition-colors block py-0.5"
-                  >
-                    {track.title}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="/#career-quiz"
-                  className="inline-flex items-center gap-1.5 text-amber-300 font-medium hover:text-amber-200 pt-1"
-                >
-                  <span>60-Sec Career Matcher</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Training Programs */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
-              Training Programs
-            </h3>
-            <ul className="space-y-2 text-sm text-slate-400">
-              {TRAINING_PROGRAMS.map((prog) => (
+            <ul className="space-y-2 text-sm text-slate-400 font-body">
+              {TRAINING_PROGRAMS.slice(0, 6).map((prog) => (
                 <li key={prog.id}>
                   <Link
-                    href={`/programs#${prog.id}`}
+                    href={`/programs#${prog.slug}`}
                     className="hover:text-cyan-300 transition-colors block py-0.5"
                   >
                     {prog.title}
@@ -148,9 +120,52 @@ export default function Footer() {
               <li>
                 <Link
                   href="/programs"
-                  className="inline-flex items-center gap-1 text-cyan-400 font-medium hover:text-cyan-300 pt-1"
+                  className="inline-flex items-center gap-1 text-cyan-400 font-semibold hover:text-cyan-300 pt-1 font-readex text-xs"
                 >
-                  <span>Explore Full Catalog</span>
+                  <span>View All Bootcamps</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Browse by Learner Track */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-readex">
+              Learner Tracks
+            </h3>
+            <ul className="space-y-2 text-sm text-slate-400 font-body">
+              <li>
+                <Link href="/guidance?audience=school" className="hover:text-cyan-300 transition-colors block py-0.5">
+                  School Students (8th - 12th)
+                </Link>
+              </li>
+              <li>
+                <Link href="/guidance?audience=college" className="hover:text-cyan-300 transition-colors block py-0.5">
+                  College Students (B.E/BCA/B.Sc)
+                </Link>
+              </li>
+              <li>
+                <Link href="/guidance?audience=graduates" className="hover:text-cyan-300 transition-colors block py-0.5">
+                  Graduates (Pay After Hired)
+                </Link>
+              </li>
+              <li>
+                <Link href="/guidance?audience=professionals" className="hover:text-cyan-300 transition-colors block py-0.5">
+                  Working Professionals
+                </Link>
+              </li>
+              <li>
+                <Link href="/#platforms" className="hover:text-cyan-300 transition-colors block py-0.5 text-fuchsia-300">
+                  ⚡ Karka Infini AI &amp; Spike AI
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#career-quiz"
+                  className="inline-flex items-center gap-1.5 text-amber-300 font-semibold hover:text-amber-200 pt-1 font-readex text-xs"
+                >
+                  <span>60-Sec Career Matcher</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </li>
@@ -159,10 +174,10 @@ export default function Footer() {
 
           {/* Col 4: Verified Contact & Office */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
-              Official Contact
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white font-readex">
+              Nagercoil Headquarters
             </h3>
-            <div className="space-y-2.5 text-xs text-slate-400">
+            <div className="space-y-2.5 text-xs text-slate-400 font-body">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                 <span className="leading-relaxed text-slate-300">
@@ -182,7 +197,7 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                 <a
                   href={`tel:${COMPANY_DETAILS.contact.phone.replace(/\s+/g, '')}`}
-                  className="hover:text-cyan-300 transition-colors"
+                  className="hover:text-cyan-300 transition-colors font-bold text-slate-200 font-readex"
                 >
                   {COMPANY_DETAILS.contact.phone}
                 </a>
@@ -196,9 +211,9 @@ export default function Footer() {
             <div className="pt-2 flex items-center gap-2">
               <Link
                 href="/contact"
-                className="btn-infini-cyan inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold cursor-pointer"
+                className="btn-infini-cyan inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold cursor-pointer font-readex"
               >
-                <span>Book Consultation</span>
+                <span>Book Free Career Call</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

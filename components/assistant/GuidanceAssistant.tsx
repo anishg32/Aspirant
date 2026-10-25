@@ -39,6 +39,10 @@ const OPTIONAL_STARTER_PROMPTS = [
   'What is the difference between Java & Python?',
 ];
 
+let chatMsgCounter = 0;
+const generateChatMsgId = (role: 'user' | 'assistant') =>
+  `${role}-${++chatMsgCounter}-${Math.random().toString(36).substring(2, 7)}`;
+
 export default function GuidanceAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -129,7 +133,7 @@ export default function GuidanceAssistant() {
     }
 
     const userMessage: ChatMessage = {
-      id: `user-${Date.now()}`,
+      id: generateChatMsgId('user'),
       role: 'user',
       content: trimmed,
       timestamp: 'Just now',
@@ -139,7 +143,7 @@ export default function GuidanceAssistant() {
     setMessages(newHistory);
 
     // Create placeholder assistant message for streaming
-    const assistantMessageId = `assistant-${Date.now()}`;
+    const assistantMessageId = generateChatMsgId('assistant');
     const assistantMessagePlaceholder: ChatMessage = {
       id: assistantMessageId,
       role: 'assistant',
@@ -183,25 +187,27 @@ export default function GuidanceAssistant() {
       }
 
       const decoder = new TextDecoder();
-      let accumulatedContent = '';
+      let streamBuffer = '';
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
         const chunk = decoder.decode(value, { stream: true });
-        accumulatedContent += chunk;
+        streamBuffer = `${streamBuffer}${chunk}`;
+        const currentText = streamBuffer;
 
         setMessages((prev) =>
           prev.map((msg) =>
             msg.id === assistantMessageId
-              ? { ...msg, content: accumulatedContent }
+              ? { ...msg, content: currentText }
               : msg
           )
         );
       }
-    } catch (error: any) {
-      if (error?.name === 'AbortError') {
+    } catch (error: unknown) {
+      const isAbort = error instanceof Error && error.name === 'AbortError';
+      if (isAbort) {
         // Generation stopped by user
         setMessages((prev) =>
           prev.map((msg) =>

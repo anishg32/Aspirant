@@ -14,6 +14,9 @@ export interface Program {
   modules: { title: string; topics: string[] }[];
   outcomes: string[];
   featured?: boolean;
+  badge?: string;
+  enrollments?: string;
+  rating?: string;
 }
 
 export interface GuidanceTrack {
@@ -126,6 +129,231 @@ export const COMPANY_DETAILS = {
   ]
 };
 
+export interface AudienceNavItem {
+  id: string;
+  name: string;
+  href: string;
+  subtitle: string;
+  tagline: string;
+}
+
+export const AUDIENCE_NAV_ITEMS: AudienceNavItem[] = [
+  {
+    id: 'school',
+    name: 'School Students',
+    href: '/guidance?audience=school',
+    subtitle: 'Class 8th - 12th',
+    tagline: 'Python, game design & computational thinking foundations.',
+  },
+  {
+    id: 'college',
+    name: 'College Students',
+    href: '/guidance?audience=college',
+    subtitle: 'B.E / B.Tech / BCA / MCA / B.Sc',
+    tagline: 'Full Stack, AI tools, Capstones & campus placement readiness.',
+  },
+  {
+    id: 'graduates',
+    name: 'Graduates',
+    href: '/guidance?audience=graduates',
+    subtitle: 'Passouts & Job Seekers',
+    tagline: 'Pay After You Get Hired with ₹0 upfront tuition.',
+  },
+  {
+    id: 'professionals',
+    name: 'Professionals',
+    href: '/guidance?audience=professionals',
+    subtitle: 'Upskilling & Career Switch',
+    tagline: 'GenAI, Cloud Architecture & Tech Career Acceleration.',
+  },
+];
+
+export interface WhyKarkaReason {
+  number: string;
+  title: string;
+  description: string;
+  badge?: string;
+}
+
+export const WHY_KARKA_REASONS: WhyKarkaReason[] = [
+  {
+    number: '01',
+    title: 'Pay After You Get Hired',
+    description: 'Traditional institutes demand heavy upfront fees regardless of your job outcome. At Karka, you start learning with ₹0 upfront tuition because we carry the financial risk—you only pay your course fees after you successfully secure a tech job.',
+    badge: '₹0 Upfront Tuition',
+  },
+  {
+    number: '02',
+    title: 'An "AI-First" Future-Proof Curriculum',
+    description: 'Instead of wasting time on decade-old coding syntax, Karka natively integrates Generative AI workflows, Prompt Engineering, and AI Automation across all our tracks. You will learn how to build software and design interfaces with AI, exactly how modern tech companies build today.',
+    badge: 'GenAI + Prompt Engineering',
+  },
+  {
+    number: '03',
+    title: 'Live Internships Over Paper Certificates',
+    description: 'Employers ignore generic print certificates; they hire proof. Karka functions as a hands-on, AI-powered internship platform where you work on real client projects, graduating with a live, deployable portfolio and an official Internship Certificate.',
+    badge: 'Live Client Projects',
+  },
+  {
+    number: '04',
+    title: 'Continuous On-Site Expert Mentorship',
+    description: 'You gain daily access to fully equipped physical labs at SRV Towers Nagercoil and direct, face-to-face guidance from industry mentors who track your progress and solve your technical bugs in real time.',
+    badge: 'Daily On-Site Mentorship',
+  },
+  {
+    number: '05',
+    title: 'Direct Regional & Global Hiring Pipelines',
+    description: 'Direct hiring partnerships and active alumni pipelines into leading tech enterprises including Amazon, TCS, HCL, Matrimony.com, Novac Technology, Capecom, Flow, and Sodisys.',
+    badge: 'Direct Tech Pipelines',
+  },
+  {
+    number: '06',
+    title: 'The 4-Pillar Job Readiness System',
+    description: 'A holistic training system mastering the Language of Business, building Scalable Modern Apps, mastering AI Tools & Prompts, and cracking rigorous Technical Interviews.',
+    badge: 'Complete Career System',
+  },
+];
+
+export const FOUR_PILLARS = [
+  {
+    pillar: '01',
+    title: 'Master the Language of Business',
+    subtitle: 'Listening · Speaking · Reading · Writing',
+    description: 'Technical competence without clear articulation stalls careers. We train you in corporate communication, client presentation, and explaining technical architectures with poise.',
+    skills: ['Professional Listening', 'Executive Speaking', 'Documentation Reading', 'Technical Writing'],
+    gradient: 'from-fuchsia-500 to-pink-500',
+  },
+  {
+    pillar: '02',
+    title: 'Build Scalable Modern Apps',
+    subtitle: 'Web / Mobile · Data Analytics · UI/UX Design · Digital Marketing',
+    description: 'Our core technical pillar. Work directly with production technologies—React, Node, Next.js, Python, PostgreSQL, and Figma—to architect robust, scalable software.',
+    skills: ['Full Stack Web & Mobile', 'Data Analytics & Pipelines', 'UI/UX Design Systems', 'Modern Growth Tech'],
+    gradient: 'from-cyan-400 to-blue-500',
+  },
+  {
+    pillar: '03',
+    title: 'AI Skills',
+    subtitle: 'Prompt Engineering · AI Automation · AI Tools · LLMs',
+    description: 'Future-proof your craft. Harness cutting-edge LLMs, write high-precision prompt chains, build automated workflows, and leverage Spike AI & Karka Infini AI.',
+    skills: ['Prompt Engineering', 'AI Automation Workflows', 'Developer Copilots & Tools', 'LLM Agent Engineering'],
+    gradient: 'from-purple-500 to-fuchsia-600',
+  },
+  {
+    pillar: '04',
+    title: 'Interview Skills',
+    subtitle: 'ATS Friendly Profile · Mock Interview · Group Discussion · Presentation Skills',
+    description: 'Convert technical interviews into job offers. Receive rigorous 1:1 simulated mock interviews, ATS resume audits, group discussion coaching, and salary negotiation tactics.',
+    skills: ['ATS-Optimized Resumes', '1-on-1 Mock Interviews', 'Group Discussion Leadership', 'Presentation Delivery'],
+    gradient: 'from-amber-400 to-orange-500',
+  },
+];
+
+export const PAY_AFTER_HIRED_MODEL = {
+  headline: 'Pay After You Get Hired',
+  subheadline: 'Zero Upfront Fees. Zero Risk.',
+  description: "We're so confident in our training that we don't get paid until you do.",
+  stats: {
+    enrollments: '800+',
+    rating: '4.8',
+    reviews: '200+ verified ratings',
+  },
+  steps: [
+    {
+      step: '1',
+      title: 'Enroll & Learn',
+      description: 'Learn from Real Mentors. Join live sessions, work on real-world projects, and get mentored by industry experts.',
+      badge: 'Zero Upfront Tuition',
+    },
+    {
+      step: '2',
+      title: 'Get Job Ready',
+      description: 'We help you build your resume, portfolio, and prep for interviews with real live client capstones.',
+      badge: '100% Practical Proof',
+    },
+    {
+      step: '3',
+      title: 'Get Paid, Not Billed',
+      description: 'Focus on learning today. Share your success once you are placed in a qualifying tech job.',
+      badge: 'Guaranteed Minimum CTC',
+    },
+  ],
+  included: [
+    '1:1 Expert Mentorship',
+    'Comprehensive Placement Training',
+    'Resume & LinkedIn Profile Optimization',
+    'Simulated 1-on-1 Mock Technical Interviews',
+    'Direct Tech Company Referral Support',
+  ],
+};
+
+export const CAREER_TRACKS = [
+  {
+    id: 'fullstack',
+    title: 'Fullstack Courses',
+    tagline: 'Master modern web ecosystems',
+    badge: 'MOST POPULAR',
+    courses: ['MERN Fullstack', 'React + Java Fullstack', 'React + Python Fullstack'],
+    color: 'from-fuchsia-500 to-pink-500',
+  },
+  {
+    id: 'genai',
+    title: 'Gen AI Courses',
+    tagline: 'Lead the AI revolution',
+    badge: 'FUTURE PROOF',
+    courses: ['Generative AI Foundations', 'Generative AI Mastery', 'Gen AI (LLM) Developer'],
+    color: 'from-cyan-400 to-blue-500',
+  },
+  {
+    id: 'data-ml',
+    title: 'Data & ML Courses',
+    tagline: 'Master data intelligence',
+    badge: 'HIGH DEMAND',
+    courses: ['AI & Data Science', 'Data Analytics with AI', 'Data Engineering'],
+    color: 'from-purple-500 to-indigo-500',
+  },
+  {
+    id: 'design',
+    title: 'Design Courses',
+    tagline: 'Create stunning UI/UX',
+    badge: 'CREATIVE TECH',
+    courses: ['UI/UX Design', 'Web Designing', 'Graphic Designing'],
+    color: 'from-amber-400 to-orange-500',
+  },
+  {
+    id: 'digital-media',
+    title: 'Digital Media Courses',
+    tagline: 'Visual storytelling & animation',
+    badge: 'MULTIMEDIA',
+    courses: ['Video Editing', 'Motion Graphics', 'Multimedia & Animation'],
+    color: 'from-rose-500 to-pink-600',
+  },
+  {
+    id: 'content-marketing',
+    title: 'Content & Marketing',
+    tagline: 'Drive growth with strategy',
+    badge: 'GROWTH',
+    courses: ['Digital Marketing', 'SEO Analyst', 'Storytelling & Content Writing'],
+    color: 'from-emerald-400 to-teal-500',
+  },
+  {
+    id: 'other-tech',
+    title: 'Other Tech Courses',
+    tagline: 'Advanced tech specializations',
+    badge: 'INFRASTRUCTURE',
+    courses: ['Cloud & DevOps', 'Data Engineering', 'Cybersecurity Foundations'],
+    color: 'from-sky-400 to-blue-600',
+  },
+  {
+    id: 'non-tech',
+    title: 'Non Tech Courses',
+    tagline: 'Essential business skills',
+    badge: 'CORE BUSINESS',
+    courses: ['HR & Corporate Talent', 'Financial Accounting & Tally', 'Business Analyst'],
+    color: 'from-violet-400 to-purple-600',
+  },
+];
+
 export const GUIDANCE_TRACKS: GuidanceTrack[] = [
   {
     id: 'stream-discovery',
@@ -191,21 +419,24 @@ export const GUIDANCE_TRACKS: GuidanceTrack[] = [
 
 export const TRAINING_PROGRAMS: Program[] = [
   {
-    id: 'fullstack-web',
-    slug: 'fullstack-web-engineering',
-    title: 'Full-Stack Web Engineering',
+    id: 'mern-fullstack',
+    slug: 'mern-fullstack-development',
+    title: 'MERN Fullstack Development',
+    badge: 'BOOTCAMP',
+    enrollments: '800+ Enrollments',
+    rating: '4.8 (200 ratings)',
     category: 'Full-Stack',
-    shortDesc: 'Master modern frontend, scalable backends, database architecture, and cloud deployment with React, Next.js, Node.js, and PostgreSQL.',
-    fullDesc: 'A rigorous, project-first training curriculum designed to transition learners from syntax beginners into confident full-stack engineers who can architect, test, and ship complete modern web applications.',
-    duration: '16 Weeks (320 Hours of Instruction & Labs)',
-    format: 'Live Online + Mentorship',
+    shortDesc: 'Master Full-Stack web development using MongoDB, Express, React, and Node.js. Build scalable web applications from scratch.',
+    fullDesc: 'A rigorous, industry-accredited bootcamp taking students from fundamental JavaScript syntax to advanced distributed system architecture with React 19, Node.js, Express, and MongoDB.',
+    duration: '16 Weeks (320 Hours)',
+    format: 'Hybrid Bootcamp',
     level: 'Beginner to Intermediate',
-    prerequisites: 'Basic familiarity with computer operations and elementary logic. No prior web development background required.',
-    skills: ['TypeScript', 'React 19', 'Next.js App Router', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'REST & GraphQL APIs', 'Docker Basics', 'Jest Testing', 'Git & CI/CD'],
+    prerequisites: 'Basic computer literacy and logical problem-solving interest. Zero prior programming required.',
+    skills: ['MongoDB', 'Express.js', 'React 19', 'Node.js', 'TypeScript', 'Next.js App Router', 'Tailwind CSS', 'RESTful APIs', 'Git & GitHub'],
     capstoneProjects: [
       'Multi-tenant SaaS Workspace with Role-based Authentication & Stripe Checkout',
       'Real-time Collaborative Whiteboard & Chat Engine using WebSockets',
-      'Enterprise Issue Tracker with SQL indexing and automated testing'
+      'Enterprise Issue Tracker with SQL/NoSQL indexing and automated testing'
     ],
     modules: [
       {
@@ -218,7 +449,7 @@ export const TRAINING_PROGRAMS: Program[] = [
       },
       {
         title: 'Module 3: Backend Architecture & Database Design',
-        topics: ['Node.js runtime, Express/Hono server micro-patterns, Middleware security', 'Relational database design in PostgreSQL, Normalization, ACID transactions, Prisma ORM', 'Authentication protocols: JWT, OAuth 2.0, HTTP-only cookies, Session security']
+        topics: ['Node.js runtime, Express server micro-patterns, Middleware security', 'MongoDB database modeling, aggregation pipelines, indexing, Prisma/Mongoose ORM', 'Authentication protocols: JWT, OAuth 2.0, HTTP-only cookies, Session security']
       },
       {
         title: 'Module 4: Testing, Docker & Production Cloud Deployment',
@@ -229,6 +460,231 @@ export const TRAINING_PROGRAMS: Program[] = [
       'Ability to build and deploy complex full-stack web applications independently',
       'Production code standards compliant with linting, testing, and security best practices',
       'A standout GitHub portfolio with 3 verified multi-tier projects'
+    ],
+    featured: true
+  },
+  {
+    id: 'ai-data-science',
+    slug: 'ai-data-science',
+    title: 'AI & Data Science',
+    badge: 'AI REVOLUTION',
+    enrollments: '650+ Enrollments',
+    rating: '4.8 (200 ratings)',
+    category: 'Data & AI',
+    shortDesc: 'Comprehensive study of AI and Data Science concepts. Master the tools and machine learning models that drive the AI revolution.',
+    fullDesc: 'Hands-on immersion into Python for Data Science, exploratory data analysis, statistical modeling, machine learning pipelines, and deploying predictive models into real production environments.',
+    duration: '14 Weeks (280 Hours)',
+    format: 'Live Online + Mentorship',
+    level: 'Beginner to Intermediate',
+    prerequisites: 'High school mathematics (algebra, basic probability) and familiarity with basic spreadsheet concepts.',
+    skills: ['Python 3.12', 'Pandas & NumPy', 'SQL Analytics', 'Scikit-learn', 'Data Visualization (Plotly/Seaborn)', 'Machine Learning Pipelines', 'Model Deployment (FastAPI)'],
+    capstoneProjects: [
+      'End-to-End Customer Churn Prediction Engine with Deployed FastAPI Microservice',
+      'E-commerce Transaction Fraud Detection Pipeline with Imbalanced Data Handling',
+      'Healthcare Analytics Diagnostic Dashboard with Interactive Streamlit Visualization'
+    ],
+    modules: [
+      {
+        title: 'Module 1: Python for Data Science & Advanced SQL',
+        topics: ['Python idioms, NumPy vectorized operations, Pandas DataFrame manipulation', 'Relational database querying, Window functions, CTEs, query optimization in PostgreSQL']
+      },
+      {
+        title: 'Module 2: Exploratory Data Analysis & Statistical Modeling',
+        topics: ['Hypothesis testing, distributions, regression diagnostics, correlation vs causation', 'Feature engineering: encoding categorical variables, handling missing values, scaling']
+      },
+      {
+        title: 'Module 3: Machine Learning Algorithms in Production',
+        topics: ['Supervised learning: Random Forests, Gradient Boosting (XGBoost/LightGBM)', 'Unsupervised learning: K-Means clustering, PCA dimensional reduction', 'Model evaluation metrics: ROC-AUC, Precision-Recall curves, cross-validation strategies']
+      },
+      {
+        title: 'Module 4: Applied AI & Generative Workflows',
+        topics: ['Introduction to Neural Networks and transfer learning with PyTorch', 'Building RAG (Retrieval-Augmented Generation) applications with LangChain and vector stores', 'Packaging machine learning models into production REST APIs with Docker and FastAPI']
+      }
+    ],
+    outcomes: [
+      'Deep competence in manipulating datasets and deriving verifiable statistical insights',
+      'Production deployment capability for machine learning predictive microservices',
+      'A verifiable data science portfolio with reproducible Jupyter notebooks and GitHub repos'
+    ],
+    featured: true
+  },
+  {
+    id: 'ui-ux-design',
+    slug: 'ui-ux-design',
+    title: 'UI/UX Design',
+    badge: 'CREATIVE TECH',
+    enrollments: '450+ Enrollments',
+    rating: '4.8 (200 ratings)',
+    category: 'Full-Stack',
+    shortDesc: 'Master the art of designing intuitive, beautiful user interfaces and experiences using industry-standard design tools.',
+    fullDesc: 'Transform from a beginner into an intuitive product designer. Master user empathy, research methodologies, wireframing, high-fidelity Figma components, design systems, and frontend developer handoff.',
+    duration: '10 Weeks (200 Hours)',
+    format: 'Hybrid Bootcamp',
+    level: 'All Levels',
+    prerequisites: 'Curiosity for visual aesthetics, empathy for end-users, and basic computer proficiency. No code required.',
+    skills: ['Figma Mastery', 'Design Systems & Tokens', 'Wireframing & Prototyping', 'User Research & Personas', 'Information Architecture', 'Usability Testing', 'Developer Handoff'],
+    capstoneProjects: [
+      'Fintech Mobile App Complete End-to-End UX Case Study & Interactive Prototype',
+      'Healthcare Portal Design System with 40+ Accessible Component Primitives',
+      'B2B SaaS Analytics Dashboard Redesign with High-Fidelity Micro-interactions'
+    ],
+    modules: [
+      {
+        title: 'Module 1: Design Fundamentals & User Research',
+        topics: ['Visual hierarchy, color theory, typography scales, spacing tokens', 'User interviews, competitive analysis, journey mapping, affinity diagramming']
+      },
+      {
+        title: 'Module 2: Wireframing & Information Architecture',
+        topics: ['Low-fidelity sketching, site maps, user flows, navigation paradigms', 'Content architecture and accessibility guidelines (WCAG AAA contrast)']
+      },
+      {
+        title: 'Module 3: High-Fidelity UI & Figma Design Systems',
+        topics: ['Auto-layout 5.0, component variants, interactive component states', 'Design tokens, dark mode theming, responsive screen layouts']
+      },
+      {
+        title: 'Module 4: Prototyping, Usability Testing & Handoff',
+        topics: ['Micro-interactions, smart animate, mobile gestures, user testing sessions', 'Design documentation, developer inspection, asset exports, portfolio creation']
+      }
+    ],
+    outcomes: [
+      'Comprehensive product design portfolio with 3 published Behance/Dribbble case studies',
+      'Fluency in enterprise-grade Figma components and design system tokens',
+      'Ability to articulate user experience decisions with data-driven design rationale'
+    ],
+    featured: true
+  },
+  {
+    id: 'python-kids',
+    slug: 'python-for-kids',
+    title: 'Python for Kids',
+    badge: 'YOUNG MINDS',
+    enrollments: '200+ Enrollments',
+    rating: '4.8 (200 ratings)',
+    category: 'Career Readiness',
+    shortDesc: 'Interactive introduction to programming logic using Python. Build games and animations while learning core coding concepts.',
+    fullDesc: 'Tailored specifically for school students (Classes 6 through 12). Demystifies coding through playful interactive projects, turtle geometry, Pygame animations, and algorithmic logic drills.',
+    duration: '8 Weeks (80 Hours)',
+    format: 'Live Online + Mentorship',
+    level: 'Beginner to Intermediate',
+    prerequisites: 'School students with basic typing skills and enthusiasm for games, puzzles, and technology.',
+    skills: ['Python Syntax', 'Variables & Data Types', 'Loops & Conditionals', 'Turtle Graphics', 'Pygame Game Building', 'Problem-Solving Mindset'],
+    capstoneProjects: [
+      'Retro Arcade Space Shooter Game using Pygame',
+      'Interactive Smart Quiz & Story Generator with Python Functions',
+      'Algorithmic Geometric Art Showcase built with Python Turtle'
+    ],
+    modules: [
+      {
+        title: 'Module 1: First Steps with Python & Turtle Graphics',
+        topics: ['Computer anatomy, Python REPL, drawing shapes and colors with Turtle', 'Variables, numbers, strings, and taking user inputs']
+      },
+      {
+        title: 'Module 2: Logic, Decisions & Loops',
+        topics: ['If-else conditionals, boolean logic, comparison operators', 'While loops, for loops, and repeating patterns']
+      },
+      {
+        title: 'Module 3: Functions, Lists & Data Structures',
+        topics: ['Reusable functions, passing parameters, returning values', 'Lists, random choices, organizing game data and high scores']
+      },
+      {
+        title: 'Module 4: Game Development with Pygame',
+        topics: ['Game loop, event handling, keyboard controls, sprite animation', 'Collision detection, scoreboards, sound effects, and publishing your game']
+      }
+    ],
+    outcomes: [
+      'Strong algorithmic intuition and analytical thinking applicable to school mathematics',
+      'Creation of 3 playable arcade games to share with classmates and family',
+      'Official Junior Coder Certificate of Achievement from Karka Academy'
+    ],
+    featured: true
+  },
+  {
+    id: 'fullstack-internship',
+    slug: 'full-stack-developer-internship',
+    title: 'Full Stack Developer Internship',
+    badge: 'LIVE INTERNSHIP',
+    enrollments: '800+ Enrollments',
+    rating: '4.8 (200 ratings)',
+    category: 'Full-Stack',
+    shortDesc: 'Rigorous MERN stack training for students. Master DevOps, System Design, and Production best practices on large-scale apps.',
+    fullDesc: 'An intensive internship program matching candidates with live client projects and enterprise engineering practices. Eliminates the "0 experience" gap on resumes through verifiable code contributions.',
+    duration: '20 Weeks (400 Hours)',
+    format: 'Hybrid Bootcamp',
+    level: 'Intermediate',
+    prerequisites: 'Completion of college coding coursework or foundational programming experience.',
+    skills: ['MERN Stack', 'System Design & Scalability', 'Docker & CI/CD', 'Client Project Collaboration', 'Production Code Reviews', 'Internship Certificate'],
+    capstoneProjects: [
+      'Live Client Web Application deployed on AWS with 99.9% uptime SLA',
+      'High-throughput Notification Engine with BullMQ and Redis caching',
+      'Microservices-based Content Platform with automated CI/CD pipelines'
+    ],
+    modules: [
+      {
+        title: 'Module 1: Advanced Frontend & State Architecture',
+        topics: ['Next.js App Router performance, code-splitting, custom hook abstractions', 'Zustand, TanStack Query, optimistic UI updates, client-side caching']
+      },
+      {
+        title: 'Module 2: Enterprise Backend & Database Scaling',
+        topics: ['Express/NestJS microservices, Redis caching layers, PostgreSQL indexing', 'Message queues (BullMQ/RabbitMQ), rate limiting, automated backup cron jobs']
+      },
+      {
+        title: 'Module 3: Live Client Internship Practicum',
+        topics: ['Sprint planning, daily standups, Jira ticket triage, Git branch protections', 'Building live features for active partner businesses with senior code reviews']
+      },
+      {
+        title: 'Module 4: DevOps, Observability & Placement Drive',
+        topics: ['Dockerizing multi-container services, GitHub Actions pipelines, AWS ECS deployment', 'Sentry error logging, Prometheus metrics, executive interview rounds']
+      }
+    ],
+    outcomes: [
+      'Official Karka Academy Internship Certificate with verifiable project credits',
+      'Real-world client software running live on the internet with verifiable traffic',
+      'Direct placement referrals to Karka hiring partners across South India'
+    ],
+    featured: true
+  },
+  {
+    id: 'gen-ai-foundations',
+    slug: 'generative-ai-foundations',
+    title: 'Generative AI Foundations',
+    badge: 'FUTURE PROOF',
+    enrollments: '900+ Enrollments',
+    rating: '4.8 (200 ratings)',
+    category: 'Data & AI',
+    shortDesc: 'Master the basics of Generative AI, prompt engineering, and fundamental AI concepts. Start your journey into the tech future.',
+    fullDesc: 'Designed to propel software developers, analysts, and aspiring engineers into the frontier of Generative AI. Master LLMs, chain-of-thought prompt engineering, LangChain, vector retrieval (RAG), and autonomous AI agents.',
+    duration: '12 Weeks (240 Hours)',
+    format: 'Live Online + Mentorship',
+    level: 'All Levels',
+    prerequisites: 'Basic familiarity with Python or JavaScript programming and curiosity about modern AI capabilities.',
+    skills: ['LLM Architecture', 'Prompt Engineering', 'LangChain & LlamaIndex', 'Vector Databases (Chroma/Pinecone)', 'RAG Systems', 'AI Copilots & Spike AI', 'Autonomous AI Agents'],
+    capstoneProjects: [
+      'Enterprise Document Intelligence RAG Engine with Semantic PDF Search',
+      'Autonomous Code Review & Refactoring AI Agent with GitHub Webhook Integration',
+      'Multi-modal Voice & Vision Assistant powered by Gemini & Claude APIs'
+    ],
+    modules: [
+      {
+        title: 'Module 1: LLM Foundations & Prompt Engineering Mastery',
+        topics: ['Transformer architecture intuitively explained, tokens, temperature, context windows', 'Zero-shot, few-shot, chain-of-thought, system prompts, prompt injection defense']
+      },
+      {
+        title: 'Module 2: Embeddings & Vector Databases',
+        topics: ['Vector embeddings concepts, cosine similarity, chunking strategies', 'Working with ChromaDB, Pinecone, pgvector in PostgreSQL for semantic search']
+      },
+      {
+        title: 'Module 3: Retrieval-Augmented Generation (RAG)',
+        topics: ['Building production RAG pipelines with LangChain and LlamaIndex', 'Hybrid search, re-ranking models, reducing hallucinations, hallucination benchmarks']
+      },
+      {
+        title: 'Module 4: AI Agents & Automated Workflows',
+        topics: ['Function calling, tools, LangGraph stateful multi-agent workflows', 'Building autonomous AI assistants and connecting LLMs to external SQL databases and APIs']
+      }
+    ],
+    outcomes: [
+      'Capability to architect and deploy production-grade RAG and AI agent solutions',
+      'Mastery of prompt engineering techniques for enterprise software teams',
+      'A distinguished portfolio of deployed GenAI applications on GitHub'
     ],
     featured: true
   },
@@ -559,6 +1015,31 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const FAQS: FAQItem[] = [
+  {
+    question: 'What is Pay After Placement?',
+    answer: "We want you to focus entirely on your learning without worrying about upfront costs. You only share your success (and the fees) after you land a tech job with a guaranteed minimum salary. It's our way of saying we're in this together.",
+    category: 'Admissions & Policies'
+  },
+  {
+    question: 'Is placement guaranteed?',
+    answer: "While no one can strictly 'guarantee' a job, our Pay After Placement model means we are as invested in your career as you are. We don't succeed unless you do, which is why we go the extra mile to ensure you are job-ready.",
+    category: 'Admissions & Policies'
+  },
+  {
+    question: 'Who are the mentors at Karka?',
+    answer: 'Our mentors are industry veterans from top tech companies. They bring real-world experience, ensuring the curriculum is relevant and up-to-date with current industry standards.',
+    category: 'General'
+  },
+  {
+    question: 'Do I need a background in coding or CSE?',
+    answer: "Absolutely not! We've designed our curriculum to take you from a curious beginner to a confident professional. Whether you're from arts, science, or are a complete career-switcher, we've got you covered.",
+    category: 'Training Programs'
+  },
+  {
+    question: 'How long does the course take?',
+    answer: 'The duration varies by course but typically ranges from 4 to 6 months for foundational tracks and 16 to 20 weeks for comprehensive full-stack and data science bootcamps with live internships.',
+    category: 'Training Programs'
+  },
   {
     question: 'How is Karka AI & Tech Academy different from conventional coaching centers?',
     answer: 'Unlike institutes that rely on pre-recorded videos or make dubious claims, Karka AI & Tech Academy in Nagercoil combines personalized 1-on-1 mentorship with practical, project-centric technical training, Pay After Placement options, and modern AI platforms like Spike AI.',

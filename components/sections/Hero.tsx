@@ -49,13 +49,14 @@ export default function Hero() {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Top Pill / Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold shadow-[0_0_15px_rgba(240,0,255,0.25)]">
+            {/* Top Pill / Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold shadow-[0_0_15px_rgba(240,0,255,0.25)] font-readex">
               <Sparkles className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
               <span>The one and only exclusive AI Learning Center in Nagercoil</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12] font-display">
               <span className="text-gradient-infini block">
                 AI-Driven
               </span>
@@ -65,15 +66,15 @@ export default function Hero() {
             </h1>
 
             {/* Subheading */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Master Full Stack Web Engineering, Data Science, and GenAI at Karka AI & Tech Academy. Build real production capstones with working senior engineer mentorship and Pay After Placement at SRV Towers, Nagercoil.
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body">
+              Master Full Stack Web Engineering, Data Science, and GenAI at Karka AI &amp; Tech Academy. Build real production capstones with working senior engineer mentorship and Pay After Placement at SRV Towers, Nagercoil.
             </p>
 
             {/* Primary & Secondary CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
               <Link
                 href="/programs"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-black text-sm text-white btn-infini-primary text-center uppercase tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-black text-sm text-white btn-infini-primary text-center uppercase tracking-wide focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 font-readex"
                 id="hero-primary-cta"
               >
                 <span>Start Your Transformation</span>
@@ -82,7 +83,7 @@ export default function Hero() {
 
               <a
                 href="#academy-tour"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-sm btn-infini-cyan text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-sm btn-infini-cyan text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 group font-readex"
                 id="hero-video-cta"
               >
                 <span className="w-6 h-6 rounded-full bg-cyan-400 text-slate-950 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">

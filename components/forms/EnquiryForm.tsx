@@ -54,16 +54,31 @@ export default function EnquiryForm({
   const searchParams = useSearchParams();
   const { showToast } = useToast();
 
-  const [formData, setFormData] = useState<FormState>({
-    fullName: '',
-    email: '',
-    phone: '',
-    currentStatus: '3rd / Final Year College Student',
-    interestType: defaultInterest || 'training_program',
-    programOrTrack: defaultProgram || 'fullstack-web-engineering',
-    preferredMode: 'online_live',
-    message: '',
-    consent: false,
+  const [formData, setFormData] = useState<FormState>(() => {
+    const qProgram = searchParams.get('program');
+    const qType = searchParams.get('type');
+    let interest = defaultInterest || 'training_program';
+    let track = defaultProgram || 'fullstack-web-engineering';
+
+    if (qProgram) {
+      interest = 'training_program';
+      track = qProgram;
+    } else if (qType === 'guidance') {
+      interest = 'career_guidance';
+      track = 'stream-discovery';
+    }
+
+    return {
+      fullName: '',
+      email: '',
+      phone: '',
+      currentStatus: '3rd / Final Year College Student',
+      interestType: interest,
+      programOrTrack: track,
+      preferredMode: 'online_live',
+      message: '',
+      consent: false,
+    };
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -74,26 +89,6 @@ export default function EnquiryForm({
     referenceId?: string;
     message: string;
   } | null>(null);
-
-  // Sync query params if present
-  useEffect(() => {
-    const qProgram = searchParams.get('program');
-    const qType = searchParams.get('type');
-
-    if (qProgram) {
-      setFormData((prev) => ({
-        ...prev,
-        interestType: 'training_program',
-        programOrTrack: qProgram,
-      }));
-    } else if (qType === 'guidance') {
-      setFormData((prev) => ({
-        ...prev,
-        interestType: 'career_guidance',
-        programOrTrack: 'stream-discovery',
-      }));
-    }
-  }, [searchParams]);
 
   // Client-side validation function
   const validate = (): FormErrors => {
@@ -471,7 +466,7 @@ export default function EnquiryForm({
               onClick={() =>
                 setFormData((prev) => ({
                   ...prev,
-                  interestType: type.id as any,
+                  interestType: type.id as FormState['interestType'],
                 }))
               }
               className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${

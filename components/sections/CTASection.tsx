@@ -32,15 +32,15 @@ export default function CTASection() {
                 <span>Take the Next Step Today</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-                Ready to Build Your Engineering Career with{' '}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight font-display">
+                Ready to{' '}
                 <span className="text-gradient-infini">
-                  Verifiable Skills?
+                  Future-Proof Your Career?
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Connect with our senior guidance mentors for an objective, no-pressure assessment of your aptitude, coding roadmap, and hiring goals.
+              <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-body">
+                Connect with our senior guidance mentors at Ground Floor, SRV Towers, Nagercoil for an objective assessment of your aptitude, Pay After Placement options, and hiring goals.
               </p>
 
               {/* Trust Points */}

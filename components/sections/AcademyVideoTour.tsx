@@ -1,22 +1,16 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
+import React, { useState, useRef } from 'react';
 import {
   Play,
-  Pause,
-  Volume2,
-  VolumeX,
   Sparkles,
   MapPin,
   Users,
   ShieldCheck,
   Film,
   Tv,
-  GraduationCap,
   ArrowRight,
   Quote,
-  CheckCircle2,
 } from 'lucide-react';
 
 interface Learner {
@@ -34,7 +28,7 @@ const LEARNERS: Learner[] = [
     id: 'gabriel',
     name: 'Gabriel Samraj',
     role: 'Frontend Developer',
-    companyColor: 'text-blue-500',
+    companyColor: 'text-blue-600',
     quote: "Karka's UI/UX design course was a game-changer for me. The instructors are passionate and the curriculum is up-to-date with the latest design trends. I now feel confident in my ability to create stunning visuals that stand out.",
     video: '/videos/gabrielsamraj.mp4',
     pattern: 'from-[#4a044e] to-[#701a75]',
@@ -43,7 +37,7 @@ const LEARNERS: Learner[] = [
     id: 'prabin',
     name: 'Prabin Raj',
     role: 'Full Stack Developer',
-    companyColor: 'text-cyan-500',
+    companyColor: 'text-purple-600',
     quote: 'I learned to build scalable applications from scratch. The environment at Karka is incredibly supportive and pushed me to be a better developer every day.',
     video: '/videos/pabinraj.mp4',
     pattern: 'from-[#2e0854] to-[#4a044e]',
@@ -52,7 +46,7 @@ const LEARNERS: Learner[] = [
     id: 'shiju',
     name: 'Shiju Mon',
     role: 'Graphic Designer',
-    companyColor: 'text-pink-500',
+    companyColor: 'text-pink-600',
     quote: "Karka's graphic design course was a game-changer for me. The instructors are passionate and the curriculum is up-to-date with the latest design trends. I now feel confident in my ability to create stunning visuals that stand out.",
     video: '/videos/shijumon.mp4',
     pattern: 'from-[#3b0764] to-[#6b21a8]',
@@ -61,7 +55,7 @@ const LEARNERS: Learner[] = [
     id: 'kishore',
     name: 'Kishore',
     role: 'UI/UX Designer',
-    companyColor: 'text-indigo-500',
+    companyColor: 'text-indigo-600',
     quote: "Karka's UI/UX design course was a game-changer for me. The instructors are passionate and the curriculum is up-to-date with the latest design trends. I now feel confident in my ability to create stunning visuals that stand out.",
     video: '/videos/kishore.mp4',
     pattern: 'from-[#1e1b4b] to-[#4a044e]',
@@ -70,7 +64,7 @@ const LEARNERS: Learner[] = [
     id: 'sridevi',
     name: 'Sridevi',
     role: 'UI/UX Designer',
-    companyColor: 'text-purple-500',
+    companyColor: 'text-purple-600',
     quote: "Karka's UI/UX design course was a game-changer for me. The instructors are passionate and the curriculum is up-to-date with the latest design trends. I now feel confident in my ability to create stunning visuals that stand out.",
     video: '/videos/sridevi.mp4',
     pattern: 'from-[#581c87] to-[#4a044e]',
@@ -81,7 +75,6 @@ export default function AcademyVideoTour() {
   const [viewMode, setViewMode] = useState<'learners' | 'campus'>('learners');
   const [activeLearnerId, setActiveLearnerId] = useState<string>('gabriel');
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [isMuted, setIsMuted] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const activeLearner = LEARNERS.find((l) => l.id === activeLearnerId) || LEARNERS[0];
@@ -123,37 +116,26 @@ export default function AcademyVideoTour() {
     }
   };
 
-  const toggleMute = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-
   return (
-    <section id="academy-tour" className="relative py-24 bg-transparent overflow-hidden">
-      {/* Background ambient cosmic glow */}
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#F000FF]/10 to-transparent pointer-events-none" />
-
+    <section id="academy-tour" className="relative py-20 lg:py-28 bg-linear-to-b from-white via-purple-50/40 to-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(240,0,255,0.25)]">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider font-readex">
+            <Sparkles className="w-3.5 h-3.5 text-[#4a044e]" />
             <span>Official Karka Academy Experience</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight font-display">
-            Voices of Our Learners
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight font-display">
+            Voices of Our <span className="text-[#4a044e]">Learners</span>
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-body">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-body">
             Hear directly from our graduates about how Karka transformed their careers and helped them land their dream jobs in tech.
           </p>
 
           {/* Mode Switcher Tabs */}
-          <div className="flex items-center justify-center gap-2 pt-2">
+          <div className="flex items-center justify-center gap-3 pt-2">
             <button
               type="button"
               onClick={() => {
@@ -162,8 +144,8 @@ export default function AcademyVideoTour() {
               }}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 viewMode === 'learners'
-                  ? 'btn-infini-primary scale-105'
-                  : 'bg-[#0e0524] hover:bg-[#1a0a3d] text-slate-300 border border-fuchsia-500/30'
+                  ? 'btn-karka-primary shadow-md scale-105'
+                  : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200'
               }`}
             >
               <Film className="w-4 h-4 text-amber-300" />
@@ -178,12 +160,12 @@ export default function AcademyVideoTour() {
               }}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 viewMode === 'campus'
-                  ? 'btn-infini-primary scale-105'
-                  : 'bg-[#0e0524] hover:bg-[#1a0a3d] text-slate-300 border border-fuchsia-500/30'
+                  ? 'btn-karka-primary shadow-md scale-105'
+                  : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200'
               }`}
             >
-              <Tv className="w-4 h-4 text-cyan-300" />
-              <span>Campus & Lab Tour (SRV Towers)</span>
+              <Tv className="w-4 h-4 text-[#4a044e]" />
+              <span>Campus &amp; Lab Tour (SRV Towers)</span>
             </button>
           </div>
         </div>
@@ -196,11 +178,11 @@ export default function AcademyVideoTour() {
             <div className="hidden lg:flex lg:col-span-3 flex-col gap-4 order-1 w-full">
               {/* Active Student Highlight Card */}
               <div
-                className={`relative group overflow-hidden rounded-2xl h-20 w-full ring-2 ring-cyan-400 ring-offset-2 ring-offset-[#030014] shadow-[0_0_25px_rgba(0,255,255,0.4)] mb-3 transition-all duration-300 bg-gradient-to-r ${activeLearner.pattern}`}
+                className={`relative group overflow-hidden rounded-2xl h-20 w-full ring-2 ring-[#4a044e] ring-offset-2 ring-offset-white shadow-lg mb-3 transition-all duration-300 bg-gradient-to-r ${activeLearner.pattern}`}
               >
-                <div className="absolute inset-0 bg-[#030014]/30" />
+                <div className="absolute inset-0 bg-black/25" />
                 <div className="relative z-10 h-full flex items-center justify-center px-4">
-                  <span className="text-xl font-black text-white uppercase tracking-wider drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
+                  <span className="text-xl font-black text-white uppercase tracking-wider drop-shadow-md">
                     {activeLearner.name.split(' ')[0]}
                   </span>
                 </div>
@@ -209,7 +191,7 @@ export default function AcademyVideoTour() {
               {/* Up Next Label */}
               <div className="flex items-center justify-end gap-1.5 text-xs font-black text-slate-400 uppercase tracking-widest mb-1 pr-1">
                 <span>Up Next</span>
-                <ArrowRight className="h-3.5 w-3.5 text-cyan-400" />
+                <ArrowRight className="h-3.5 w-3.5 text-[#4a044e]" />
               </div>
 
               {/* Next Students Buttons */}
@@ -219,14 +201,13 @@ export default function AcademyVideoTour() {
                     key={item.id}
                     type="button"
                     onClick={() => handleSelectLearner(item.id)}
-                    className={`group relative overflow-hidden rounded-2xl h-18 w-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(240,0,255,0.3)] hover:scale-102 border border-fuchsia-500/20 hover:border-cyan-400/60 text-left bg-gradient-to-r ${item.pattern}`}
+                    className="group relative overflow-hidden rounded-2xl h-16 w-full transition-all duration-300 hover:shadow-md hover:scale-102 border border-slate-200 hover:border-[#4a044e]/50 text-left bg-white"
                   >
-                    <div className="absolute inset-0 bg-[#030014]/60 group-hover:bg-[#030014]/40 transition-colors" />
                     <div className="relative z-10 h-full flex items-center justify-between px-5">
-                      <span className="text-base font-bold text-white uppercase tracking-wider">
-                        {item.name.split(' ')[0]}
+                      <span className="text-sm font-bold text-slate-800 uppercase tracking-wider group-hover:text-[#4a044e] transition-colors">
+                        {item.name}
                       </span>
-                      <Play className="w-4 h-4 text-cyan-300 group-hover:text-amber-300 transition-colors" />
+                      <Play className="w-4 h-4 text-slate-400 group-hover:text-[#4a044e] transition-colors" />
                     </div>
                   </button>
                 ))}
@@ -235,30 +216,30 @@ export default function AcademyVideoTour() {
 
             {/* Center Column: Iconic Filmstrip Video Player (4 cols) */}
             <div className="lg:col-span-4 flex flex-col items-center justify-center order-1 lg:order-2 w-full">
-              <div className="relative w-full max-w-[280px] h-[400px] sm:w-[320px] sm:h-[480px] bg-slate-950 rounded-2xl shadow-2xl overflow-hidden border-x-[12px] border-slate-950 transition-all duration-500 hover:shadow-purple-900/30">
+              <div className="relative w-full max-w-[280px] h-[400px] sm:w-[320px] sm:h-[480px] bg-slate-950 rounded-2xl shadow-2xl overflow-hidden border-x-[12px] border-slate-950 transition-all duration-500 hover:shadow-purple-900/20">
                 
                 {/* Flashing RED REC Indicator */}
-                <div className="absolute top-5 right-5 z-20 flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 pointer-events-none">
+                <div className="absolute top-5 right-5 z-20 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 pointer-events-none">
                   <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.9)]" />
                   <span className="text-white text-[10px] font-bold tracking-[0.2em]">REC</span>
                 </div>
 
-                {/* Left Filmstrip Sprocket Holes (12 holes) */}
+                {/* Left Filmstrip Sprocket Holes */}
                 <div className="absolute left-[-8px] top-0 bottom-0 w-3 flex flex-col justify-between py-3 z-30 pointer-events-none">
                   {Array.from({ length: 12 }).map((_, i) => (
                     <div
                       key={`l-${i}`}
-                      className="w-2 h-3.5 bg-slate-800/60 rounded-[2px] border border-white/5"
+                      className="w-2 h-3.5 bg-slate-800/80 rounded-[2px] border border-white/5"
                     />
                   ))}
                 </div>
 
-                {/* Right Filmstrip Sprocket Holes (12 holes) */}
+                {/* Right Filmstrip Sprocket Holes */}
                 <div className="absolute right-[-8px] top-0 bottom-0 w-3 flex flex-col justify-between py-3 z-30 pointer-events-none">
                   {Array.from({ length: 12 }).map((_, i) => (
                     <div
                       key={`r-${i}`}
-                      className="w-2 h-3.5 bg-slate-800/60 rounded-[2px] border border-white/5"
+                      className="w-2 h-3.5 bg-slate-800/80 rounded-[2px] border border-white/5"
                     />
                   ))}
                 </div>
@@ -284,7 +265,7 @@ export default function AcademyVideoTour() {
                     Your browser does not support HTML5 video.
                   </video>
 
-                  {/* Centered Glassmorphic Play Button (Shown only when paused) */}
+                  {/* Centered Glassmorphic Play Button */}
                   {!isPlaying && (
                     <div
                       onClick={togglePlay}
@@ -306,9 +287,8 @@ export default function AcademyVideoTour() {
 
                   {/* Floating Polaroid Label at bottom */}
                   <div className="absolute bottom-6 left-0 right-0 flex justify-center pointer-events-none z-20">
-                    <div className="bg-[#0b031b] text-white py-2 px-6 shadow-[0_0_20px_rgba(240,0,255,0.4)] border-2 border-fuchsia-500/50 relative -rotate-2 transform transition-transform">
-                      <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-8 h-3.5 bg-cyan-400/30 backdrop-blur-[2px] -rotate-3 shadow-sm" />
-                      <span className="font-black text-lg sm:text-xl uppercase tracking-tighter block text-center text-gradient-infini">
+                    <div className="bg-[#4a044e] text-white py-1.5 px-6 shadow-xl border border-white/20 relative -rotate-2 transform">
+                      <span className="font-black text-base sm:text-lg uppercase tracking-tight block text-center text-white">
                         {activeLearner.name}
                       </span>
                     </div>
@@ -322,7 +302,7 @@ export default function AcademyVideoTour() {
                 <button
                   type="button"
                   onClick={handleNextStory}
-                  className="group flex items-center gap-2 text-xs font-bold text-cyan-300 uppercase tracking-widest transition-colors hover:text-white py-2"
+                  className="group flex items-center gap-2 text-xs font-bold text-[#4a044e] uppercase tracking-widest transition-colors hover:text-[#5e0563] py-2"
                 >
                   <span>Next Story</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -334,46 +314,43 @@ export default function AcademyVideoTour() {
             <div className="lg:col-span-5 flex flex-col justify-center text-left order-3 lg:order-3 w-full relative py-4 sm:py-8">
               
               {/* Now Playing Status */}
-              <div className="flex items-center justify-start gap-2 text-xs font-black text-cyan-400 uppercase tracking-[0.2em] mb-6">
+              <div className="flex items-center justify-start gap-2 text-xs font-black text-[#4a044e] uppercase tracking-[0.2em] mb-4">
                 <span>Now Playing</span>
-                <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00FFFF]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#4a044e] animate-pulse" />
               </div>
 
               {/* Student Header */}
-              <div className="flex flex-col gap-1 mb-6">
-                <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-400 mb-1">
-                  Karka Learner Success Story
-                </h3>
-                <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              <div className="flex flex-col gap-1 mb-5">
+                <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-display">
                   {activeLearner.name}
                 </span>
-                <div className="flex items-center gap-3 mt-1.5">
-                  <span className="text-xs sm:text-sm font-bold tracking-widest text-slate-300 uppercase">
+                <div className="flex items-center gap-3 mt-1">
+                  <span className="text-xs sm:text-sm font-bold tracking-wider text-slate-600 uppercase">
                     {activeLearner.role}
                   </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
-                  <span className="text-xs font-bold text-cyan-300 bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-400/40">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#4a044e]" />
+                  <span className="text-xs font-bold text-[#4a044e] bg-[#4a044e]/10 px-2.5 py-0.5 rounded-full border border-[#4a044e]/20">
                     Karka Graduate
                   </span>
                 </div>
               </div>
 
               {/* Quote Card */}
-              <div className="relative mb-8 p-6 rounded-2xl bg-[#0c041c]/90 border border-fuchsia-500/25 shadow-[0_0_25px_rgba(0,0,0,0.5)]">
-                <Quote className="w-8 h-8 text-cyan-400/30 fill-cyan-400/10 -scale-x-100 mb-2" />
-                <p className="text-slate-200 text-base sm:text-lg leading-relaxed italic">
+              <div className="relative mb-6 p-6 rounded-2xl bg-white border border-slate-200/90 shadow-md">
+                <Quote className="w-8 h-8 text-[#4a044e]/20 fill-[#4a044e]/10 -scale-x-100 mb-2" />
+                <p className="text-slate-700 text-base sm:text-lg leading-relaxed italic font-body">
                   &ldquo;{activeLearner.quote}&rdquo;
                 </p>
               </div>
 
               {/* The Karka Advantage Box */}
-              <div className="p-6 bg-[#13052c] rounded-2xl border border-fuchsia-500/30">
-                <div className="font-black text-cyan-300 text-xs sm:text-sm tracking-wider uppercase mb-2 flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-amber-400 fill-amber-400" />
+              <div className="p-5 bg-purple-50/80 rounded-2xl border border-purple-200/70">
+                <div className="font-black text-[#4a044e] text-xs sm:text-sm tracking-wider uppercase mb-1.5 flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-amber-500 fill-amber-500" />
                   <span>THE KARKA ADVANTAGE</span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Watch how <strong className="text-white">{activeLearner.name}</strong> transformed their career with hands-on labs and 1-on-1 engineer mentorship directly from our physical campus to industry success.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">
+                  Watch how <strong className="text-slate-900">{activeLearner.name}</strong> transformed their career with hands-on labs and 1-on-1 engineer mentorship directly from our physical campus to industry success.
                 </p>
               </div>
 
@@ -385,7 +362,7 @@ export default function AcademyVideoTour() {
         {/* View Mode 2: Campus & Physical Labs Tour (SRV Towers, Nagercoil) */}
         {viewMode === 'campus' && (
           <div className="max-w-5xl mx-auto space-y-6">
-            <div className="relative aspect-video rounded-3xl overflow-hidden border border-fuchsia-500/30 shadow-[0_0_40px_rgba(240,0,255,0.3)] bg-black">
+            <div className="relative aspect-video rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-black">
               <iframe
                 src="https://www.youtube-nocookie.com/embed/t541Ju_-L2U?autoplay=1&rel=0&modestbranding=1"
                 title="Karka AI & Tech Academy Campus Tour at SRV Towers Nagercoil"
@@ -397,38 +374,65 @@ export default function AcademyVideoTour() {
 
             {/* Campus Highlights Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-5 rounded-2xl card-cosmic flex items-start gap-3.5">
-                <div className="p-2.5 rounded-xl bg-fuchsia-950/60 border border-fuchsia-500/30 text-cyan-400">
+              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-[#4a044e]/10 text-[#4a044e]">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white">SRV Towers, Veppamoodu</h4>
-                  <p className="text-xs text-slate-300 mt-0.5">High-speed dual-monitor developer stations in Nagercoil.</p>
+                  <h4 className="font-bold text-sm text-slate-900">SRV Towers, Veppamoodu</h4>
+                  <p className="text-xs text-slate-600 mt-0.5">High-speed dual-monitor developer stations in Nagercoil.</p>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl card-cosmic flex items-start gap-3.5">
-                <div className="p-2.5 rounded-xl bg-fuchsia-950/60 border border-fuchsia-500/30 text-cyan-400">
+              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-[#4a044e]/10 text-[#4a044e]">
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white">1-on-1 Engineer Audits</h4>
-                  <p className="text-xs text-slate-300 mt-0.5">Continuous on-site guidance from seasoned industry engineers.</p>
+                  <h4 className="font-bold text-sm text-slate-900">1-on-1 Engineer Audits</h4>
+                  <p className="text-xs text-slate-600 mt-0.5">Continuous on-site guidance from seasoned industry engineers.</p>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl card-cosmic flex items-start gap-3.5">
-                <div className="p-2.5 rounded-xl bg-fuchsia-950/60 border border-fuchsia-500/30 text-cyan-400">
+              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-[#4a044e]/10 text-[#4a044e]">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white">Pay After Placement</h4>
-                  <p className="text-xs text-slate-300 mt-0.5">Learn with confidence: ₹0 upfront tuition until you get placed.</p>
+                  <h4 className="font-bold text-sm text-slate-900">Pay After Placement</h4>
+                  <p className="text-xs text-slate-600 mt-0.5">Learn with confidence: ₹0 upfront tuition until you get placed.</p>
                 </div>
               </div>
             </div>
           </div>
         )}
+
+        {/* SCROLLING ANIMATION: Continuous Horizontal Reviews Marquee */}
+        <div className="mt-16 pt-8 border-t border-slate-200/80">
+          <div className="relative w-full overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="animate-scroll flex items-center gap-6 py-2">
+              {[...LEARNERS, ...LEARNERS].map((l, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => handleSelectLearner(l.id)}
+                  className="w-80 shrink-0 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-[#4a044e]/40 hover:shadow-md transition-all cursor-pointer group"
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-sm text-slate-900 group-hover:text-[#4a044e] transition-colors">
+                      {l.name}
+                    </span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-50 text-[#4a044e]">
+                      {l.role}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 line-clamp-2 italic font-body">
+                    &ldquo;{l.quote}&rdquo;
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>

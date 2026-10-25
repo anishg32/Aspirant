@@ -19,7 +19,7 @@ import GuidanceAssistant from '@/components/assistant/GuidanceAssistant';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#030014] text-white selection:bg-[#F000FF] selection:text-white cosmic-nebula-bg">
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#4a044e] selection:text-white">
       <Navbar />
       <main id="main-content" className="flex-1">
         {/* 1. Hero: AI-Driven Software Developer */}

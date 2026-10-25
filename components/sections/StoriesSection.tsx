@@ -6,30 +6,26 @@ import Link from 'next/link';
 import {
   Trophy,
   ArrowRight,
-  ShieldCheck,
   FolderGit2,
-  ExternalLink,
-  Code2,
   CheckCircle2,
-  Sparkles,
 } from 'lucide-react';
 import { STUDENT_STORIES } from '@/data/content';
 
 export default function StoriesSection() {
   return (
-    <section id="success-stories" className="py-20 lg:py-28 bg-transparent relative">
+    <section id="success-stories" className="py-16 lg:py-24 bg-[#F8FAFC] relative border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(240,0,255,0.25)]">
-            <Trophy className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider font-readex">
+            <Trophy className="w-3.5 h-3.5 text-[#4a044e]" />
             <span>Verifiable Learning Pathways</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-            Real Student Transitions & Built Capstones
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-display">
+            Real Student Transitions &amp; <span className="text-[#4a044e]">Built Capstones</span>
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-body">
             We judge success not by empty marketing slogans, but by the tangible software our students design, test, and deploy to their public GitHub portfolios.
           </p>
         </div>
@@ -39,14 +35,14 @@ export default function StoriesSection() {
           {STUDENT_STORIES.map((story) => (
             <div
               key={story.id}
-              className="card-cosmic rounded-3xl p-6 sm:p-8 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between group border border-slate-200/80 shadow-sm hover:border-[#4a044e]/30 hover:shadow-xl hover:shadow-purple-900/5 transition-all duration-300"
             >
               <div className="space-y-6">
                 
                 {/* Header & Verification Pill */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-950/60 text-cyan-300 border border-cyan-400/40">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#4a044e]/10 text-[#4a044e] border border-[#4a044e]/20 font-readex">
                       {story.verifiedStatus}
                     </span>
                     <span className="text-xs text-slate-400 font-medium">Case Study</span>
@@ -54,7 +50,7 @@ export default function StoriesSection() {
 
                   <div className="flex items-center gap-3.5">
                     {story.avatar ? (
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-cyan-400/40 shadow-sm flex-shrink-0">
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-purple-200 shadow-sm flex-shrink-0">
                         <Image
                           src={story.avatar}
                           alt={story.studentName}
@@ -64,51 +60,49 @@ export default function StoriesSection() {
                         />
                       </div>
                     ) : (
-                      <div className="w-12 h-12 rounded-full bg-fuchsia-950/80 text-cyan-300 font-bold flex items-center justify-center flex-shrink-0 border border-fuchsia-500/30">
+                      <div className="w-12 h-12 rounded-full bg-[#4a044e]/10 text-[#4a044e] font-bold flex items-center justify-center flex-shrink-0 border border-[#4a044e]/20">
                         {story.studentName.charAt(0)}
                       </div>
                     )}
                     <div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#4a044e] transition-colors font-display">
                         {story.studentName}
                       </h3>
-                      <p className="text-xs text-slate-400 font-medium">{story.initialBackground}</p>
+                      <p className="text-xs text-slate-500 font-medium">{story.initialBackground}</p>
                     </div>
                   </div>
 
-                  <div className="text-xs text-fuchsia-300 font-medium bg-fuchsia-950/60 px-3 py-1.5 rounded-xl border border-fuchsia-500/30">
+                  <div className="text-xs text-[#4a044e] font-semibold bg-purple-50 px-3 py-1.5 rounded-xl border border-purple-100">
                     Enrolled: {story.programTaken}
                   </div>
                 </div>
 
                 {/* Challenge & Transition */}
-                <div className="p-3.5 rounded-2xl bg-[#14062c] border border-fuchsia-500/20 text-xs space-y-1.5">
-                  <span className="font-bold text-cyan-300 block">The Hurdle:</span>
-                  <p className="text-slate-300 leading-relaxed">
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-1.5">
+                  <span className="font-bold text-slate-900 block font-readex">The Hurdle:</span>
+                  <p className="text-slate-600 leading-relaxed font-body">
                     {story.challengeSolved}
                   </p>
                 </div>
 
                 {/* Built Capstone Projects */}
                 <div className="space-y-2.5">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                    <FolderGit2 className="w-3.5 h-3.5 text-cyan-400" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5 font-readex">
+                    <FolderGit2 className="w-3.5 h-3.5 text-[#4a044e]" />
                     <span>Deployed Capstones:</span>
                   </span>
 
                   {story.keyProjects.map((proj, pIdx) => (
-                    <div key={pIdx} className="p-3 rounded-xl bg-[#14062c] border border-fuchsia-500/20 text-xs space-y-1">
-                      <div className="font-bold text-white flex items-center justify-between">
-                        <span>{proj.name}</span>
-                        <Code2 className="w-3.5 h-3.5 text-cyan-400" />
-                      </div>
-                      <p className="text-[11px] text-slate-300 leading-relaxed">
-                        {proj.desc}
-                      </p>
+                    <div key={pIdx} className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1">
+                      <div className="font-bold text-slate-900">{proj.name}</div>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">{proj.desc}</p>
                       <div className="flex flex-wrap gap-1 pt-1">
-                        {proj.tech.map((t, tIdx) => (
-                          <span key={tIdx} className="px-1.5 py-0.5 rounded bg-[#1b083c] border border-cyan-400/30 text-cyan-300 text-[10px]">
-                            {t}
+                        {proj.tech.map((techItem, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="text-[10px] px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-700 font-medium"
+                          >
+                            {techItem}
                           </span>
                         ))}
                       </div>
@@ -117,41 +111,30 @@ export default function StoriesSection() {
                 </div>
 
                 {/* Outcome Statement */}
-                <div className="p-3 rounded-xl bg-[#1b0635] border border-fuchsia-500/30 text-xs space-y-1">
-                  <span className="font-bold text-fuchsia-300 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>Verifiable Outcome:</span>
+                <div className="p-3.5 rounded-2xl bg-purple-50/80 border border-purple-200/70 text-xs space-y-1">
+                  <span className="font-bold text-[#4a044e] flex items-center gap-1.5 font-readex">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#4a044e]" />
+                    <span>Verified Outcome:</span>
                   </span>
-                  <p className="text-slate-200 text-[11px] leading-relaxed">
+                  <p className="text-slate-700 leading-relaxed font-body">
                     {story.keyOutcome}
                   </p>
                 </div>
 
-                {/* Quote */}
-                <blockquote className="text-xs italic text-slate-300 border-l-2 border-cyan-400 pl-3 leading-relaxed">
-                  &ldquo;{story.quote}&rdquo;
-                </blockquote>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-fuchsia-500/20 flex items-center justify-between">
+              {/* Card Footer Link */}
+              <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between">
                 <Link
                   href="/stories"
-                  className="text-xs font-bold text-cyan-400 hover:text-white flex items-center gap-1 transition-colors"
+                  className="text-xs font-bold text-[#4a044e] hover:text-[#5e0563] inline-flex items-center gap-1 font-readex"
                 >
-                  <span>Explore full transition breakdown</span>
+                  <span>Read Complete Portfolio Case Study</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Transparent Contest Disclaimer */}
-        <div className="mt-12 text-center text-xs text-slate-400 max-w-2xl mx-auto">
-          <ShieldCheck className="w-4 h-4 text-cyan-400 inline mr-1" />
-          <span>
-            Nexora Labs Competition Disclosure: These project case studies demonstrate the verified curriculum capstones built by learners undergoing Karka AI & Tech Academy training cohorts in Nagercoil.
-          </span>
         </div>
 
       </div>

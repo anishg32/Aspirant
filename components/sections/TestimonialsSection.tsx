@@ -13,19 +13,19 @@ import { TESTIMONIALS } from '@/data/content';
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-20 lg:py-28 bg-transparent relative border-t border-fuchsia-500/20">
+    <section id="testimonials" className="py-20 lg:py-28 bg-slate-50 relative border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(240,0,255,0.25)]">
-            <MessageSquare className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider">
+            <MessageSquare className="w-3.5 h-3.5 text-[#7c3aed]" />
             <span>Learner Feedback</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Authentic Student & Parent Feedback
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Real reflections from learners and parents on our diagnostic guidance, technical code audits, and transparent mentorship.
           </p>
         </div>
@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
           {TESTIMONIALS.map((test) => (
             <div
               key={test.id}
-              className="card-cosmic rounded-3xl p-6 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-6 flex flex-col justify-between border border-slate-200/80 shadow-sm hover:border-[#4a044e]/30 hover:shadow-xl hover:shadow-purple-900/5 transition-all"
             >
               <div className="space-y-4">
                 {/* Rating & Verified Badge */}
@@ -47,24 +47,24 @@ export default function TestimonialsSection() {
                   </div>
 
                   {test.verified && (
-                    <div className="flex items-center gap-1 text-[10px] font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 rounded-full border border-cyan-400/40">
-                      <CheckCircle2 className="w-3 h-3 text-cyan-400" />
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                       <span>Verified Review</span>
                     </div>
                   )}
                 </div>
 
                 {/* Feedback Body */}
-                <p className="text-xs text-slate-200 leading-relaxed italic">
+                <p className="text-xs text-slate-700 leading-relaxed italic">
                   &ldquo;{test.feedback}&rdquo;
                 </p>
               </div>
 
               {/* Author & Service Meta */}
-              <div className="pt-4 mt-4 border-t border-fuchsia-500/20">
+              <div className="pt-4 mt-4 border-t border-slate-100">
                 <div className="flex items-center gap-3">
                   {test.avatar ? (
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-cyan-400/40 shadow-xs flex-shrink-0">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-purple-200 shadow-xs flex-shrink-0">
                       <Image
                         src={test.avatar}
                         alt={test.author}
@@ -74,18 +74,18 @@ export default function TestimonialsSection() {
                       />
                     </div>
                   ) : (
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-fuchsia-600 to-cyan-500 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 shadow-xs">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#4a044e] to-[#892a92] text-white font-bold text-xs flex items-center justify-center flex-shrink-0 shadow-xs">
                       {test.author.charAt(0)}
                     </div>
                   )}
                   <div>
-                    <h3 className="font-bold text-xs text-white leading-tight">
+                    <h3 className="font-bold text-xs text-slate-900 leading-tight">
                       {test.author}
                     </h3>
-                    <p className="text-[11px] text-slate-400">
+                    <p className="text-[11px] text-slate-500">
                       {test.role}
                     </p>
-                    <p className="text-[10px] text-cyan-400 font-semibold">
+                    <p className="text-[10px] text-[#4a044e] font-semibold">
                       {test.service}
                     </p>
                   </div>
@@ -99,7 +99,7 @@ export default function TestimonialsSection() {
         <div className="mt-12 text-center">
           <Link
             href="/testimonials"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-cyan-400 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#4a044e] hover:underline transition-colors group"
           >
             <span>Read more student reviews or submit your experience</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

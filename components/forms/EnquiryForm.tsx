@@ -206,28 +206,28 @@ export default function EnquiryForm({
   if (submissionResult?.success) {
     return (
       <div
-        className={`bg-[#0c041c]/95 rounded-2xl p-8 border border-fuchsia-500/35 shadow-[0_0_35px_rgba(240,0,255,0.2)] text-center space-y-5 animate-in fade-in duration-300 text-white ${className}`}
+        className={`bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xl shadow-purple-900/5 text-center space-y-5 animate-in fade-in duration-300 text-slate-900 ${className}`}
         role="status"
         aria-live="polite"
       >
-        <div className="w-16 h-16 bg-fuchsia-950/70 text-cyan-300 rounded-full flex items-center justify-center mx-auto border-4 border-fuchsia-500/40 shadow-xs">
+        <div className="w-16 h-16 bg-purple-50 text-[#4a044e] rounded-full flex items-center justify-center mx-auto border-4 border-purple-100 shadow-sm">
           <CheckCircle2 className="w-9 h-9" />
         </div>
 
         <div className="space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-fuchsia-300 bg-fuchsia-950/80 px-3 py-1 rounded-full border border-fuchsia-400/40">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#4a044e] bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
             Enquiry Confirmed
           </span>
-          <h3 className="text-2xl font-bold text-white tracking-tight">
+          <h3 className="text-2xl font-black text-slate-900 tracking-tight">
             Thank You, {formData.fullName}!
           </h3>
-          <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+          <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
             {submissionResult.message}
           </p>
         </div>
 
-        <div className="bg-[#14062c] border border-fuchsia-500/25 rounded-xl p-4 max-w-sm mx-auto text-left text-xs space-y-1.5">
-          <div className="flex justify-between items-center text-slate-400">
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 max-w-sm mx-auto text-left text-xs space-y-2">
+          <div className="flex justify-between items-center text-slate-600">
             <span>Reference ID:</span>
             <button
               type="button"
@@ -237,24 +237,24 @@ export default function EnquiryForm({
                   showToast('Reference ID copied to clipboard!', 'success', 'Copied');
                 }
               }}
-              className="font-mono font-bold text-cyan-300 hover:text-fuchsia-300 flex items-center gap-1.5 transition-colors cursor-pointer"
+              className="font-mono font-bold text-[#4a044e] hover:text-[#7c3aed] flex items-center gap-1.5 transition-colors cursor-pointer"
               title="Click to copy Reference ID"
             >
               <span>{submissionResult.referenceId}</span>
               <Copy className="w-3.5 h-3.5" />
             </button>
           </div>
-          <div className="flex justify-between text-slate-400">
+          <div className="flex justify-between text-slate-600">
             <span>Selected Pathway:</span>
-            <span className="font-medium text-white">
+            <span className="font-semibold text-slate-900">
               {formData.interestType === 'training_program'
                 ? 'Technical Training Program'
                 : '1-on-1 Career Guidance'}
             </span>
           </div>
-          <div className="flex justify-between text-slate-400">
+          <div className="flex justify-between text-slate-600">
             <span>Response Guarantee:</span>
-            <span className="font-medium text-cyan-300">
+            <span className="font-semibold text-[#4a044e]">
               Within 24 Business Hours
             </span>
           </div>
@@ -264,7 +264,7 @@ export default function EnquiryForm({
           <button
             type="button"
             onClick={resetForm}
-            className="btn-infini-cyan inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors cursor-pointer"
+            className="btn-karka-secondary inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-colors cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
             <span>Submit Another Enquiry</span>
@@ -278,26 +278,26 @@ export default function EnquiryForm({
     <form
       onSubmit={handleSubmit}
       noValidate
-      className={`bg-[#0c041c]/90 rounded-2xl p-6 sm:p-8 border border-fuchsia-500/30 shadow-[0_0_35px_rgba(0,0,0,0.7)] space-y-6 text-white ${className}`}
+      className={`bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xl shadow-purple-900/5 space-y-6 text-slate-900 ${className}`}
       id="enquiry-form"
       aria-label="Student Career Guidance & Training Enquiry Form"
     >
-      <div className="border-b border-fuchsia-500/20 pb-4">
-        <div className="flex items-center gap-2 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-1">
-          <Sparkles className="w-4 h-4" />
+      <div className="border-b border-slate-200 pb-4">
+        <div className="inline-flex items-center gap-2 text-[#4a044e] bg-purple-50 px-3 py-1 rounded-full border border-purple-200 text-xs font-bold uppercase tracking-wider mb-2">
+          <Sparkles className="w-3.5 h-3.5 text-[#7c3aed]" />
           <span>Priority Admissions & Guidance</span>
         </div>
-        <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+        <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
           Request Guidance or Program Details
         </h2>
-        <p className="text-xs sm:text-sm text-slate-400 mt-1">
-          No automated spam or high-pressure calls. Just honest advice from senior mentors.
+        <p className="text-xs sm:text-sm text-slate-600 mt-1">
+          No automated spam or high-pressure calls. Direct, transparent counseling from senior engineers.
         </p>
       </div>
 
       {submissionResult && !submissionResult.success && (
         <div
-          className="p-4 rounded-xl bg-rose-950/40 border border-rose-500/40 text-rose-300 text-sm flex items-start gap-3"
+          className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm flex items-start gap-3"
           role="alert"
         >
           <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-rose-400" />
@@ -313,9 +313,9 @@ export default function EnquiryForm({
         <div>
           <label
             htmlFor="field-fullName"
-            className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5"
+            className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5"
           >
-            Full Name <span className="text-fuchsia-400">*</span>
+            Full Name <span className="text-[#4a044e]">*</span>
           </label>
           <div className="relative">
             <input
@@ -330,15 +330,15 @@ export default function EnquiryForm({
               aria-invalid={touched.fullName && !!errors.fullName}
               aria-describedby={errors.fullName ? 'error-fullName' : undefined}
               placeholder="e.g. Rahul Sharma"
-              className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-[#14062c] text-white placeholder-slate-500 transition-colors focus:outline-none ${
+              className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-slate-50 text-slate-900 placeholder-slate-400 transition-colors focus:bg-white focus:outline-none ${
                 touched.fullName && errors.fullName
-                  ? 'border-rose-400 focus:border-rose-400 bg-rose-950/20'
-                  : 'border-fuchsia-500/30 focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(0,255,255,0.2)]'
+                  ? 'border-rose-400 focus:border-rose-400 bg-rose-50/50'
+                  : 'border-slate-300 focus:border-[#4a044e] focus:ring-2 focus:ring-[#4a044e]/20'
               }`}
             />
           </div>
           {touched.fullName && errors.fullName && (
-            <p id="error-fullName" className="text-xs text-rose-400 mt-1 font-medium">
+            <p id="error-fullName" className="text-xs text-rose-600 mt-1 font-medium">
               {errors.fullName}
             </p>
           )}
@@ -347,9 +347,9 @@ export default function EnquiryForm({
         <div>
           <label
             htmlFor="field-email"
-            className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5"
+            className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5"
           >
-            Email Address <span className="text-fuchsia-400">*</span>
+            Email Address <span className="text-[#4a044e]">*</span>
           </label>
           <div className="relative">
             <input
@@ -364,15 +364,15 @@ export default function EnquiryForm({
               aria-invalid={touched.email && !!errors.email}
               aria-describedby={errors.email ? 'error-email' : undefined}
               placeholder="e.g. rahul@example.com"
-              className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-[#14062c] text-white placeholder-slate-500 transition-colors focus:outline-none ${
+              className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-slate-50 text-slate-900 placeholder-slate-400 transition-colors focus:bg-white focus:outline-none ${
                 touched.email && errors.email
-                  ? 'border-rose-400 focus:border-rose-400 bg-rose-950/20'
-                  : 'border-fuchsia-500/30 focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(0,255,255,0.2)]'
+                  ? 'border-rose-400 focus:border-rose-400 bg-rose-50/50'
+                  : 'border-slate-300 focus:border-[#4a044e] focus:ring-2 focus:ring-[#4a044e]/20'
               }`}
             />
           </div>
           {touched.email && errors.email && (
-            <p id="error-email" className="text-xs text-rose-400 mt-1 font-medium">
+            <p id="error-email" className="text-xs text-rose-600 mt-1 font-medium">
               {errors.email}
             </p>
           )}
@@ -384,7 +384,7 @@ export default function EnquiryForm({
         <div>
           <label
             htmlFor="field-phone"
-            className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5"
+            className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5"
           >
             Phone Number <span className="text-slate-400 font-normal">(Optional)</span>
           </label>
@@ -399,14 +399,14 @@ export default function EnquiryForm({
             aria-invalid={touched.phone && !!errors.phone}
             aria-describedby={errors.phone ? 'error-phone' : undefined}
             placeholder="+91 98765 43210"
-            className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-[#14062c] text-white placeholder-slate-500 transition-colors focus:outline-none ${
+            className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-slate-50 text-slate-900 placeholder-slate-400 transition-colors focus:bg-white focus:outline-none ${
               touched.phone && errors.phone
-                ? 'border-rose-400 focus:border-rose-400 bg-rose-950/20'
-                : 'border-fuchsia-500/30 focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(0,255,255,0.2)]'
+                ? 'border-rose-400 focus:border-rose-400 bg-rose-50/50'
+                : 'border-slate-300 focus:border-[#4a044e] focus:ring-2 focus:ring-[#4a044e]/20'
             }`}
           />
           {touched.phone && errors.phone && (
-            <p id="error-phone" className="text-xs text-rose-400 mt-1 font-medium">
+            <p id="error-phone" className="text-xs text-rose-600 mt-1 font-medium">
               {errors.phone}
             </p>
           )}
@@ -415,9 +415,9 @@ export default function EnquiryForm({
         <div>
           <label
             htmlFor="field-currentStatus"
-            className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5"
+            className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5"
           >
-            Current Status <span className="text-fuchsia-400">*</span>
+            Current Status <span className="text-[#4a044e]">*</span>
           </label>
           <select
             id="field-currentStatus"
@@ -426,7 +426,7 @@ export default function EnquiryForm({
               setFormData((prev) => ({ ...prev, currentStatus: e.target.value }))
             }
             onBlur={() => handleBlur('currentStatus')}
-            className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-fuchsia-500/30 bg-[#14062c] focus:border-cyan-400 focus:outline-none text-white [&>option]:bg-[#0c041c] [&>option]:text-white"
+            className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:bg-white focus:border-[#4a044e] focus:ring-2 focus:ring-[#4a044e]/20 focus:outline-none"
           >
             <option value="1st / 2nd Year College Student">1st / 2nd Year College Student</option>
             <option value="3rd / Final Year College Student">3rd / Final Year College Student</option>
@@ -439,8 +439,8 @@ export default function EnquiryForm({
 
       {/* Row 3: Interest Type Selector (Tabs) */}
       <fieldset className="space-y-2">
-        <legend className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-          Area of Interest <span className="text-fuchsia-400">*</span>
+        <legend className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+          Area of Interest <span className="text-[#4a044e]">*</span>
         </legend>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
           {[
@@ -469,14 +469,14 @@ export default function EnquiryForm({
                   interestType: type.id as FormState['interestType'],
                 }))
               }
-              className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
+              className={`p-3 rounded-2xl border text-left transition-all cursor-pointer ${
                 formData.interestType === type.id
-                  ? 'border-cyan-400 bg-cyan-950/60 text-cyan-300 shadow-[0_0_15px_rgba(0,255,255,0.25)]'
-                  : 'border-fuchsia-500/25 bg-[#14062c] text-slate-300 hover:border-fuchsia-500/50 hover:bg-[#1a0838]'
+                  ? 'border-[#4a044e] bg-purple-50 text-[#4a044e] shadow-sm'
+                  : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-[#4a044e]/30 hover:bg-white'
               }`}
             >
               <div className="font-bold text-xs">{type.label}</div>
-              <div className="text-[11px] text-slate-400 mt-0.5">{type.desc}</div>
+              <div className="text-[11px] text-slate-500 mt-0.5">{type.desc}</div>
             </button>
           ))}
         </div>
@@ -486,7 +486,7 @@ export default function EnquiryForm({
       <div>
         <label
           htmlFor="field-programOrTrack"
-          className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5"
+          className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5"
         >
           {formData.interestType === 'training_program'
             ? 'Select Program of Interest'
@@ -501,7 +501,7 @@ export default function EnquiryForm({
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, programOrTrack: e.target.value }))
             }
-            className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-fuchsia-500/30 bg-[#14062c] focus:border-cyan-400 focus:outline-none text-white [&>option]:bg-[#0c041c] [&>option]:text-white"
+            className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:bg-white focus:border-[#4a044e] focus:ring-2 focus:ring-[#4a044e]/20 focus:outline-none"
           >
             {TRAINING_PROGRAMS.map((prog) => (
               <option key={prog.id} value={prog.slug}>
@@ -516,7 +516,7 @@ export default function EnquiryForm({
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, programOrTrack: e.target.value }))
             }
-            className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-fuchsia-500/30 bg-[#14062c] focus:border-cyan-400 focus:outline-none text-white [&>option]:bg-[#0c041c] [&>option]:text-white"
+            className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:bg-white focus:border-[#4a044e] focus:ring-2 focus:ring-[#4a044e]/20 focus:outline-none"
           >
             {GUIDANCE_TRACKS.map((track) => (
               <option key={track.id} value={track.id}>
@@ -533,7 +533,7 @@ export default function EnquiryForm({
               setFormData((prev) => ({ ...prev, programOrTrack: e.target.value }))
             }
             placeholder="e.g. Schedule diagnostic, partnership, or custom query"
-            className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-fuchsia-500/30 bg-[#14062c] focus:border-cyan-400 focus:outline-none text-white placeholder-slate-500"
+            className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#4a044e] focus:ring-2 focus:ring-[#4a044e]/20 focus:outline-none"
           />
         )}
       </div>
@@ -542,7 +542,7 @@ export default function EnquiryForm({
       <div>
         <label
           htmlFor="field-message"
-          className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5"
+          className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5"
         >
           Your Ambition or Questions <span className="text-slate-400 font-normal">(Optional)</span>
         </label>
@@ -554,7 +554,7 @@ export default function EnquiryForm({
             setFormData((prev) => ({ ...prev, message: e.target.value }))
           }
           placeholder="Share your goals, current challenges, or what specific guidance you are seeking..."
-          className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-fuchsia-500/30 bg-[#14062c] focus:border-cyan-400 focus:outline-none text-white placeholder-slate-500 resize-none"
+          className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#4a044e] focus:ring-2 focus:ring-[#4a044e]/20 focus:outline-none resize-none"
         />
       </div>
 
@@ -570,14 +570,14 @@ export default function EnquiryForm({
             }
             onBlur={() => handleBlur('consent')}
             aria-invalid={touched.consent && !formData.consent}
-            className="mt-1 h-4 w-4 rounded border-fuchsia-500/40 bg-[#14062c] text-cyan-400 focus:ring-cyan-400"
+            className="mt-1 h-4 w-4 rounded border-slate-300 text-[#4a044e] focus:ring-[#4a044e]"
           />
-          <span className="text-xs text-slate-300 leading-relaxed">
+          <span className="text-xs text-slate-600 leading-relaxed">
             I agree to receive personalized career guidance communication from Karka AI & Tech Academy. We adhere to a strict zero-spam policy and will never share your contact details.
           </span>
         </label>
         {touched.consent && errors.consent && (
-          <p className="text-xs text-rose-400 font-medium pl-6">
+          <p className="text-xs text-rose-600 font-medium pl-6">
             {errors.consent}
           </p>
         )}
@@ -588,7 +588,7 @@ export default function EnquiryForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-infini-primary w-full py-3.5 px-6 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+          className="btn-karka-primary w-full py-3.5 px-6 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 shadow-md shadow-purple-900/20"
         >
           {isSubmitting ? (
             <>
@@ -603,8 +603,8 @@ export default function EnquiryForm({
           )}
         </button>
 
-        <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-slate-400">
-          <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+        <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-slate-500">
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
           <span>SSL Secured • 24hr Advisor Response Time</span>
         </div>
       </div>

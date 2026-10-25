@@ -1,16 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import {
   Compass,
   Code2,
-  FileText,
-  UserCheck,
-  CheckCircle2,
-  Clock,
   ArrowRight,
-  Sparkles,
   Bot,
   Layers,
   Palette,
@@ -20,11 +15,9 @@ import {
   Briefcase,
   GraduationCap,
 } from 'lucide-react';
-import { GUIDANCE_TRACKS, CAREER_TRACKS, AUDIENCE_NAV_ITEMS } from '@/data/content';
+import { CAREER_TRACKS, AUDIENCE_NAV_ITEMS } from '@/data/content';
 
 export default function CareerGuidanceSection() {
-  const [activeAudience, setActiveAudience] = useState<string>('all');
-
   const trackIcons: Record<string, React.ElementType> = {
     fullstack: Code2,
     genai: Bot,
@@ -37,23 +30,19 @@ export default function CareerGuidanceSection() {
   };
 
   return (
-    <section id="career-tracks" className="py-20 lg:py-24 bg-transparent relative overflow-hidden">
-      {/* Background glow effects */}
-      <div className="absolute top-1/3 right-0 w-[450px] h-[450px] bg-[#F000FF]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-[450px] h-[450px] bg-[#00FFFF]/10 rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="career-tracks" className="py-16 lg:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header matching Official Site */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(240,0,255,0.25)]">
-            <Compass className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#4a044e]/10 border border-[#4a044e]/20 text-[#4a044e] text-xs font-bold uppercase tracking-wider font-readex">
+            <Compass className="w-3.5 h-3.5 text-[#4a044e]" />
             <span>Internships &amp; Career Pathways</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight font-display">
-            Choose Your Career Track
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight font-display">
+            Choose Your <span className="text-[#4a044e]">Career Track</span>
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-body">
+          <p className="text-slate-600 text-base sm:text-lg font-body">
             Specialized internships and training pathways designed to launch your career.
           </p>
         </div>
@@ -65,48 +54,48 @@ export default function CareerGuidanceSection() {
             return (
               <div
                 key={track.id}
-                className="card-cosmic rounded-3xl p-6 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 flex flex-col justify-between group hover:bg-white hover:border-[#4a044e]/30 hover:shadow-xl hover:shadow-purple-900/5 transition-all duration-300"
               >
                 <div>
                   {/* Top Badge & Icon */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-2xl bg-fuchsia-950/70 border border-fuchsia-500/30 text-cyan-400 flex items-center justify-center group-hover:scale-105 group-hover:border-cyan-400/60 group-hover:bg-cyan-950/40 transition-all duration-200">
+                    <div className="w-11 h-11 rounded-2xl bg-[#4a044e]/10 text-[#4a044e] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#4a044e] group-hover:text-white transition-all duration-300">
                       <Icon className="w-5 h-5" />
                     </div>
                     {track.badge && (
-                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-400/40 text-cyan-300 font-readex">
+                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#4a044e]/10 text-[#4a044e] border border-[#4a044e]/20 font-readex">
                         {track.badge}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors font-display">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#4a044e] transition-colors font-display">
                     {track.title}
                   </h3>
-                  <p className="text-xs font-medium text-fuchsia-400 mt-1 mb-4 font-readex">
+                  <p className="text-xs font-semibold text-[#4a044e] mt-1 mb-4 font-readex">
                     {track.tagline}
                   </p>
 
                   {/* Courses List */}
-                  <div className="space-y-1.5 pt-2 border-t border-fuchsia-500/20">
+                  <div className="space-y-1.5 pt-3 border-t border-slate-200">
                     {track.courses.map((course, cIdx) => (
                       <div
                         key={cIdx}
-                        className="text-xs text-slate-300 flex items-center gap-2 py-0.5 font-body"
+                        className="text-xs text-slate-600 flex items-center gap-2 py-0.5 font-body"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#4a044e] flex-shrink-0" />
                         <span>{course}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-fuchsia-500/20">
+                <div className="pt-6 mt-6 border-t border-slate-200 flex items-center justify-between">
                   <Link
-                    href={`/programs?track=${track.id}`}
-                    className="w-full inline-flex items-center justify-between text-xs font-bold text-cyan-400 hover:text-white transition-colors group/btn font-readex"
+                    href={`/contact?track=${track.id}`}
+                    className="text-xs font-bold text-[#4a044e] hover:text-[#5e0563] inline-flex items-center gap-1 group/btn font-readex"
                   >
-                    <span>Enroll for {track.title}</span>
+                    <span>Explore Track</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -115,17 +104,17 @@ export default function CareerGuidanceSection() {
           })}
         </div>
 
-        {/* Target Audience Pathways matching Official Website */}
-        <div id="audiences" className="pt-10 border-t border-fuchsia-500/20">
+        {/* 4 Audience Pathways Section (School, College, Graduates, Professionals) */}
+        <div className="bg-purple-50/70 rounded-3xl p-8 sm:p-12 border border-purple-200/70">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest font-readex">
-              Tailored by Academic &amp; Career Stage
+            <span className="text-xs font-bold uppercase tracking-wider text-[#4a044e] font-readex">
+              Tailored For You
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight font-display">
-              Targeted Pathways for Every Aspirant
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 font-display">
+              Programs For Every Career Stage
             </h3>
-            <p className="text-slate-300 text-sm font-body">
-              Whether you are in school, college, graduating, or a working professional, Karka has a specific success roadmap for you.
+            <p className="text-sm text-slate-600 font-body">
+              Whether you are in school, college, graduating, or switching careers, we have a structured path for you.
             </p>
           </div>
 
@@ -133,30 +122,30 @@ export default function CareerGuidanceSection() {
             {AUDIENCE_NAV_ITEMS.map((aud) => (
               <div
                 key={aud.id}
-                className="bg-[#12052b]/80 border border-fuchsia-500/25 rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-400/50 transition-colors"
+                className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-[#4a044e]/30 transition-all"
               >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-cyan-300 font-readex">
-                      {aud.subtitle}
-                    </span>
-                    <GraduationCap className="w-4 h-4 text-fuchsia-400" />
+                <div className="space-y-2.5">
+                  <div className="w-10 h-10 rounded-xl bg-[#4a044e]/10 text-[#4a044e] flex items-center justify-center font-bold">
+                    <GraduationCap className="w-5 h-5" />
                   </div>
-                  <h4 className="text-lg font-bold text-white font-display">
+                  <h4 className="text-base font-bold text-slate-900 font-display">
                     {aud.name}
                   </h4>
-                  <p className="text-xs text-slate-300 leading-relaxed font-body">
+                  <div className="text-[11px] font-bold text-[#4a044e] font-readex">
+                    {aud.subtitle}
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-body">
                     {aud.tagline}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-fuchsia-500/20">
+                <div className="pt-4 mt-4 border-t border-slate-100">
                   <Link
                     href={aud.href}
-                    className="text-xs font-bold text-cyan-400 hover:text-white flex items-center gap-1 font-readex"
+                    className="text-xs font-bold text-[#4a044e] hover:text-[#5e0563] inline-flex items-center gap-1 font-readex"
                   >
-                    <span>Explore Pathway</span>
-                    <ArrowRight className="w-3 h-3" />
+                    <span>View Pathway</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>

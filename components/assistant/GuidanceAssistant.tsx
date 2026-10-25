@@ -260,18 +260,18 @@ export default function GuidanceAssistant() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2.5 px-4 py-3 rounded-full shadow-[0_0_25px_rgba(240,0,255,0.5)] transition-all duration-300 font-bold text-sm ${
+          className={`flex items-center gap-2.5 px-4 py-3 rounded-full transition-all duration-300 font-bold text-sm ${
             isOpen
-              ? 'bg-[#080218] text-white border border-fuchsia-500/50 hover:bg-[#12052b]'
-              : 'bg-gradient-to-r from-[#F000FF] via-[#B000FF] to-[#0055FF] text-white border border-fuchsia-400/40 hover:shadow-[0_0_35px_rgba(240,0,255,0.7)] hover:scale-105 active:scale-95'
-          } focus:outline-none focus-visible:ring-4 focus-visible:ring-fuchsia-400`}
+              ? 'bg-[#2a0a2e] text-white border border-purple-400/40 hover:bg-[#3d0340] shadow-lg shadow-purple-950/30'
+              : 'bg-gradient-to-r from-[#4a044e] via-[#630b69] to-[#892a92] text-white border border-purple-300/30 shadow-xl shadow-purple-900/25 hover:shadow-purple-900/40 hover:scale-105 active:scale-95'
+          } focus:outline-none focus-visible:ring-4 focus-visible:ring-[#4a044e]/30`}
           aria-label={isOpen ? 'Close Assistant' : 'Open Karka AI Assistant'}
           aria-expanded={isOpen}
           id="chatgpt-assistant-launcher"
         >
           {isOpen ? (
             <>
-              <X className="w-5 h-5 text-cyan-400" />
+              <X className="w-5 h-5 text-purple-200" />
               <span>Close AI Assistant</span>
             </>
           ) : (
@@ -279,8 +279,8 @@ export default function GuidanceAssistant() {
               <Sparkles className="w-5 h-5 text-amber-300 animate-pulse" />
               <span>Karka AI Assistant</span>
               <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-300" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-300 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
               </span>
             </>
           )}
@@ -297,35 +297,35 @@ export default function GuidanceAssistant() {
             isExpanded
               ? 'w-[calc(100vw-2rem)] sm:w-[650px] h-[88vh] max-h-[820px]'
               : 'w-[calc(100vw-2rem)] sm:w-[450px] h-[78vh] max-h-[640px]'
-          } bg-[#0c041c]/95 backdrop-blur-2xl rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.85)] border border-fuchsia-500/35 flex flex-col z-50 overflow-hidden transition-all duration-300 animate-in fade-in zoom-in-95`}
+          } bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-purple-950/20 border border-slate-200 flex flex-col z-50 overflow-hidden transition-all duration-300 animate-in fade-in zoom-in-95`}
         >
           {/* Window Header */}
-          <div className="bg-[#060112] px-4 py-3.5 text-white flex items-center justify-between border-b border-fuchsia-500/25">
+          <div className="bg-linear-to-r from-[#4a044e] via-[#5e0563] to-[#2a0a2e] px-4 py-3.5 text-white flex items-center justify-between border-b border-purple-900/20">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-[#F000FF] to-[#00FFFF] flex items-center justify-center text-white shadow-[0_0_15px_rgba(240,0,255,0.4)]">
-                <Bot className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-2xl bg-white/20 flex items-center justify-center text-white shadow-xs">
+                <Bot className="w-5 h-5 text-purple-100" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
                   <h3 className="font-extrabold text-sm tracking-tight text-white">
                     Karka AI Navigator
                   </h3>
-                  <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-fuchsia-950/70 text-fuchsia-300 border border-fuchsia-400/40">
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-white/20 text-purple-100 border border-white/20">
                     Infini AI
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-400 flex items-center gap-1">
+                <p className="text-[11px] text-purple-200 flex items-center gap-1">
                   <span>General Knowledge • Coding • Nagercoil HQ</span>
                 </p>
               </div>
             </div>
 
             {/* Header Action Controls */}
-            <div className="flex items-center gap-1 text-slate-400">
+            <div className="flex items-center gap-1 text-purple-200">
               <button
                 type="button"
                 onClick={() => setShowConfigNotice(!showConfigNotice)}
-                className="p-1.5 rounded-lg hover:text-cyan-300 hover:bg-fuchsia-950/40 transition-colors"
+                className="p-1.5 rounded-lg hover:text-white hover:bg-white/10 transition-colors"
                 title="Model Provider & Configuration Info"
                 aria-label="Configuration information"
               >
@@ -335,7 +335,7 @@ export default function GuidanceAssistant() {
               <button
                 type="button"
                 onClick={handleNewConversation}
-                className="p-1.5 rounded-lg hover:text-cyan-300 hover:bg-fuchsia-950/40 transition-colors"
+                className="p-1.5 rounded-lg hover:text-white hover:bg-white/10 transition-colors"
                 title="Start New Conversation"
                 aria-label="Start New Conversation"
               >
@@ -345,7 +345,7 @@ export default function GuidanceAssistant() {
               <button
                 type="button"
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="p-1.5 rounded-lg hover:text-cyan-300 hover:bg-fuchsia-950/40 transition-colors hidden sm:block"
+                className="p-1.5 rounded-lg hover:text-white hover:bg-white/10 transition-colors hidden sm:block"
                 title={isExpanded ? 'Restore window size' : 'Expand window'}
                 aria-label="Toggle window size"
               >
@@ -359,7 +359,7 @@ export default function GuidanceAssistant() {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 rounded-lg hover:text-fuchsia-400 hover:bg-fuchsia-950/40 transition-colors"
+                className="p-1.5 rounded-lg hover:text-white hover:bg-white/10 transition-colors"
                 title="Close chat window"
                 aria-label="Close chat window"
               >
@@ -370,22 +370,22 @@ export default function GuidanceAssistant() {
 
           {/* Model Provider Info Drawer (Collapsible) */}
           {showConfigNotice && (
-            <div className="bg-[#080218] text-slate-200 p-3.5 text-xs border-b border-fuchsia-500/25 space-y-1.5 animate-in slide-in-from-top duration-150">
-              <div className="flex items-center justify-between font-bold text-fuchsia-300">
+            <div className="bg-purple-950/90 text-purple-100 p-3.5 text-xs border-b border-purple-800 space-y-1.5 animate-in slide-in-from-top duration-150">
+              <div className="flex items-center justify-between font-bold text-white">
                 <span>AI Model Provider Integration:</span>
                 <button
                   type="button"
                   onClick={() => setShowConfigNotice(false)}
-                  className="text-slate-400 hover:text-white"
+                  className="text-purple-300 hover:text-white"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               </div>
-              <p className="text-slate-300 text-[11px] leading-relaxed">
+              <p className="text-purple-200 text-[11px] leading-relaxed">
                 {providerNotice ||
                   'The AI backend supports live Google Gemini, OpenAI GPT-4o, and Groq streaming. If no API key is set in .env.local, it seamlessly uses the built-in conversational multi-turn engine.'}
               </p>
-              <div className="font-mono text-[10px] bg-[#030014] p-2 rounded border border-fuchsia-500/30 text-amber-300">
+              <div className="font-mono text-[10px] bg-slate-900/60 p-2 rounded border border-purple-700 text-amber-300">
                 # In .env.local:
                 <br />
                 GEMINI_API_KEY=your_key_here
@@ -396,7 +396,7 @@ export default function GuidanceAssistant() {
           )}
 
           {/* Messages Scroll Area */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-[#050114]/80 text-sm">
+          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50 text-sm">
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -405,7 +405,7 @@ export default function GuidanceAssistant() {
                 }`}
               >
                 {msg.role === 'assistant' && (
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#00FFFF] to-[#0055FF] text-black flex items-center justify-center flex-shrink-0 mt-0.5 shadow-[0_0_10px_rgba(0,255,255,0.4)]">
+                  <div className="w-7 h-7 rounded-lg bg-purple-100 text-[#4a044e] flex items-center justify-center flex-shrink-0 mt-0.5 border border-purple-200 shadow-xs">
                     <Bot className="w-4 h-4" />
                   </div>
                 )}
@@ -414,10 +414,10 @@ export default function GuidanceAssistant() {
                   <div
                     className={`p-4 rounded-2xl shadow-xs leading-relaxed ${
                       msg.role === 'user'
-                        ? 'bg-gradient-to-r from-[#F000FF] to-[#B000FF] text-white rounded-br-xs shadow-[0_0_15px_rgba(240,0,255,0.3)]'
+                        ? 'bg-[#4a044e] text-white rounded-br-xs shadow-sm'
                         : msg.error
-                        ? 'bg-rose-950/40 text-rose-300 border border-rose-500/40 rounded-bl-xs'
-                        : 'bg-[#13062d] text-slate-200 border border-fuchsia-500/25 rounded-bl-xs'
+                        ? 'bg-rose-50 text-rose-800 border border-rose-200 rounded-bl-xs'
+                        : 'bg-white text-slate-800 border border-slate-200/90 rounded-bl-xs shadow-xs'
                     }`}
                   >
                     {msg.role === 'user' ? (
@@ -429,17 +429,17 @@ export default function GuidanceAssistant() {
 
                   {/* Assistant Footer Actions: Copy & Timestamp */}
                   {msg.role === 'assistant' && msg.content && (
-                    <div className="flex items-center gap-2 px-1 text-[11px] text-slate-400">
+                    <div className="flex items-center gap-2 px-1 text-[11px] text-slate-500">
                       <button
                         type="button"
                         onClick={() => handleCopyMessage(msg.id, msg.content)}
-                        className="inline-flex items-center gap-1 hover:text-cyan-300 transition-colors"
+                        className="inline-flex items-center gap-1 hover:text-[#4a044e] transition-colors"
                         title="Copy assistant response"
                       >
                         {copiedId === msg.id ? (
                           <>
-                            <Check className="w-3 h-3 text-cyan-400" />
-                            <span className="text-cyan-400 font-semibold">Copied</span>
+                            <Check className="w-3 h-3 text-emerald-600" />
+                            <span className="text-emerald-600 font-semibold">Copied</span>
                           </>
                         ) : (
                           <>
@@ -453,7 +453,7 @@ export default function GuidanceAssistant() {
                         <button
                           type="button"
                           onClick={handleRetryLast}
-                          className="inline-flex items-center gap-1 text-cyan-400 font-semibold hover:underline"
+                          className="inline-flex items-center gap-1 text-[#4a044e] font-semibold hover:underline"
                         >
                           <RefreshCw className="w-3 h-3" />
                           <span>Retry</span>
@@ -464,7 +464,7 @@ export default function GuidanceAssistant() {
                 </div>
 
                 {msg.role === 'user' && (
-                  <div className="w-7 h-7 rounded-lg bg-fuchsia-900/60 border border-fuchsia-500/40 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-lg bg-purple-100 border border-purple-200 text-[#4a044e] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <User className="w-4 h-4" />
                   </div>
                 )}
@@ -473,11 +473,11 @@ export default function GuidanceAssistant() {
 
             {/* Streaming Typing Indicator */}
             {isStreaming && (
-              <div className="flex items-center gap-2 text-xs text-slate-400 pl-9 py-1 animate-pulse">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce" />
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce [animation-delay:0.2s]" />
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce [animation-delay:0.4s]" />
-                <span className="text-[11px] text-cyan-300 font-medium ml-1">
+              <div className="flex items-center gap-2 text-xs text-slate-500 pl-9 py-1 animate-pulse">
+                <span className="w-2 h-2 rounded-full bg-[#4a044e] animate-bounce" />
+                <span className="w-2 h-2 rounded-full bg-[#4a044e] animate-bounce [animation-delay:0.2s]" />
+                <span className="w-2 h-2 rounded-full bg-[#4a044e] animate-bounce [animation-delay:0.4s]" />
+                <span className="text-[11px] text-[#4a044e] font-semibold ml-1">
                   Karka AI Navigator is thinking...
                 </span>
               </div>
@@ -488,8 +488,8 @@ export default function GuidanceAssistant() {
 
           {/* Optional Starter Chips (Only shown if short conversation) */}
           {messages.length <= 3 && !isStreaming && (
-            <div className="px-3 py-2 bg-[#09021a] border-t border-fuchsia-500/20 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 whitespace-nowrap pl-1">
+            <div className="px-3 py-2 bg-purple-50/70 border-t border-purple-100 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 whitespace-nowrap pl-1">
                 Try:
               </span>
               {OPTIONAL_STARTER_PROMPTS.map((prompt, idx) => (
@@ -497,7 +497,7 @@ export default function GuidanceAssistant() {
                   key={idx}
                   type="button"
                   onClick={() => handleSendMessage(prompt)}
-                  className="whitespace-nowrap px-2.5 py-1 rounded-full bg-[#150734] hover:bg-fuchsia-950 hover:text-cyan-300 text-[11px] text-slate-300 border border-fuchsia-500/30 transition-colors cursor-pointer"
+                  className="whitespace-nowrap px-2.5 py-1 rounded-full bg-white hover:bg-purple-100 text-[11px] text-slate-700 hover:text-[#4a044e] border border-purple-200 transition-colors cursor-pointer shadow-xs"
                 >
                   {prompt}
                 </button>
@@ -506,13 +506,13 @@ export default function GuidanceAssistant() {
           )}
 
           {/* Input Area with Shift+Enter Support & Stop Button */}
-          <div className="p-3 bg-[#080218] border-t border-fuchsia-500/25 relative">
+          <div className="p-3 bg-white border-t border-slate-200 relative">
             {isStreaming && (
               <div className="flex justify-center -mt-8 mb-2">
                 <button
                   type="button"
                   onClick={handleStopGeneration}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#030014] border border-fuchsia-500/40 text-white text-xs font-semibold shadow-md hover:bg-fuchsia-950 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4a044e] text-white text-xs font-semibold shadow-md hover:bg-[#3d0340] transition-colors"
                 >
                   <Square className="w-3 h-3 fill-white" />
                   <span>Stop generating</span>
@@ -525,7 +525,7 @@ export default function GuidanceAssistant() {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="flex items-end gap-2 bg-[#110526] p-2 rounded-2xl border border-fuchsia-500/30 focus-within:border-cyan-400 focus-within:shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-colors"
+              className="flex items-end gap-2 bg-slate-50 p-2 rounded-2xl border border-slate-200 focus-within:border-[#4a044e] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#4a044e]/20 transition-all"
             >
               <textarea
                 ref={textareaRef}
@@ -535,13 +535,13 @@ export default function GuidanceAssistant() {
                 onKeyDown={handleKeyDown}
                 placeholder="Ask anything... (Enter to send, Shift+Enter for new line)"
                 disabled={isStreaming}
-                className="flex-1 bg-transparent border-0 text-sm text-white placeholder-slate-400 focus:outline-none resize-none max-h-32 px-1 py-1"
+                className="flex-1 bg-transparent border-0 text-sm text-slate-900 placeholder-slate-400 focus:outline-none resize-none max-h-32 px-1 py-1"
               />
 
               <button
                 type="submit"
                 disabled={!input.trim() || isStreaming}
-                className="btn-infini-primary p-2.5 rounded-xl disabled:opacity-40 text-white transition-colors flex items-center justify-center flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 cursor-pointer"
+                className="btn-karka-primary p-2.5 rounded-xl disabled:opacity-40 text-white transition-colors flex items-center justify-center flex-shrink-0 cursor-pointer shadow-sm shadow-purple-900/20"
                 aria-label="Send message"
               >
                 <Send className="w-4 h-4" />

@@ -16,18 +16,18 @@ export default function ErrorBoundary({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#030014] text-white p-4 cosmic-nebula-bg">
-      <div className="max-w-md w-full card-cosmic p-8 text-center space-y-6">
-        <div className="w-16 h-16 rounded-2xl bg-rose-950/70 border border-rose-500/40 text-rose-400 flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(244,63,94,0.3)]">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-900 p-4 selection:bg-[#4a044e] selection:text-white">
+      <div className="max-w-md w-full bg-white rounded-3xl p-8 text-center space-y-6 border border-slate-200/80 shadow-xl shadow-purple-900/5">
+        <div className="w-16 h-16 rounded-2xl bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center mx-auto shadow-sm">
           <AlertCircle className="w-8 h-8" />
         </div>
 
         <div className="space-y-2">
-          <h2 className="text-2xl font-black text-white tracking-tight">
-            Unexpected <span className="text-gradient-infini">Disruption</span>
+          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+            Unexpected <span className="text-gradient-plum">Disruption</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            We encountered a temporary issue rendering this view. Our team has been notified.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            We encountered a temporary issue rendering this view. Our engineering mentors have been notified.
           </p>
         </div>
 
@@ -35,16 +35,16 @@ export default function ErrorBoundary({
           <button
             type="button"
             onClick={() => reset()}
-            className="btn-infini-primary flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs cursor-pointer"
+            className="btn-karka-primary flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs cursor-pointer shadow-md shadow-purple-900/20"
           >
             <RotateCcw className="w-4 h-4" />
             <span>Try Again</span>
           </button>
           <Link
             href="/"
-            className="btn-infini-cyan flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs cursor-pointer"
+            className="btn-karka-secondary flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs cursor-pointer"
           >
-            <Home className="w-4 h-4 text-cyan-300" />
+            <Home className="w-4 h-4 text-[#4a044e]" />
             <span>Home</span>
           </Link>
         </div>

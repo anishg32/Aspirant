@@ -19,9 +19,9 @@ import {
 import { GUIDANCE_TRACKS } from '@/data/content';
 
 export const metadata: Metadata = {
-  title: 'Career Guidance Services | You Aspirant',
+  title: 'Career Guidance Services | Karka AI & Tech Academy - Nagercoil',
   description:
-    'Explore personalized 1-on-1 career guidance, diagnostic stream mapping, code reviews, and mock interview preparation at You Aspirant.',
+    'Explore personalized 1-on-1 career guidance, diagnostic stream mapping, code reviews, and mock interview preparation at Karka AI & Tech Academy.',
 };
 
 export default function GuidancePage() {

@@ -550,7 +550,7 @@ Here are a few things we can do:
 - **Code & Build:** Ask me to write or debug code in Python, Java, JavaScript, C++, or SQL.
 - **Learn Concepts:** Ask for explanations of computer science, cloud computing, physics, or mathematics.
 - **Write & Brainstorm:** Ask me to draft emails, summarize articles, or design system architectures.
-- **Career & Skills:** Ask about You Aspirant programs, resume strategies, or technical interview tips.
+- **Career & Skills:** Ask about Karka AI Academy programs, Nagercoil campus, resume strategies, or technical interview tips.
 
 Could you tell me a bit more about what you're working on or what you'd like to dive into?`,
   };

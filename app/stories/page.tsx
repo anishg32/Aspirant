@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -17,29 +18,29 @@ import {
 import { STUDENT_STORIES } from '@/data/content';
 
 export const metadata: Metadata = {
-  title: 'Student Success Stories & Projects | You Aspirant',
+  title: 'Student Success Stories & Projects | Karka AI & Tech Academy',
   description:
-    'Explore verified student transitions, capstone project architectures, and GitHub portfolios built through You Aspirant training.',
+    'Explore verified student transitions, capstone project architectures, and GitHub portfolios built through Karka AI & Tech Academy training in Nagercoil.',
 };
 
 export default function StoriesPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-purple-900 selection:text-white">
       <Navbar />
       <main className="flex-1 pt-32 pb-20">
         
         {/* Page Hero */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider">
-              <Trophy className="w-3.5 h-3.5 text-teal-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-900 text-xs font-bold uppercase tracking-wider">
+              <Trophy className="w-3.5 h-3.5 text-purple-600" />
               <span>Verifiable Project Portfolios</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
               Real Student Transformations & Case Studies
             </h1>
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              We showcase verifiable proof of competence. Explore how students from varied educational backgrounds engineered production-tier web apps, cloud CI/CD pipelines, and data systems.
+              We showcase verifiable proof of competence. Explore how students from varied educational backgrounds engineered production-tier web apps, cloud CI/CD pipelines, and data systems at Karka AI Academy.
             </p>
           </div>
         </div>
@@ -60,13 +61,30 @@ export default function StoriesPage() {
                   <span className="text-xs text-slate-400">Trajectory 0{idx + 1}</span>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-extrabold text-slate-900">
-                    {story.studentName}
-                  </h2>
-                  <p className="text-xs font-semibold text-blue-600 mt-0.5">
-                    {story.initialBackground}
-                  </p>
+                <div className="flex items-center gap-4">
+                  {story.avatar ? (
+                    <div className="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-purple-200 shadow-sm flex-shrink-0">
+                      <Image
+                        src={story.avatar}
+                        alt={story.studentName}
+                        fill
+                        sizes="64px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16 rounded-2xl bg-purple-100 text-purple-800 font-bold text-xl flex items-center justify-center flex-shrink-0">
+                      {story.studentName.charAt(0)}
+                    </div>
+                  )}
+                  <div>
+                    <h2 className="text-2xl font-extrabold text-slate-900">
+                      {story.studentName}
+                    </h2>
+                    <p className="text-xs font-semibold text-purple-700 mt-0.5">
+                      {story.initialBackground}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs space-y-1">

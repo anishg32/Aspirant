@@ -7,28 +7,28 @@ import { ShieldCheck, Lock, Eye, FileText } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/data/content';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | You Aspirant',
+  title: 'Privacy Policy | Karka AI & Tech Academy',
   description:
-    'Read the You Aspirant Privacy Policy covering data collection, student privacy, and our zero-spam policy.',
+    'Read the Karka AI & Tech Academy Privacy Policy covering data collection, student privacy, and our zero-spam policy in Nagercoil.',
 };
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-purple-900 selection:text-white">
       <Navbar />
       <main className="flex-1 pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm space-y-8">
             <div className="space-y-2 border-b border-slate-100 pb-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+              <span className="text-xs font-bold uppercase tracking-wider text-purple-700">
                 Data Protection & Privacy
               </span>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
                 Privacy Policy
               </h1>
               <p className="text-xs text-slate-400">
-                Last updated: October 2026 • Valid for You Aspirant Educational Services
+                Last updated: October 2026 • Valid for Karka AI & Tech Academy Educational Services
               </p>
             </div>
 
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
               <section className="space-y-2">
                 <h2 className="text-base font-bold text-slate-900">1. Our Core Privacy Commitment</h2>
                 <p>
-                  At <strong>{COMPANY_DETAILS.legalName}</strong> (&ldquo;You Aspirant&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;), we treat student privacy with the highest respect. We operate a strict <strong>zero-spam policy</strong>. We never sell, rent, lease, or monetize student contact details or consultation records to third-party marketing companies.
+                  At <strong>{COMPANY_DETAILS.legalName}</strong> (&ldquo;Karka AI & Tech Academy&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;), we treat student privacy with the highest respect. We operate a strict <strong>zero-spam policy</strong>. We never sell, rent, lease, or monetize student contact details or consultation records to third-party marketing companies.
                 </p>
               </section>
 

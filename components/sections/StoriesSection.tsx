@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Trophy,
@@ -38,12 +39,12 @@ export default function StoriesSection() {
           {STUDENT_STORIES.map((story) => (
             <div
               key={story.id}
-              className="bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all duration-300 group"
+              className="bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:shadow-xl hover:border-purple-300 transition-all duration-300 group"
             >
               <div className="space-y-6">
                 
                 {/* Header & Verification Pill */}
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-teal-100/80 text-teal-800 border border-teal-200">
                       {story.verifiedStatus}
@@ -51,12 +52,32 @@ export default function StoriesSection() {
                     <span className="text-xs text-slate-400 font-medium">Case Study</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                    {story.studentName}
-                  </h3>
-                  <div className="text-xs text-slate-500 font-medium">
-                    <span className="block text-slate-700 font-semibold">{story.initialBackground}</span>
-                    <span className="text-blue-600">Enrolled: {story.programTaken}</span>
+                  <div className="flex items-center gap-3.5">
+                    {story.avatar ? (
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-purple-200 shadow-sm flex-shrink-0">
+                        <Image
+                          src={story.avatar}
+                          alt={story.studentName}
+                          fill
+                          sizes="48px"
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-purple-100 text-purple-800 font-bold flex items-center justify-center flex-shrink-0">
+                        {story.studentName.charAt(0)}
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-purple-900 transition-colors">
+                        {story.studentName}
+                      </h3>
+                      <p className="text-xs text-slate-500 font-medium">{story.initialBackground}</p>
+                    </div>
+                  </div>
+
+                  <div className="text-xs text-purple-800 font-medium bg-purple-50 px-3 py-1.5 rounded-xl border border-purple-100">
+                    Enrolled: {story.programTaken}
                   </div>
                 </div>
 
@@ -129,7 +150,7 @@ export default function StoriesSection() {
         <div className="mt-12 text-center text-xs text-slate-500 max-w-2xl mx-auto">
           <ShieldCheck className="w-4 h-4 text-teal-600 inline mr-1" />
           <span>
-            Nexora Labs Competition Disclosure: These project case studies demonstrate the verified curriculum capstones built by learners undergoing You Aspirant training modules.
+            Nexora Labs Competition Disclosure: These project case studies demonstrate the verified curriculum capstones built by learners undergoing Karka AI & Tech Academy training cohorts in Nagercoil.
           </span>
         </div>
 

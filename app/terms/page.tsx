@@ -7,28 +7,28 @@ import { ShieldAlert, BookCheck, Scale, Award } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/data/content';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions | You Aspirant',
+  title: 'Terms & Conditions | Karka AI & Tech Academy',
   description:
-    'Terms and Conditions for You Aspirant career guidance, training cohorts, and educational advisory services.',
+    'Terms and Conditions for Karka AI & Tech Academy career guidance, training cohorts, and educational advisory services in Nagercoil.',
 };
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-purple-900 selection:text-white">
       <Navbar />
       <main className="flex-1 pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm space-y-8">
             <div className="space-y-2 border-b border-slate-100 pb-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+              <span className="text-xs font-bold uppercase tracking-wider text-purple-700">
                 Legal Agreement & Disclosures
               </span>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
                 Terms and Conditions
               </h1>
               <p className="text-xs text-slate-400">
-                Effective Date: October 2026 • You Aspirant Platform
+                Effective Date: October 2026 • Karka AI & Tech Academy Platform
               </p>
             </div>
 
@@ -36,7 +36,7 @@ export default function TermsPage() {
               <section className="space-y-2">
                 <h2 className="text-base font-bold text-slate-900">1. Acceptance of Terms</h2>
                 <p>
-                  By accessing the <strong>You Aspirant</strong> website or enrolling in any career guidance track or training program offered by {COMPANY_DETAILS.legalName}, you agree to be bound by these Terms and Conditions.
+                  By accessing the <strong>Karka AI & Tech Academy</strong> website or enrolling in any career guidance track or training program offered by {COMPANY_DETAILS.legalName}, you agree to be bound by these Terms and Conditions.
                 </p>
               </section>
 
@@ -46,7 +46,7 @@ export default function TermsPage() {
                   <span>2. Ethical Career Guidance Disclosure (Non-Guarantee Policy)</span>
                 </h2>
                 <p className="text-xs leading-relaxed text-amber-900">
-                  You Aspirant provides educational training, skills evaluation, and mentorship. We explicitly do <strong>not</strong> make false promises or guarantees of job placement, employment offers, or specific compensation figures. Hiring outcomes depend entirely on individual learner diligence, performance during employer technical screenings, and market macroeconomic factors.
+                  Karka AI Academy provides educational training, skills evaluation, and mentorship. We explicitly do <strong>not</strong> make false promises or guarantees of job placement, employment offers, or specific compensation figures. Hiring outcomes depend entirely on individual learner diligence, performance during employer technical screenings, and market macroeconomic factors.
                 </p>
               </section>
 
@@ -66,7 +66,7 @@ export default function TermsPage() {
                 <h2 className="text-base font-bold text-slate-900">4. 7-Day Unconditional Refund Policy</h2>
                 <p>
                   We offer a 7-day refund window starting from the date of the first live lecture in your cohort. If you determine the learning format is not suitable for your needs, you may submit a written refund request to{' '}
-                  <a href={`mailto:${COMPANY_DETAILS.contact.email}`} className="text-blue-600 hover:underline">
+                  <a href={`mailto:${COMPANY_DETAILS.contact.email}`} className="text-purple-700 hover:underline">
                     {COMPANY_DETAILS.contact.email}
                   </a>{' '}
                   for a 100% refund of tuition fees paid, with zero hidden deduction fees.
@@ -76,7 +76,7 @@ export default function TermsPage() {
               <section className="space-y-2">
                 <h2 className="text-base font-bold text-slate-900">5. Limitation of Liability</h2>
                 <p>
-                  In no event shall You Aspirant or its mentors be liable for indirect, incidental, or consequential damages arising from reliance on career guidance advice or software built during hands-on exercises.
+                  In no event shall Karka AI & Tech Academy or its mentors be liable for indirect, incidental, or consequential damages arising from reliance on career guidance advice or software built during hands-on exercises.
                 </p>
               </section>
 

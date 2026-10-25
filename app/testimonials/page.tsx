@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -183,15 +184,27 @@ export default function TestimonialsPage() {
                 </div>
 
                 <div className="pt-4 mt-6 border-t border-slate-100 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-teal-500 text-white font-bold text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
-                    {rev.author.charAt(0)}
-                  </div>
+                  {rev.avatar ? (
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-purple-200 shadow-xs flex-shrink-0">
+                      <Image
+                        src={rev.avatar}
+                        alt={rev.author}
+                        fill
+                        sizes="44px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-purple-800 to-fuchsia-600 text-white font-bold text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
+                      {rev.author.charAt(0)}
+                    </div>
+                  )}
                   <div>
                     <h3 className="font-bold text-sm text-slate-900 leading-tight">
                       {rev.author}
                     </h3>
                     <p className="text-xs text-slate-500">{rev.role}</p>
-                    <p className="text-[11px] text-teal-700 font-medium">{rev.service}</p>
+                    <p className="text-[11px] text-purple-700 font-medium">{rev.service}</p>
                   </div>
                 </div>
               </div>

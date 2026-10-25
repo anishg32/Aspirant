@@ -36,7 +36,7 @@ export default function ProgramsSection() {
     try {
       if (navigator.share) {
         await navigator.share({
-          title: `${prog.title} - You Aspirant`,
+          title: `${prog.title} - Karka AI & Tech Academy`,
           text: prog.shortDesc,
           url,
         });

@@ -3,6 +3,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
 import TrustSection from '@/components/sections/TrustSection';
+import AcademyVideoTour from '@/components/sections/AcademyVideoTour';
 import CareerGuidanceSection from '@/components/sections/CareerGuidanceSection';
 import ProgramsSection from '@/components/sections/ProgramsSection';
 import CareerQuiz from '@/components/sections/CareerQuiz';
@@ -14,10 +15,11 @@ import GuidanceAssistant from '@/components/assistant/GuidanceAssistant';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-purple-900 selection:text-white">
       <Navbar />
       <main id="main-content" className="flex-1">
         <Hero />
+        <AcademyVideoTour />
         <TrustSection />
         <CareerGuidanceSection />
         <ProgramsSection />

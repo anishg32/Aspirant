@@ -362,7 +362,7 @@ export default function CareerQuiz() {
               <button
                 type="button"
                 onClick={async () => {
-                  const text = `You Aspirant Assessment Result:\nRecommended: ${recommendation.title}\nFit: ${recommendation.matchReason}\nSkills: ${recommendation.skills.join(', ')}`;
+                  const text = `Karka AI Academy Assessment Result:\nRecommended: ${recommendation.title}\nFit: ${recommendation.matchReason}\nSkills: ${recommendation.skills.join(', ')}\nCampus: SRV Towers, Nagercoil\nWebsite: https://karka.academy`;
                   await navigator.clipboard.writeText(text);
                   setCopied(true);
                   showToast('Assessment summary copied to clipboard!', 'success', 'Result Copied');

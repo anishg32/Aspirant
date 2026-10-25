@@ -90,7 +90,7 @@ export default function TrustSection() {
                   Transparency Matrix
                 </span>
                 <h3 className="text-lg font-bold text-slate-900 mt-1">
-                  How You Aspirant Compares
+                  How Karka Academy Compares
                 </h3>
               </div>
 
@@ -105,7 +105,7 @@ export default function TrustSection() {
                       Dubious "100% placement guarantees" with fine print and non-refundable fees.
                     </div>
                     <div className="text-slate-700 pl-2">
-                      <span className="block font-semibold text-teal-600 mb-0.5">You Aspirant</span>
+                      <span className="block font-semibold text-purple-700 mb-0.5">Karka Academy</span>
                       Realistic skill development, portfolio building, and active interview coaching.
                     </div>
                   </div>
@@ -120,7 +120,7 @@ export default function TrustSection() {
                       Generic todo-apps and cookie-cutter tutorial copies with no real database indexing.
                     </div>
                     <div className="text-slate-700 pl-2">
-                      <span className="block font-semibold text-teal-600 mb-0.5">You Aspirant</span>
+                      <span className="block font-semibold text-purple-700 mb-0.5">Karka Academy</span>
                       Multi-tenant SaaS architectures, Docker containerization, and AWS CI/CD pipelines.
                     </div>
                   </div>
@@ -135,7 +135,7 @@ export default function TrustSection() {
                       Batch broadcasts with 200+ students and automated ticket queues.
                     </div>
                     <div className="text-slate-700 pl-2">
-                      <span className="block font-semibold text-teal-600 mb-0.5">You Aspirant</span>
+                      <span className="block font-semibold text-purple-700 mb-0.5">Karka Academy</span>
                       Dedicated 1-on-1 diagnostic sessions, code audits, and simulated interview rounds.
                     </div>
                   </div>

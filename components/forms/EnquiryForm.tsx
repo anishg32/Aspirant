@@ -578,7 +578,7 @@ export default function EnquiryForm({
             className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
           />
           <span className="text-xs text-slate-600 leading-relaxed">
-            I agree to receive personalized career guidance communication from You Aspirant. We adhere to a strict zero-spam policy and will never share your contact details.
+            I agree to receive personalized career guidance communication from Karka AI & Tech Academy. We adhere to a strict zero-spam policy and will never share your contact details.
           </span>
         </label>
         {touched.consent && errors.consent && (

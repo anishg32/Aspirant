@@ -1,21 +1,23 @@
-# YOU ASPIRANT — REDESIGN CHALLENGE (SITESPRINT)
-**Team:** NEXORA LABS  
+# KARKA AI & TECH ACADEMY — OFFICIAL REDESIGN (SITESPRINT)
+**Academy:** Karka AI & Tech Academy · Nagercoil, Tamil Nadu  
+**Official Website:** `https://karka.academy/`  
+**Exact Campus:** Ground Floor, SRV Towers, Muthamizh Street, Veppamoodu, Nagercoil – 629001  
+**Redesign Team:** NEXORA LABS  
 **Tagline:** Innovate. Design. Transform.  
-**Project:** You Aspirant Career Guidance & Training Platform Redesign  
 **Technology Stack:** Next.js 16 (App Router) • TypeScript • Tailwind CSS • Lucide Icons  
 
 ---
 
 ## 🚀 Executive Summary & Objective
 
-This project is the official submission by **Team NEXORA LABS** for the **SiteSprint Website Redesign Challenge** (hosted by Karka Infini AI).
+This project is the comprehensive digital transformation of **Karka AI & Tech Academy** by **Team NEXORA LABS** for the **SiteSprint Website Redesign Challenge** (hosted by Karka Infini AI).
 
-The core challenge was to redesign the digital presence of **You Aspirant**—a career guidance and professional tech training platform—to:
-1. Elevate brand trust and clarity through a modern, premium design system.
-2. Transparently present verified career counseling tracks and technical training programs.
-3. Replace misleading "100% placement guarantee" marketing gimmicks with an **Ethical Career Policy** focusing on demonstrable capstone projects and verifiable GitHub portfolios.
-4. Drive qualified student enquiries through an interactive 60-second Career Pathway Matcher, an intelligent real-time Guidance Assistant, and a validated multi-step Smart Enquiry Form.
-5. Achieve strict adherence to **WCAG 2.2 AA accessibility**, fast loading performance, and technical SEO best practices.
+The platform elevates digital presence, student conversions, and verifiable trust:
+1. **Physical Campus Immersion:** Embedded interactive video tour (`t541Ju_-L2U`), campus innovation lab photos, student portraits, and mentor code review galleries.
+2. **Exact Official Address & Channels:** Ground Floor, SRV Towers, Muthamizh Street (near Girias), Veppamoodu, Nagercoil – 629001 with interactive OpenStreetMap, 1-click direction routing, direct hotline (`+91 9487530243`), WhatsApp chat, and Spike AI / Karka Infini AI links.
+3. **Transparent Tech Curricula:** Real-world capstone projects in Full-Stack Web Development (Next.js/PostgreSQL), Cloud & DevOps (AWS/Docker/k8s), and Data Science & AI.
+4. **Ethical Career Policy:** Non-guarantee transparency with Pay After Placement cohorts and 7-day unconditional refund policy.
+5. **Conversational AI Assistant:** Aspirant Navigator with multi-turn chat, multi-provider LLM support, and offline intelligence.
 
 ---
 
@@ -68,7 +70,7 @@ A floating interactive AI counselor available across every page. Upgraded into a
   - `GROQ_API_KEY`: Groq Llama-3.3-70B
   - `OPENROUTER_API_KEY`: OpenRouter Universal
   - *Out-of-the-Box Fallback:* Built-in multi-turn conversational reasoning engine for zero-setup execution.
-- **Verified Company Grounding:** When asked about You Aspirant, seamlessly delivers verified course, guidance, fee, and policy details without hallucination.
+- **Verified Company Grounding:** When asked about Karka AI Academy, seamlessly delivers verified course, guidance, fee, and policy details without hallucination.
 
 ### 3. Validated Smart Enquiry Form (`/contact#enquiry-form`)
 - Real-time client-side validation synchronized with accessibility states (`:user-invalid`, `aria-invalid`, `aria-describedby`).
@@ -85,7 +87,7 @@ All quality, build, and accessibility checks were executed directly:
 ```bash
 # 1. Production Build & TypeScript Typecheck
 npm run build
-# Result: ✓ Compiled successfully in 261ms (16 static & dynamic routes generated with zero errors)
+# Result: ✓ Compiled successfully with zero errors
 
 # 2. Server-side Form API Endpoint Test
 curl -s -X POST http://localhost:3000/api/enquiry -H "Content-Type: application/json" -d '{"fullName":"Rahul Sharma","email":"rahul@example.com","phone":"9876543210","currentStatus":"3rd / Final Year College Student","interestType":"training_program","programOrTrack":"fullstack-web-engineering","consent":true}'
@@ -93,7 +95,7 @@ curl -s -X POST http://localhost:3000/api/enquiry -H "Content-Type: application/
 
 # 3. Guidance Assistant Knowledge Endpoint Test
 curl -s -X POST http://localhost:3000/api/assistant -H "Content-Type: application/json" -d '{"message":"Do you offer 100% placement guarantees?"}'
-# Result: Correctly articulates You Aspirant's ethical non-guarantee policy and links to FAQ.
+# Result: Correctly articulates Karka AI Academy's ethical non-guarantee policy and links to FAQ.
 
 # 4. XML Sitemap & Robots.txt Verification
 curl -s http://localhost:3000/robots.txt
@@ -123,6 +125,6 @@ npm run dev
 ## 👥 Credits & Team Attribution
 
 - **Challenge:** SiteSprint Website Redesign Challenge (Karka Infini AI)
-- **Organization:** You Aspirant Career Guidance & Professional Training
+- **Organization:** Karka AI & Tech Academy · Nagercoil, Tamil Nadu
 - **Redesign Team:** **NEXORA LABS**
 - **Tagline:** *Innovate. Design. Transform.*

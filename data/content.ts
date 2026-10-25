@@ -30,6 +30,7 @@ export interface GuidanceTrack {
 export interface StudentStory {
   id: string;
   studentName: string;
+  avatar?: string;
   initialBackground: string;
   targetDomain: string;
   programTaken: string;
@@ -43,6 +44,7 @@ export interface StudentStory {
 export interface Testimonial {
   id: string;
   author: string;
+  avatar?: string;
   role: string;
   organizationOrCollege: string;
   service: string;
@@ -433,7 +435,8 @@ export const HOW_IT_WORKS_STEPS = [
 export const STUDENT_STORIES: StudentStory[] = [
   {
     id: 'story-1',
-    studentName: 'Karthik R.',
+    studentName: 'Karthik R. (Sanjay)',
+    avatar: '/images/students/sanjay.jpg',
     initialBackground: 'Mechanical Engineering Student, Non-CS Background',
     targetDomain: 'Full-Stack Web Engineering',
     programTaken: 'Full-Stack Web Engineering (16 Weeks)',
@@ -452,11 +455,12 @@ export const STUDENT_STORIES: StudentStory[] = [
     ],
     keyOutcome: 'Transitioned from zero coding knowledge to successfully completing 3 production web apps and securing a Junior Developer role.',
     verifiedStatus: 'Verified Project Demonstration',
-    quote: 'You Aspirant did not make empty guarantees. Instead, my mentor sat with me line by line through code reviews until I understood how databases and APIs actually work under the hood.'
+    quote: 'Karka Academy did not make empty guarantees. Instead, my mentor sat with me line by line through code reviews until I understood how databases and APIs actually work under the hood.'
   },
   {
     id: 'story-2',
-    studentName: 'Ananya S.',
+    studentName: 'Ananya S. (Divya)',
+    avatar: '/images/students/divya.jpg',
     initialBackground: 'BCA 3rd Year Student',
     targetDomain: 'Cloud & DevOps Engineering',
     programTaken: 'Applied Cloud & DevOps Essentials (12 Weeks)',
@@ -475,11 +479,12 @@ export const STUDENT_STORIES: StudentStory[] = [
     ],
     keyOutcome: 'Built a standout GitHub repository of DevOps IaC configurations that helped her clear 3 campus placement technical rounds.',
     verifiedStatus: 'Verified Project Demonstration',
-    quote: 'The difference between learning DevOps from YouTube and learning at You Aspirant was the rigorous hands-on troubleshooting when containers broke in real labs.'
+    quote: 'The difference between learning DevOps from YouTube and learning at Karka Academy was the rigorous hands-on troubleshooting when containers broke in real labs.'
   },
   {
     id: 'story-3',
-    studentName: 'Praveen Kumar M.',
+    studentName: 'Praveen Kumar M. (Arun)',
+    avatar: '/images/students/arun.jpg',
     initialBackground: 'B.Sc Computer Science Graduate',
     targetDomain: 'Data Analytics & Applied AI',
     programTaken: 'Data Science & Applied AI Foundations (14 Weeks)',
@@ -506,6 +511,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-1',
     author: 'Sanjay V.',
+    avatar: '/images/students/sanjay.jpg',
     role: 'Student, Computer Engineering',
     organizationOrCollege: 'Anna University Affiliated College, Chennai',
     service: '1-on-1 Career Mentorship & Tech Stack Guidance',
@@ -517,6 +523,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-2',
     author: 'Meenakshi Sundaram',
+    avatar: '/images/mentor-session.jpg',
     role: 'Parent of Engineering Student',
     organizationOrCollege: 'Kanyakumari District, Tamil Nadu',
     service: 'Stream & Specialization Discovery Session',
@@ -528,6 +535,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-3',
     author: 'Divya N.',
+    avatar: '/images/students/divya.jpg',
     role: 'Recent Graduate & Junior Full-Stack Engineer',
     organizationOrCollege: 'Technopark / IT Corridor',
     service: 'Full-Stack Web Engineering Training',
@@ -539,6 +547,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'test-4',
     author: 'Arun Balaji',
+    avatar: '/images/students/arun.jpg',
     role: 'Final Year IT Student',
     organizationOrCollege: 'Nagercoil Engineering College',
     service: 'Mock Interview & Resume Blueprint',

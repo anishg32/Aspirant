@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Compass,
@@ -13,6 +14,8 @@ import {
   Award,
   Users,
   Target,
+  Play,
+  MapPin,
 } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/data/content';
 
@@ -59,12 +62,23 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
+              <a
+                href="#academy-tour"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-bold text-sm text-purple-950 bg-purple-100 hover:bg-purple-200 border border-purple-300 shadow-xs hover:-translate-y-0.5 transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 group"
+                id="hero-video-cta"
+              >
+                <span className="w-6 h-6 rounded-full bg-[#4a044e] text-white flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
+                  <Play className="w-3 h-3 fill-white ml-0.5" />
+                </span>
+                <span>Watch Campus Tour (Video)</span>
+              </a>
+
               <Link
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-400 shadow-xs transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-400 shadow-xs transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                 id="hero-secondary-cta"
               >
-                <span>Visit Nagercoil Campus / Contact</span>
+                <span>Visit Campus</span>
               </Link>
             </div>
 
@@ -111,6 +125,40 @@ export default function Hero() {
                   Live Cohorts
                 </span>
               </div>
+
+              {/* Campus Innovation Lab & Mascot Video Preview */}
+              <a
+                href="#academy-tour"
+                className="relative block rounded-2xl overflow-hidden border border-slate-200/80 group shadow-sm bg-slate-950 aspect-[16/9]"
+                id="hero-campus-preview-card"
+              >
+                <Image
+                  src="/images/hero-campus.jpg"
+                  alt="Karka AI Innovation Lab at SRV Towers Nagercoil"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-white/90 text-purple-900 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-white transition-all">
+                    <Play className="w-5 h-5 fill-[#4a044e] ml-0.5" />
+                  </div>
+                </div>
+
+                {/* Bottom Pill Details */}
+                <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-[11px]">
+                  <div className="flex items-center gap-1.5 font-bold">
+                    <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                    <span>SRV Towers, Nagercoil Campus</span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded-full bg-purple-900/80 border border-purple-400/30 text-[10px] font-bold text-purple-200">
+                    Campus Tour Video
+                  </span>
+                </div>
+              </a>
 
               {/* 3 Step Interactive Visual in Card */}
               <div className="space-y-3.5">

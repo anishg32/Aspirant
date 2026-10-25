@@ -16,9 +16,9 @@ import {
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Training Programs | You Aspirant - Practical Engineering Curricula',
+  title: 'Training Programs | Karka AI & Tech Academy - Nagercoil',
   description:
-    'Explore verified, project-first training programs in Full-Stack Web Development, Cloud & DevOps, Data Science & AI, and Cyber Security at You Aspirant.',
+    'Explore verified, project-first training programs in Full-Stack Web Development, Cloud & DevOps, Data Science & AI, and Cyber Security at Karka AI & Tech Academy.',
 };
 
 export default function ProgramsPage() {

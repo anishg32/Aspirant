@@ -1,6 +1,5 @@
-'use client';
-
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Star,
@@ -64,10 +63,21 @@ export default function TestimonialsSection() {
               {/* Author & Service Meta */}
               <div className="pt-4 mt-4 border-t border-slate-100">
                 <div className="flex items-center gap-3">
-                  {/* Monogram Avatar */}
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-600 to-teal-500 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 shadow-xs">
-                    {test.author.charAt(0)}
-                  </div>
+                  {test.avatar ? (
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden border border-purple-200 shadow-xs flex-shrink-0">
+                      <Image
+                        src={test.avatar}
+                        alt={test.author}
+                        fill
+                        sizes="40px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-800 to-fuchsia-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 shadow-xs">
+                      {test.author.charAt(0)}
+                    </div>
+                  )}
                   <div>
                     <h3 className="font-bold text-xs text-slate-900 leading-tight">
                       {test.author}
@@ -75,7 +85,7 @@ export default function TestimonialsSection() {
                     <p className="text-[11px] text-slate-500">
                       {test.role}
                     </p>
-                    <p className="text-[10px] text-teal-600 font-medium">
+                    <p className="text-[10px] text-purple-700 font-medium">
                       {test.service}
                     </p>
                   </div>

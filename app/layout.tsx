@@ -5,7 +5,6 @@ import { COMPANY_DETAILS } from '@/data/content';
 
 import { ToastProvider } from '@/components/ui/Toast';
 import BackToTop from '@/components/layout/BackToTop';
-import ScrollObserver from '@/components/layout/ScrollObserver';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -162,7 +161,6 @@ export default function RootLayout({
         <ToastProvider>
           {children}
           <BackToTop />
-          <ScrollObserver />
         </ToastProvider>
       </body>
     </html>

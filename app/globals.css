@@ -225,28 +225,45 @@
   animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Scroll reveal helper classes for smooth letters & text visibility */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+/* ==========================================================================
+   SCROLL REVEAL (Modern Native CSS Scroll-Driven Animations - 0 Hydration Mismatch)
+   ========================================================================== */
+
+@keyframes scroll-entry-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.scroll-reveal.is-revealed,
-.revealed,
-.is-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+/* Base state: fully visible for instant legibility, accessibility & 0 hydration mismatch */
+.scroll-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Native Scroll-Driven Animation (Compositor accelerated) */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    .scroll-reveal {
+      animation: scroll-entry-reveal auto cubic-bezier(0.16, 1, 0.3, 1) backwards;
+      animation-timeline: view(block);
+      animation-range: entry 0% cover 28%;
+    }
+  }
 }
 
 /* Staggered delay utilities */
-.delay-75 { transition-delay: 75ms; }
-.delay-100 { transition-delay: 100ms; }
-.delay-150 { transition-delay: 150ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
+.delay-75 { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
 
 /* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {

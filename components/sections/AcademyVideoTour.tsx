@@ -411,7 +411,7 @@ export default function AcademyVideoTour() {
         <div className="mt-16 pt-8 border-t border-slate-200/80">
           <div className="relative w-full overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="animate-scroll-slow flex items-center gap-6 py-2">
-              {[...LEARNERS, ...LEARNERS].map((l, idx) => (
+              {[...LEARNERS, ...LEARNERS, ...LEARNERS, ...LEARNERS].map((l, idx) => (
                 <div
                   key={idx}
                   onClick={() => handleSelectLearner(l.id)}

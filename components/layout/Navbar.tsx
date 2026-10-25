@@ -60,8 +60,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Programs', href: '/#programs' },
-    { name: 'Pay After Placement', href: '/#pay-after-hired' },
     { name: 'Why Karka', href: '/#why-karka' },
+    { name: 'Pay After Placement', href: '/#pay-after-hired' },
     { name: 'Platforms', href: '/#platforms' },
     { name: 'Learner Stories', href: '/stories' },
     { name: 'Career Matcher', href: '/#career-quiz' },

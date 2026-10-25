@@ -226,7 +226,7 @@
 }
 
 /* ==========================================================================
-   SCROLL REVEAL (Modern Native CSS Scroll-Driven Animations - 0 Hydration Mismatch)
+   SCROLL REVEAL (Full Cover Animation - No Empty Space - 0 Hydration Mismatch)
    ========================================================================== */
 
 @keyframes scroll-entry-reveal {
@@ -240,13 +240,14 @@
   }
 }
 
-/* Base state: fully visible for instant legibility, accessibility & 0 hydration mismatch */
+/* Base state: 100% visible for instant legibility, accessibility & 0 hydration mismatch */
 .scroll-reveal {
   opacity: 1;
   transform: translateY(0);
+  will-change: opacity, transform;
 }
 
-/* Native Scroll-Driven Animation (Compositor accelerated) */
+/* Native compositor-accelerated scroll animation */
 @media (prefers-reduced-motion: no-preference) {
   @supports ((animation-timeline: view()) and (animation-range: entry)) {
     .scroll-reveal {

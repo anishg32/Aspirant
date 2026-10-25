@@ -58,7 +58,7 @@ export default function TrustSection() {
         </div>
 
         {/* 6 Reasons Grid - Matching Official Website */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-20 max-w-6xl mx-auto scroll-reveal delay-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-20 max-w-6xl mx-auto">
           {WHY_KARKA_REASONS.map((reason, idx) => {
             const Icon = pillarIcons[idx] || Sparkles;
             return (

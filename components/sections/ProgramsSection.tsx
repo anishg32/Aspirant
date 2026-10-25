@@ -278,6 +278,55 @@ export default function ProgramsSection() {
               </div>
             </div>
           ))}
+
+          {/* Custom Bootcamp & Academic Partnership Card (Fills Row 4 so there is 0 empty space) */}
+          {filteredPrograms.length === 10 && (
+            <div className="md:col-span-2 rounded-3xl p-7 sm:p-8 flex flex-col justify-between border border-white/20 bg-linear-to-br from-white/10 via-purple-900/30 to-fuchsia-950/40 backdrop-blur-md relative overflow-hidden group shadow-xl">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-wider font-readex">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Custom Programs &amp; Campus Cohorts</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-white font-display leading-tight">
+                  Need a Customized Curriculum or College Partnership?
+                </h3>
+                <p className="text-purple-100 text-xs sm:text-sm leading-relaxed font-body">
+                  We partner directly with college engineering departments, corporate teams, and technical organizations to provide bespoke syllabi, weekend hackathons, and dedicated hiring pipeline batches.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs text-purple-200 font-readex">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-300 shrink-0" />
+                    <span>Curriculum tailored to target job roles</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-300 shrink-0" />
+                    <span>On-site labs at SRV Towers Nagercoil</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-300 shrink-0" />
+                    <span>Direct industry mentor code reviews</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-300 shrink-0" />
+                    <span>Pay After Placement eligibility verification</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
+                <span className="text-xs text-purple-200 font-readex">
+                  Speak directly with our Academic Curriculum Director
+                </span>
+                <Link
+                  href="/contact?intent=custom-bootcamp"
+                  className="inline-flex items-center gap-2 py-2.5 px-5 rounded-xl btn-karka-white text-xs font-bold font-readex uppercase tracking-wide transition-all"
+                >
+                  <span>Request Custom Cohort</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
 
       </div>

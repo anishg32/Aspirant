@@ -28,11 +28,11 @@ export default function Home() {
         {/* 2. Explore Our Programs: 6 Official Bootcamps & Internships */}
         <ProgramsSection />
 
-        {/* 3. Pay After You Get Hired Model: Zero Upfront Fees */}
-        <PayAfterHiredSection />
-
-        {/* 4. Why Karka? The 6 Core Pillars */}
+        {/* 3. Why Karka? The 6 Core Pillars */}
         <TrustSection />
+
+        {/* 4. Pay After You Get Hired Model: Zero Upfront Fees */}
+        <PayAfterHiredSection />
 
         {/* 5. 4 Pillars of a Job-Ready Tech Career */}
         <FourPillarsSection />

@@ -42,7 +42,7 @@ export default function PayAfterHiredSection() {
         </div>
 
         {/* 3 Steps Process Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 relative scroll-reveal delay-100">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 relative">
           {PAY_AFTER_HIRED_MODEL.steps.map((item, idx) => {
             const Icon = stepIcons[idx] || Sparkles;
             return (

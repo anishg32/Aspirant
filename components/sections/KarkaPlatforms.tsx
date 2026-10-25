@@ -56,7 +56,7 @@ export default function KarkaPlatforms() {
         </div>
 
         {/* 2-Card Grid (Infini AI 3 cols & Spike AI 2 cols on lg) */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch scroll-reveal delay-100">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
           
           {/* Card 1: Karka Infini AI (lg:col-span-3) */}
           <div className="lg:col-span-3 relative flex flex-col justify-between rounded-3xl bg-gradient-to-br from-[#4a044e] via-[#3d0340] to-[#2a0a2e] text-white p-7 sm:p-10 overflow-hidden shadow-2xl shadow-purple-950/20 border border-purple-500/30">

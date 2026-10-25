@@ -34,7 +34,7 @@ export default function FourPillarsSection() {
         </div>
 
         {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 scroll-reveal delay-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
           {FOUR_PILLARS.map((pillar, idx) => {
             const Icon = pillarIcons[idx] || Sparkles;
             return (

@@ -61,7 +61,7 @@ export function CodeBlock({ language, value }: CodeBlockProps) {
 
 export default function ChatMessageContent({ content }: { content: string }) {
   return (
-    <div className="prose prose-sm max-w-none text-slate-800 leading-relaxed break-words">
+    <div className="prose prose-sm max-w-none text-slate-200 leading-relaxed break-words">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
@@ -73,7 +73,7 @@ export default function ChatMessageContent({ content }: { content: string }) {
             if (isInline) {
               return (
                 <code
-                  className="px-1.5 py-0.5 rounded-md bg-slate-100 text-blue-700 font-mono text-xs font-semibold border border-slate-200"
+                  className="px-1.5 py-0.5 rounded-md bg-[#1b083b] text-cyan-300 font-mono text-xs font-semibold border border-fuchsia-500/30"
                   {...props}
                 >
                   {children}
@@ -101,20 +101,20 @@ export default function ChatMessageContent({ content }: { content: string }) {
             return <li className="my-0.5">{children}</li>;
           },
           h1({ children }) {
-            return <h1 className="text-base font-bold text-slate-900 mt-3 mb-1.5">{children}</h1>;
+            return <h1 className="text-base font-bold text-white mt-3 mb-1.5">{children}</h1>;
           },
           h2({ children }) {
-            return <h2 className="text-sm font-bold text-slate-900 mt-2.5 mb-1">{children}</h2>;
+            return <h2 className="text-sm font-bold text-white mt-2.5 mb-1">{children}</h2>;
           },
           h3({ children }) {
-            return <h3 className="text-xs font-bold uppercase tracking-wider text-slate-800 mt-2 mb-1">{children}</h3>;
+            return <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-300 mt-2 mb-1">{children}</h3>;
           },
           strong({ children }) {
-            return <strong className="font-bold text-slate-900">{children}</strong>;
+            return <strong className="font-bold text-white">{children}</strong>;
           },
           blockquote({ children }) {
             return (
-              <blockquote className="border-l-4 border-blue-500 pl-3 italic text-slate-600 my-2">
+              <blockquote className="border-l-4 border-cyan-400 pl-3 italic text-slate-300 my-2">
                 {children}
               </blockquote>
             );
@@ -125,7 +125,7 @@ export default function ChatMessageContent({ content }: { content: string }) {
                 href={href}
                 target={href?.startsWith('http') ? '_blank' : undefined}
                 rel="noreferrer"
-                className="text-blue-600 font-semibold underline hover:text-blue-800"
+                className="text-cyan-400 font-semibold underline hover:text-fuchsia-300"
               >
                 {children}
               </a>

@@ -128,22 +128,22 @@ export default function CareerQuiz() {
   };
 
   return (
-    <section id="career-quiz" className="py-20 bg-slate-950 text-white relative overflow-hidden">
+    <section id="career-quiz" className="py-20 bg-transparent text-white relative overflow-hidden">
       {/* Background radial highlight */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#4a044e]/25 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#F000FF]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#00FFFF]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950 border border-purple-800 text-purple-300 text-xs font-semibold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(240,0,255,0.25)]">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
             <span>Interactive Pathway Discovery</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
             Find Your Recommended Career Pathway
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Answer 3 quick questions to receive a transparent, personalized career recommendation matching your background and ambitions.
           </p>
         </div>
@@ -155,10 +155,10 @@ export default function CareerQuiz() {
               key={step}
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentStep === step
-                  ? 'w-8 bg-fuchsia-500'
+                  ? 'w-8 bg-cyan-400 shadow-[0_0_10px_#00FFFF]'
                   : currentStep > step
-                  ? 'w-3 bg-purple-400'
-                  : 'w-3 bg-slate-700'
+                  ? 'w-3 bg-fuchsia-500 shadow-[0_0_8px_#F000FF]'
+                  : 'w-3 bg-slate-800'
               }`}
             />
           ))}
@@ -166,9 +166,9 @@ export default function CareerQuiz() {
 
         {/* Step 1: Background */}
         {currentStep === 1 && (
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl space-y-6 animate-in fade-in duration-200">
+          <div className="card-cosmic rounded-2xl p-6 sm:p-8 space-y-6 animate-in fade-in duration-200">
             <div className="space-y-1">
-              <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">
+              <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
                 Step 1 of 3
               </span>
               <h3 className="text-xl font-bold text-white">
@@ -187,9 +187,9 @@ export default function CareerQuiz() {
                   key={opt.id}
                   type="button"
                   onClick={() => handleSelect('background', opt.id)}
-                  className="p-4 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700/80 hover:border-blue-500 text-left transition-all group flex flex-col justify-between"
+                  className="p-4 rounded-xl border border-fuchsia-500/20 bg-[#14062c] hover:bg-[#1f0942] hover:border-cyan-400/60 text-left transition-all group flex flex-col justify-between"
                 >
-                  <span className="font-semibold text-sm text-white group-hover:text-blue-300">
+                  <span className="font-bold text-sm text-white group-hover:text-cyan-300">
                     {opt.label}
                   </span>
                   <span className="text-xs text-slate-400 mt-1">
@@ -203,10 +203,10 @@ export default function CareerQuiz() {
 
         {/* Step 2: Interest */}
         {currentStep === 2 && (
-          <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl space-y-6 animate-in fade-in duration-200">
+          <div className="card-cosmic rounded-2xl p-6 sm:p-8 space-y-6 animate-in fade-in duration-200">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
-                <span className="text-xs font-bold text-teal-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
                   Step 2 of 3
                 </span>
                 <h3 className="text-xl font-bold text-white">
@@ -236,13 +236,13 @@ export default function CareerQuiz() {
                     key={opt.id}
                     type="button"
                     onClick={() => handleSelect('interest', opt.id)}
-                    className="p-4 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700/80 hover:border-blue-500 text-left transition-all group flex items-start gap-3"
+                    className="p-4 rounded-xl border border-fuchsia-500/20 bg-[#14062c] hover:bg-[#1f0942] hover:border-cyan-400/60 text-left transition-all group flex items-start gap-3"
                   >
-                    <div className="p-2 rounded-lg bg-slate-700 group-hover:bg-blue-600 transition-colors flex-shrink-0 text-white">
+                    <div className="p-2 rounded-lg bg-fuchsia-950/60 border border-fuchsia-500/30 group-hover:border-cyan-400 group-hover:bg-cyan-950/40 transition-colors flex-shrink-0 text-cyan-400">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="font-semibold text-sm text-white group-hover:text-blue-300 block">
+                      <span className="font-bold text-sm text-white group-hover:text-cyan-300 block">
                         {opt.label}
                       </span>
                       <span className="text-xs text-slate-400 mt-0.5 block">
@@ -258,10 +258,10 @@ export default function CareerQuiz() {
 
         {/* Step 3: Immediate Goal */}
         {currentStep === 3 && (
-          <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl space-y-6 animate-in fade-in duration-200">
+          <div className="card-cosmic rounded-2xl p-6 sm:p-8 space-y-6 animate-in fade-in duration-200">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
-                <span className="text-xs font-bold text-teal-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
                   Step 3 of 3
                 </span>
                 <h3 className="text-xl font-bold text-white">
@@ -287,9 +287,9 @@ export default function CareerQuiz() {
                   key={opt.id}
                   type="button"
                   onClick={() => handleSelect('goal', opt.id)}
-                  className="p-4 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700/80 hover:border-blue-500 text-left transition-all group"
+                  className="p-4 rounded-xl border border-fuchsia-500/20 bg-[#14062c] hover:bg-[#1f0942] hover:border-cyan-400/60 text-left transition-all group"
                 >
-                  <span className="font-semibold text-sm text-white group-hover:text-blue-300 block">
+                  <span className="font-bold text-sm text-white group-hover:text-cyan-300 block">
                     {opt.label}
                   </span>
                   <span className="text-xs text-slate-400 mt-1 block">
@@ -303,20 +303,20 @@ export default function CareerQuiz() {
 
         {/* Step 4: Tailored Recommendation Result */}
         {currentStep === 4 && recommendation && (
-          <div className="bg-gradient-to-b from-slate-900 to-slate-950 border border-purple-800/80 rounded-2xl p-6 sm:p-10 shadow-2xl space-y-6 animate-in zoom-in-95 duration-300">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div className="card-cosmic rounded-2xl p-6 sm:p-10 shadow-[0_0_50px_rgba(240,0,255,0.35)] border-2 border-fuchsia-500/40 space-y-6 animate-in zoom-in-95 duration-300">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-fuchsia-500/20 pb-4">
               <div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/80 text-amber-300 border border-purple-800 text-xs font-bold uppercase tracking-wider">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/60 text-cyan-300 border border-cyan-400/40 text-xs font-bold uppercase tracking-wider">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
                   <span>Personalized Recommendation</span>
                 </span>
-                <h3 className="text-2xl font-extrabold text-white mt-2">
+                <h3 className="text-2xl font-black text-gradient-infini mt-2">
                   {recommendation.title}
                 </h3>
               </div>
 
               {recommendation.duration && (
-                <div className="text-xs font-semibold text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700 self-start sm:self-auto">
+                <div className="text-xs font-bold text-cyan-300 bg-fuchsia-950/60 px-3 py-1.5 rounded-lg border border-fuchsia-500/30 self-start sm:self-auto">
                   Duration: {recommendation.duration}
                 </div>
               )}
@@ -327,22 +327,22 @@ export default function CareerQuiz() {
                 {recommendation.description}
               </p>
 
-              <div className="p-3.5 rounded-xl bg-purple-950/40 border border-purple-800/40 text-xs text-purple-200 leading-relaxed">
-                <strong className="text-fuchsia-300 font-semibold">Why this fits: </strong>
+              <div className="p-3.5 rounded-xl bg-[#180838] border border-fuchsia-500/30 text-xs text-slate-200 leading-relaxed">
+                <strong className="text-cyan-300 font-bold">Why this fits: </strong>
                 {recommendation.matchReason}
               </div>
             </div>
 
             {/* Recommended Skills */}
             <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">
                 Core Competencies Covered:
               </span>
               <div className="flex flex-wrap gap-2">
                 {recommendation.skills.map((skill, idx) => (
                   <span
                     key={idx}
-                    className="px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs font-medium text-slate-200"
+                    className="px-2.5 py-1 rounded-md bg-[#160633] border border-cyan-400/30 text-xs font-medium text-cyan-300"
                   >
                     {skill}
                   </span>
@@ -351,10 +351,10 @@ export default function CareerQuiz() {
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-slate-800">
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-fuchsia-500/20">
               <Link
                 href={recommendation.actionLink}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#4a044e] to-fuchsia-700 hover:from-[#3b023e] hover:to-fuchsia-600 font-bold text-sm text-white shadow-lg shadow-purple-950/40 transition-all text-center hover:scale-[1.02] active:scale-95"
+                className="w-full sm:w-auto btn-infini-primary inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-center"
               >
                 <span>Enquire with this Pathway</span>
                 <ArrowRight className="w-4 h-4" />
@@ -368,7 +368,7 @@ export default function CareerQuiz() {
                   showToast('Assessment summary copied to clipboard!', 'success', 'Result Copied');
                   setTimeout(() => setCopied(false), 2000);
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-colors"
+                className="w-full sm:w-auto btn-infini-cyan inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs font-bold transition-colors"
                 title="Copy result summary"
               >
                 {copied ? <Check className="w-4 h-4 text-amber-400" /> : <Copy className="w-4 h-4" />}
@@ -377,7 +377,7 @@ export default function CareerQuiz() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-fuchsia-500/20 text-xs font-bold text-slate-300 hover:text-white transition-colors"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Retake</span>

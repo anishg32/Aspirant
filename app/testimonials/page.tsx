@@ -102,21 +102,21 @@ export default function TestimonialsPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#030014] text-white selection:bg-[#F000FF] selection:text-white cosmic-nebula-bg">
       <Navbar />
       <main className="flex-1 pt-32 pb-20">
         
         {/* Page Header */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider">
-              <MessageSquare className="w-3.5 h-3.5 text-blue-600" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-fuchsia-950/70 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold uppercase tracking-wider">
+              <MessageSquare className="w-3.5 h-3.5 text-cyan-300" />
               <span>Authentic Student Experiences</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              What Students & Parents Say About Us
+            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+              What Students & Parents <span className="text-gradient-infini">Say About Us</span>
             </h1>
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
               Transparent, unedited reflections from candidates who took our diagnostic sessions, technical training cohorts, and mock interview preparations.
             </p>
 
@@ -124,9 +124,9 @@ export default function TestimonialsPage() {
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-sm transition-all hover:scale-105 active:scale-95"
+                className="btn-infini-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs cursor-pointer"
               >
-                <PlusCircle className="w-4 h-4 text-teal-400" />
+                <PlusCircle className="w-4 h-4 text-cyan-300" />
                 <span>Submit Your Experience</span>
               </button>
             </div>
@@ -138,10 +138,10 @@ export default function TestimonialsPage() {
                   key={cat}
                   type="button"
                   onClick={() => setSelectedFilter(cat)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     selectedFilter === cat
-                      ? 'bg-blue-600 text-white shadow-xs'
-                      : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                      ? 'btn-infini-primary text-white shadow-[0_0_15px_rgba(240,0,255,0.4)]'
+                      : 'bg-[#14062c] text-slate-300 hover:bg-fuchsia-950/60 border border-fuchsia-500/30'
                   }`}
                 >
                   {cat}
@@ -157,35 +157,35 @@ export default function TestimonialsPage() {
             {filteredReviews.map((rev) => (
               <div
                 key={rev.id}
-                className="card-interactive bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between"
+                className="card-cosmic p-6 sm:p-8 flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 text-amber-400">
+                    <div className="flex items-center gap-1 text-amber-300">
                       {[...Array(rev.rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-current" />
                       ))}
                     </div>
                     {rev.verified ? (
-                      <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200 flex items-center gap-1">
-                        <CheckCircle2 className="w-3 h-3 text-teal-600" />
+                      <span className="text-[10px] font-bold text-cyan-300 bg-cyan-950/70 px-2 py-0.5 rounded-full border border-cyan-400/40 flex items-center gap-1">
+                        <CheckCircle2 className="w-3 h-3 text-cyan-400" />
                         <span>Verified Alumnus</span>
                       </span>
                     ) : (
-                      <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-semibold text-slate-400 bg-fuchsia-950/40 border border-fuchsia-500/30 px-2 py-0.5 rounded-full">
                         Recently Submitted
                       </span>
                     )}
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic">
                     &ldquo;{rev.feedback}&rdquo;
                   </p>
                 </div>
 
-                <div className="pt-4 mt-6 border-t border-slate-100 flex items-center gap-3">
+                <div className="pt-4 mt-6 border-t border-fuchsia-500/20 flex items-center gap-3">
                   {rev.avatar ? (
-                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-purple-200 shadow-xs flex-shrink-0">
+                    <div className="relative w-11 h-11 rounded-full overflow-hidden border border-fuchsia-500/40 shadow-xs flex-shrink-0">
                       <Image
                         src={rev.avatar}
                         alt={rev.author}
@@ -195,16 +195,16 @@ export default function TestimonialsPage() {
                       />
                     </div>
                   ) : (
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-purple-800 to-fuchsia-600 text-white font-bold text-sm flex items-center justify-center flex-shrink-0 shadow-xs">
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#F000FF] to-[#00FFFF] text-black font-extrabold text-sm flex items-center justify-center flex-shrink-0 shadow-[0_0_10px_rgba(240,0,255,0.4)]">
                       {rev.author.charAt(0)}
                     </div>
                   )}
                   <div>
-                    <h3 className="font-bold text-sm text-slate-900 leading-tight">
+                    <h3 className="font-bold text-sm text-white leading-tight">
                       {rev.author}
                     </h3>
-                    <p className="text-xs text-slate-500">{rev.role}</p>
-                    <p className="text-[11px] text-purple-700 font-medium">{rev.service}</p>
+                    <p className="text-xs text-slate-400">{rev.role}</p>
+                    <p className="text-[11px] text-cyan-400 font-medium">{rev.service}</p>
                   </div>
                 </div>
               </div>
@@ -218,21 +218,21 @@ export default function TestimonialsPage() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="feedback-modal-title"
-            className="fixed inset-0 bg-slate-900/70 backdrop-blur-xs z-50 flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
             onClick={() => setIsModalOpen(false)}
           >
             <div
-              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 space-y-5 animate-in zoom-in-95 duration-200"
+              className="bg-[#0c041c] rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-[0_0_50px_rgba(240,0,255,0.3)] border border-fuchsia-500/40 space-y-5 animate-in zoom-in-95 duration-200 text-white"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <h3 id="feedback-modal-title" className="text-lg font-bold text-slate-900">
+              <div className="flex items-center justify-between border-b border-fuchsia-500/20 pb-3">
+                <h3 id="feedback-modal-title" className="text-lg font-bold text-white">
                   Submit Your Experience
                 </h3>
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="p-1 rounded-lg text-slate-400 hover:text-slate-700"
+                  className="p-1 rounded-lg text-slate-400 hover:text-cyan-300 cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -240,17 +240,17 @@ export default function TestimonialsPage() {
 
               {submitted ? (
                 <div className="py-8 text-center space-y-2">
-                  <CheckCircle2 className="w-12 h-12 text-teal-500 mx-auto" />
-                  <h4 className="text-base font-bold text-slate-900">Thank you for your feedback!</h4>
-                  <p className="text-xs text-slate-500">
+                  <CheckCircle2 className="w-12 h-12 text-cyan-400 mx-auto" />
+                  <h4 className="text-base font-bold text-white">Thank you for your feedback!</h4>
+                  <p className="text-xs text-slate-400">
                     Your review has been recorded and posted to the community feed.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmitReview} className="space-y-4 text-xs sm:text-sm">
                   <div>
-                    <label className="block font-semibold text-slate-700 mb-1">
-                      Your Name <span className="text-rose-500">*</span>
+                    <label className="block font-semibold text-slate-300 mb-1">
+                      Your Name <span className="text-fuchsia-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -260,12 +260,12 @@ export default function TestimonialsPage() {
                         setNewFeedback({ ...newFeedback, name: e.target.value })
                       }
                       placeholder="e.g. S. Prakash"
-                      className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600"
+                      className="w-full px-3 py-2 rounded-xl border border-fuchsia-500/30 bg-[#14062c] text-white focus:outline-none focus:border-cyan-400"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 mb-1">
+                    <label className="block font-semibold text-slate-300 mb-1">
                       Your College or Role
                     </label>
                     <input
@@ -275,12 +275,12 @@ export default function TestimonialsPage() {
                         setNewFeedback({ ...newFeedback, role: e.target.value })
                       }
                       placeholder="e.g. Final Year B.Tech, Coimbatore"
-                      className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600"
+                      className="w-full px-3 py-2 rounded-xl border border-fuchsia-500/30 bg-[#14062c] text-white focus:outline-none focus:border-cyan-400"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 mb-1">
+                    <label className="block font-semibold text-slate-300 mb-1">
                       Service or Program Completed
                     </label>
                     <select
@@ -288,7 +288,7 @@ export default function TestimonialsPage() {
                       onChange={(e) =>
                         setNewFeedback({ ...newFeedback, service: e.target.value })
                       }
-                      className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 text-slate-800"
+                      className="w-full px-3 py-2 rounded-xl border border-fuchsia-500/30 bg-[#14062c] text-white focus:outline-none focus:border-cyan-400 [&>option]:bg-[#0c041c] [&>option]:text-white"
                     >
                       <option value="Full-Stack Web Engineering">Full-Stack Web Engineering</option>
                       <option value="Applied Cloud & DevOps Essentials">Applied Cloud & DevOps Essentials</option>
@@ -299,7 +299,7 @@ export default function TestimonialsPage() {
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 mb-1">
+                    <label className="block font-semibold text-slate-300 mb-1">
                       Rating
                     </label>
                     <select
@@ -307,7 +307,7 @@ export default function TestimonialsPage() {
                       onChange={(e) =>
                         setNewFeedback({ ...newFeedback, rating: Number(e.target.value) })
                       }
-                      className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 text-slate-800"
+                      className="w-full px-3 py-2 rounded-xl border border-fuchsia-500/30 bg-[#14062c] text-white focus:outline-none focus:border-cyan-400 [&>option]:bg-[#0c041c] [&>option]:text-white"
                     >
                       <option value={5}>5 Stars - Excellent Guidance</option>
                       <option value={4}>4 Stars - Very Good</option>
@@ -316,8 +316,8 @@ export default function TestimonialsPage() {
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-700 mb-1">
-                      Your Honest Review <span className="text-rose-500">*</span>
+                    <label className="block font-semibold text-slate-300 mb-1">
+                      Your Honest Review <span className="text-fuchsia-400">*</span>
                     </label>
                     <textarea
                       required
@@ -327,7 +327,7 @@ export default function TestimonialsPage() {
                         setNewFeedback({ ...newFeedback, feedback: e.target.value })
                       }
                       placeholder="What was your experience with the mentors and coursework?"
-                      className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 resize-none"
+                      className="w-full px-3 py-2 rounded-xl border border-fuchsia-500/30 bg-[#14062c] text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 resize-none"
                     />
                   </div>
 
@@ -335,13 +335,13 @@ export default function TestimonialsPage() {
                     <button
                       type="button"
                       onClick={() => setIsModalOpen(false)}
-                      className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100"
+                      className="btn-infini-cyan px-4 py-2 rounded-xl text-xs font-semibold cursor-pointer"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="px-5 py-2 rounded-xl bg-blue-600 text-white font-bold text-xs hover:bg-blue-700 transition-colors"
+                      className="btn-infini-primary px-5 py-2 rounded-xl text-white font-bold text-xs cursor-pointer"
                     >
                       Publish Feedback
                     </button>

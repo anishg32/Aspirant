@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#2563EB',
+  themeColor: '#030014',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -125,11 +125,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+      <body className="font-sans antialiased bg-[#030014] text-white min-h-screen flex flex-col selection:bg-[#F000FF] selection:text-white cosmic-nebula-bg">
         {/* Accessible skip link */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-blue-600 text-white font-bold rounded-lg shadow-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-gradient-to-r from-[#F000FF] to-[#00FFFF] text-white font-bold rounded-lg shadow-lg"
         >
           Skip to main content
         </a>

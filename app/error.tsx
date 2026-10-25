@@ -16,17 +16,17 @@ export default function ErrorBoundary({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-      <div className="max-w-md w-full bg-white rounded-3xl p-8 border border-slate-200 shadow-xl text-center space-y-6">
-        <div className="w-16 h-16 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto">
+    <div className="min-h-screen flex items-center justify-center bg-[#030014] text-white p-4 cosmic-nebula-bg">
+      <div className="max-w-md w-full card-cosmic p-8 text-center space-y-6">
+        <div className="w-16 h-16 rounded-2xl bg-rose-950/70 border border-rose-500/40 text-rose-400 flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(244,63,94,0.3)]">
           <AlertCircle className="w-8 h-8" />
         </div>
 
         <div className="space-y-2">
-          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-            Unexpected Disruption
+          <h2 className="text-2xl font-black text-white tracking-tight">
+            Unexpected <span className="text-gradient-infini">Disruption</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
             We encountered a temporary issue rendering this view. Our team has been notified.
           </p>
         </div>
@@ -35,16 +35,16 @@ export default function ErrorBoundary({
           <button
             type="button"
             onClick={() => reset()}
-            className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-blue-600 text-white font-bold text-xs hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/25"
+            className="btn-infini-primary flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
             <span>Try Again</span>
           </button>
           <Link
             href="/"
-            className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs hover:bg-slate-200 transition-colors"
+            className="btn-infini-cyan flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs cursor-pointer"
           >
-            <Home className="w-4 h-4" />
+            <Home className="w-4 h-4 text-cyan-300" />
             <span>Home</span>
           </Link>
         </div>

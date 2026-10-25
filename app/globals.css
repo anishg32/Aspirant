@@ -2,27 +2,25 @@
 
 @layer base {
   :root {
-    --brand-navy: #0F172A;
-    --brand-plum: #4a044e;
-    --brand-plum-hover: #3b023e;
-    --brand-plum-light: #701a75;
-    --brand-fuchsia: #c026d3;
-    --brand-fuchsia-light: #e879f9;
-    --brand-blue: #4a044e;
-    --brand-blue-hover: #3b023e;
-    --brand-teal: #701a75;
-    --brand-teal-light: #c026d3;
-    --brand-amber: #F59E0B;
-    --brand-slate: #64748B;
-    --brand-bg: #FFFFFF;
-    --brand-card: #FFFFFF;
-    --brand-border: #F3E8FF;
-    --brand-border-hover: #E9D5FF;
+    --brand-bg: #030014;
+    --brand-surface: #08021a;
+    --brand-card: #0c041c;
+    --brand-card-hover: #14072b;
+    --brand-border: rgba(240, 0, 255, 0.22);
+    --brand-border-cyan: rgba(0, 255, 255, 0.35);
+    --brand-cyan: #00FFFF;
+    --brand-fuchsia: #F000FF;
+    --brand-violet: #B000FF;
+    --brand-blue: #0055FF;
+    --brand-amber: #ffdf00;
+    --brand-text: #f8fafc;
+    --brand-text-muted: #94a3b8;
   }
 
   html {
     scroll-behavior: smooth;
-    color-scheme: light;
+    color-scheme: dark;
+    background-color: #030014;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -38,159 +36,181 @@
   }
 
   body {
-    background-color: var(--brand-bg);
-    color: var(--brand-navy);
+    background-color: #030014;
+    color: #f8fafc;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   /* Accessible focus indicators */
   :focus-visible {
-    outline: 2px solid var(--brand-blue);
+    outline: 2px solid #00FFFF;
     outline-offset: 2px;
   }
 
-  /* Custom subtle scrollbar */
+  /* Custom subtle cosmic scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #030014;
   }
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #2a0b4d;
     border-radius: 4px;
+    border: 1px solid rgba(240, 0, 255, 0.3);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #4a044e;
+    border-color: #00FFFF;
   }
 }
 
-/* Custom background patterns and gradients */
-.bg-grid-pattern {
-  background-size: 32px 32px;
+/* Cosmic Nebula Background Utilities */
+.cosmic-nebula-bg {
+  background-color: #030014;
   background-image: 
-    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+    radial-gradient(circle at 15% 20%, rgba(240, 0, 255, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(0, 255, 255, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 50% 60%, rgba(176, 0, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 20% 85%, rgba(0, 85, 255, 0.10) 0%, transparent 40%);
 }
 
-.bg-radial-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+.cosmic-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(240, 0, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 255, 0.04) 1px, transparent 1px);
 }
 
-.glass-nav {
-  background: rgba(255, 255, 255, 0.92);
+/* Infini AI Style Buttons */
+.btn-infini-primary {
+  background: linear-gradient(90deg, #F000FF 0%, #B000FF 50%, #0055FF 100%);
+  color: #ffffff;
+  font-weight: 800;
+  border: 1px solid rgba(240, 0, 255, 0.5);
+  box-shadow: 0 0 25px rgba(240, 0, 255, 0.5);
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-infini-primary:hover {
+  filter: brightness(1.12);
+  transform: scale(1.03);
+  box-shadow: 0 0 35px rgba(240, 0, 255, 0.7);
+}
+
+.btn-infini-cyan {
+  border: 2px solid #00FFFF;
+  color: #00FFFF;
+  background: rgba(0, 255, 255, 0.04);
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.25);
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-infini-cyan:hover {
+  background: rgba(0, 255, 255, 0.15);
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+}
+
+.btn-infini-gold {
+  background: linear-gradient(90deg, #ffdf00 0%, #ffb703 50%, #fb923c 100%);
+  color: #05020a;
+  font-weight: 900;
+  box-shadow: 0 0 20px rgba(255, 223, 0, 0.5);
+  transition: all 0.25s ease-in-out;
+}
+
+.btn-infini-gold:hover {
+  filter: brightness(1.1);
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 223, 0, 0.7);
+}
+
+/* Cosmic Glass Cards */
+.card-cosmic {
+  background: rgba(12, 4, 28, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  border: 1px solid rgba(240, 0, 255, 0.22);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(240, 0, 255, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+.card-cosmic:hover {
+  border-color: rgba(0, 255, 255, 0.55);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), inset 0 0 25px rgba(0, 255, 255, 0.05);
+  transform: translateY(-3px);
 }
 
-.glass-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.08);
-}
-
-@keyframes subtle-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.85;
-  }
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(13, 148, 136, 0.45);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes gradient-flow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-subtle-pulse {
-  animation: subtle-pulse 3s infinite ease-in-out;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 22s linear infinite;
-}
-
-.animate-float {
-  animation: float-slow 4.5s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3.5s ease-in-out infinite;
-}
-
-.card-interactive {
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.25s ease;
-}
-
-.card-interactive:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 35px -8px rgba(15, 23, 42, 0.08);
-  border-color: #CBD5E1;
-}
-
-.shimmer-text {
-  background: linear-gradient(90deg, #0F172A 0%, #2563EB 50%, #0D9488 100%);
-  background-size: 200% auto;
+/* Gradient Text Utilities */
+.text-gradient-infini {
+  background: linear-gradient(90deg, #00FFFF 0%, #ffffff 40%, #F000FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-flow 6s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(240, 0, 255, 0.4));
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(90deg, #00FFFF 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-fuchsia {
+  background: linear-gradient(90deg, #F000FF 0%, #e879f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(90deg, #ffdf00 0%, #fb923c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes cosmic-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes neon-glow-cyan {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+  }
+}
+
+@keyframes neon-glow-fuchsia {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(240, 0, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(240, 0, 255, 0.6);
+  }
+}
+
+.animate-cosmic-pulse {
+  animation: cosmic-pulse 4s infinite ease-in-out;
+}
+
+.animate-neon-cyan {
+  animation: neon-glow-cyan 3s infinite ease-in-out;
+}
+
+.animate-neon-fuchsia {
+  animation: neon-glow-fuchsia 3s infinite ease-in-out;
 }

@@ -132,23 +132,23 @@ export default function AcademyVideoTour() {
   };
 
   return (
-    <section id="academy-tour" className="relative py-24 bg-gradient-to-b from-white via-purple-50/50 to-white overflow-hidden">
-      {/* Background ambient plum glow */}
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#4a044e]/10 to-transparent pointer-events-none" />
+    <section id="academy-tour" className="relative py-24 bg-transparent overflow-hidden">
+      {/* Background ambient cosmic glow */}
+      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#F000FF]/10 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100/90 border border-purple-200 text-[#4a044e] text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-300 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(240,0,255,0.25)]">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
             <span>Official Karka Academy Experience</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
             Voices of Our Learners
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Hear directly from our graduates about how Karka transformed their careers and helped them land high-growth tech roles.
           </p>
 
@@ -162,8 +162,8 @@ export default function AcademyVideoTour() {
               }}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 viewMode === 'learners'
-                  ? 'bg-[#4a044e] text-white shadow-lg shadow-purple-950/20 ring-2 ring-purple-400/50 scale-105'
-                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
+                  ? 'btn-infini-primary scale-105'
+                  : 'bg-[#0e0524] hover:bg-[#1a0a3d] text-slate-300 border border-fuchsia-500/30'
               }`}
             >
               <Film className="w-4 h-4 text-amber-300" />
@@ -178,11 +178,11 @@ export default function AcademyVideoTour() {
               }}
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 viewMode === 'campus'
-                  ? 'bg-[#4a044e] text-white shadow-lg shadow-purple-950/20 ring-2 ring-purple-400/50 scale-105'
-                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
+                  ? 'btn-infini-primary scale-105'
+                  : 'bg-[#0e0524] hover:bg-[#1a0a3d] text-slate-300 border border-fuchsia-500/30'
               }`}
             >
-              <Tv className="w-4 h-4 text-amber-300" />
+              <Tv className="w-4 h-4 text-cyan-300" />
               <span>Campus & Lab Tour (SRV Towers)</span>
             </button>
           </div>
@@ -196,11 +196,11 @@ export default function AcademyVideoTour() {
             <div className="hidden lg:flex lg:col-span-3 flex-col gap-4 order-1 w-full">
               {/* Active Student Highlight Card */}
               <div
-                className={`relative group overflow-hidden rounded-2xl h-20 w-full ring-2 ring-[#4a044e] ring-offset-2 shadow-xl shadow-[#4a044e]/15 mb-3 transition-all duration-300 bg-gradient-to-r ${activeLearner.pattern}`}
+                className={`relative group overflow-hidden rounded-2xl h-20 w-full ring-2 ring-cyan-400 ring-offset-2 ring-offset-[#030014] shadow-[0_0_25px_rgba(0,255,255,0.4)] mb-3 transition-all duration-300 bg-gradient-to-r ${activeLearner.pattern}`}
               >
-                <div className="absolute inset-0 bg-[#4a044e]/20" />
+                <div className="absolute inset-0 bg-[#030014]/30" />
                 <div className="relative z-10 h-full flex items-center justify-center px-4">
-                  <span className="text-xl font-black text-white uppercase tracking-wider drop-shadow">
+                  <span className="text-xl font-black text-white uppercase tracking-wider drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
                     {activeLearner.name.split(' ')[0]}
                   </span>
                 </div>
@@ -209,7 +209,7 @@ export default function AcademyVideoTour() {
               {/* Up Next Label */}
               <div className="flex items-center justify-end gap-1.5 text-xs font-black text-slate-400 uppercase tracking-widest mb-1 pr-1">
                 <span>Up Next</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-3.5 w-3.5 text-cyan-400" />
               </div>
 
               {/* Next Students Buttons */}
@@ -219,14 +219,14 @@ export default function AcademyVideoTour() {
                     key={item.id}
                     type="button"
                     onClick={() => handleSelectLearner(item.id)}
-                    className={`group relative overflow-hidden rounded-2xl h-18 w-full transition-all duration-300 hover:shadow-lg hover:scale-102 hover:shadow-[#4a044e]/10 text-left bg-gradient-to-r ${item.pattern}`}
+                    className={`group relative overflow-hidden rounded-2xl h-18 w-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(240,0,255,0.3)] hover:scale-102 border border-fuchsia-500/20 hover:border-cyan-400/60 text-left bg-gradient-to-r ${item.pattern}`}
                   >
-                    <div className="absolute inset-0 bg-[#4a044e]/60 group-hover:bg-[#4a044e]/40 transition-colors" />
+                    <div className="absolute inset-0 bg-[#030014]/60 group-hover:bg-[#030014]/40 transition-colors" />
                     <div className="relative z-10 h-full flex items-center justify-between px-5">
                       <span className="text-base font-bold text-white uppercase tracking-wider">
                         {item.name.split(' ')[0]}
                       </span>
-                      <Play className="w-4 h-4 text-white/70 group-hover:text-amber-300 transition-colors" />
+                      <Play className="w-4 h-4 text-cyan-300 group-hover:text-amber-300 transition-colors" />
                     </div>
                   </button>
                 ))}
@@ -306,9 +306,9 @@ export default function AcademyVideoTour() {
 
                   {/* Floating Polaroid Label at bottom */}
                   <div className="absolute bottom-6 left-0 right-0 flex justify-center pointer-events-none z-20">
-                    <div className="bg-white text-[#4a044e] py-2 px-6 shadow-2xl border-2 border-white/60 relative -rotate-2 transform transition-transform">
-                      <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-8 h-3.5 bg-white/40 backdrop-blur-[2px] -rotate-3 shadow-sm" />
-                      <span className="font-black text-lg sm:text-xl uppercase tracking-tighter block text-center">
+                    <div className="bg-[#0b031b] text-white py-2 px-6 shadow-[0_0_20px_rgba(240,0,255,0.4)] border-2 border-fuchsia-500/50 relative -rotate-2 transform transition-transform">
+                      <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-8 h-3.5 bg-cyan-400/30 backdrop-blur-[2px] -rotate-3 shadow-sm" />
+                      <span className="font-black text-lg sm:text-xl uppercase tracking-tighter block text-center text-gradient-infini">
                         {activeLearner.name}
                       </span>
                     </div>
@@ -322,7 +322,7 @@ export default function AcademyVideoTour() {
                 <button
                   type="button"
                   onClick={handleNextStory}
-                  className="group flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-widest transition-colors hover:text-[#4a044e] py-2"
+                  className="group flex items-center gap-2 text-xs font-bold text-cyan-300 uppercase tracking-widest transition-colors hover:text-white py-2"
                 >
                   <span>Next Story</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -334,46 +334,46 @@ export default function AcademyVideoTour() {
             <div className="lg:col-span-5 flex flex-col justify-center text-left order-3 lg:order-3 w-full relative py-4 sm:py-8">
               
               {/* Now Playing Status */}
-              <div className="flex items-center justify-start gap-2 text-xs font-black text-[#4a044e] uppercase tracking-[0.2em] mb-6">
+              <div className="flex items-center justify-start gap-2 text-xs font-black text-cyan-400 uppercase tracking-[0.2em] mb-6">
                 <span>Now Playing</span>
-                <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.7)]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00FFFF]" />
               </div>
 
               {/* Student Header */}
               <div className="flex flex-col gap-1 mb-6">
-                <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#4a044e]/70 mb-1">
+                <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-fuchsia-400 mb-1">
                   Karka Learner Success Story
                 </h3>
-                <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
                   {activeLearner.name}
                 </span>
                 <div className="flex items-center gap-3 mt-1.5">
-                  <span className="text-xs sm:text-sm font-bold tracking-widest text-slate-500 uppercase">
+                  <span className="text-xs sm:text-sm font-bold tracking-widest text-slate-300 uppercase">
                     {activeLearner.role}
                   </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-purple-400" />
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                  <span className="text-xs font-bold text-cyan-300 bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-400/40">
                     Karka Graduate
                   </span>
                 </div>
               </div>
 
               {/* Quote Card */}
-              <div className="relative mb-8 p-6 rounded-2xl bg-white border border-purple-100 shadow-sm">
-                <Quote className="w-8 h-8 text-[#4a044e]/20 fill-[#4a044e]/10 -scale-x-100 mb-2" />
-                <p className="text-slate-700 text-base sm:text-lg leading-relaxed italic">
+              <div className="relative mb-8 p-6 rounded-2xl bg-[#0c041c]/90 border border-fuchsia-500/25 shadow-[0_0_25px_rgba(0,0,0,0.5)]">
+                <Quote className="w-8 h-8 text-cyan-400/30 fill-cyan-400/10 -scale-x-100 mb-2" />
+                <p className="text-slate-200 text-base sm:text-lg leading-relaxed italic">
                   &ldquo;{activeLearner.quote}&rdquo;
                 </p>
               </div>
 
               {/* The Karka Advantage Box */}
-              <div className="p-6 bg-[#4a044e]/5 rounded-2xl border border-[#4a044e]/15">
-                <div className="font-black text-[#4a044e] text-xs sm:text-sm tracking-wider uppercase mb-2 flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-amber-500 fill-amber-500" />
+              <div className="p-6 bg-[#13052c] rounded-2xl border border-fuchsia-500/30">
+                <div className="font-black text-cyan-300 text-xs sm:text-sm tracking-wider uppercase mb-2 flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-amber-400 fill-amber-400" />
                   <span>THE KARKA ADVANTAGE</span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Watch how <strong className="text-slate-900">{activeLearner.name}</strong> transformed their career with hands-on labs and 1-on-1 engineer mentorship directly from our physical campus to industry success.
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Watch how <strong className="text-white">{activeLearner.name}</strong> transformed their career with hands-on labs and 1-on-1 engineer mentorship directly from our physical campus to industry success.
                 </p>
               </div>
 
@@ -385,7 +385,7 @@ export default function AcademyVideoTour() {
         {/* View Mode 2: Campus & Physical Labs Tour (SRV Towers, Nagercoil) */}
         {viewMode === 'campus' && (
           <div className="max-w-5xl mx-auto space-y-6">
-            <div className="relative aspect-video rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-black">
+            <div className="relative aspect-video rounded-3xl overflow-hidden border border-fuchsia-500/30 shadow-[0_0_40px_rgba(240,0,255,0.3)] bg-black">
               <iframe
                 src="https://www.youtube-nocookie.com/embed/t541Ju_-L2U?autoplay=1&rel=0&modestbranding=1"
                 title="Karka AI & Tech Academy Campus Tour at SRV Towers Nagercoil"
@@ -397,33 +397,33 @@ export default function AcademyVideoTour() {
 
             {/* Campus Highlights Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
-                <div className="p-2.5 rounded-xl bg-purple-50 text-[#4a044e]">
+              <div className="p-5 rounded-2xl card-cosmic flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-fuchsia-950/60 border border-fuchsia-500/30 text-cyan-400">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-900">SRV Towers, Veppamoodu</h4>
-                  <p className="text-xs text-slate-500 mt-0.5">High-speed dual-monitor developer stations in Nagercoil.</p>
+                  <h4 className="font-bold text-sm text-white">SRV Towers, Veppamoodu</h4>
+                  <p className="text-xs text-slate-300 mt-0.5">High-speed dual-monitor developer stations in Nagercoil.</p>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
-                <div className="p-2.5 rounded-xl bg-purple-50 text-[#4a044e]">
+              <div className="p-5 rounded-2xl card-cosmic flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-fuchsia-950/60 border border-fuchsia-500/30 text-cyan-400">
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-900">1-on-1 Engineer Audits</h4>
-                  <p className="text-xs text-slate-500 mt-0.5">Continuous on-site guidance from seasoned industry engineers.</p>
+                  <h4 className="font-bold text-sm text-white">1-on-1 Engineer Audits</h4>
+                  <p className="text-xs text-slate-300 mt-0.5">Continuous on-site guidance from seasoned industry engineers.</p>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3.5">
-                <div className="p-2.5 rounded-xl bg-purple-50 text-[#4a044e]">
+              <div className="p-5 rounded-2xl card-cosmic flex items-start gap-3.5">
+                <div className="p-2.5 rounded-xl bg-fuchsia-950/60 border border-fuchsia-500/30 text-cyan-400">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-900">Pay After Placement</h4>
-                  <p className="text-xs text-slate-500 mt-0.5">Learn with confidence: ₹0 upfront tuition until you get placed.</p>
+                  <h4 className="font-bold text-sm text-white">Pay After Placement</h4>
+                  <p className="text-xs text-slate-300 mt-0.5">Learn with confidence: ₹0 upfront tuition until you get placed.</p>
                 </div>
               </div>
             </div>

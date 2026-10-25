@@ -66,13 +66,13 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'glass-nav shadow-sm py-2.5'
-          : 'bg-white/95 backdrop-blur-md py-3.5 border-b border-slate-100'
+          ? 'bg-[#05020a]/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.8)] py-2.5 border-b border-fuchsia-500/25'
+          : 'bg-[#05020a]/85 backdrop-blur-md py-3.5 border-b border-fuchsia-500/15'
       }`}
     >
       {/* Top Scroll Indicator */}
       <div
-        className="absolute top-0 left-0 h-[2.5px] bg-gradient-to-r from-[#4a044e] via-purple-600 to-amber-400 transition-all duration-150 ease-out z-50 pointer-events-none"
+        className="absolute top-0 left-0 h-[2.5px] bg-gradient-to-r from-[#00FFFF] via-[#F000FF] to-[#ffdf00] transition-all duration-150 ease-out z-50 pointer-events-none"
         style={{ width: `${scrollProgress}%` }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +80,7 @@ export default function Navbar() {
           {/* Brand Logo & Tag */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 rounded-lg p-1"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg p-1"
             aria-label="Karka AI & Tech Academy - Home"
           >
             <div className="relative h-8 sm:h-9 w-28 sm:w-32 flex-shrink-0">
@@ -93,11 +93,11 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="hidden sm:flex flex-col border-l border-slate-200 pl-2.5">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#4a044e]">
+            <div className="hidden sm:flex flex-col border-l border-fuchsia-500/30 pl-2.5">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-[#00FFFF] to-fuchsia-400 bg-clip-text text-transparent">
                 AI & Tech Academy
               </span>
-              <span className="text-[9px] font-semibold text-slate-500">
+              <span className="text-[9px] font-semibold text-slate-400">
                 Nagercoil · SRV Towers
               </span>
             </div>
@@ -119,8 +119,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                     isActive
-                      ? 'text-blue-600 bg-blue-50/80 font-semibold shadow-xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      ? 'text-white bg-gradient-to-r from-fuchsia-950/60 to-cyan-950/60 border border-fuchsia-500/40 font-bold shadow-[0_0_15px_rgba(240,0,255,0.25)]'
+                      : 'text-slate-300 hover:text-cyan-300 hover:bg-white/5'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
@@ -134,7 +134,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact?type=guidance"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 shadow-sm shadow-blue-600/30 transition-all duration-200 hover:shadow-md hover:shadow-blue-600/40 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+              className="btn-infini-primary inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold"
               id="nav-cta-guidance"
             >
               <span>Get Career Guidance</span>
@@ -147,15 +147,15 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-fuchsia-950/40 border border-fuchsia-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               aria-label={mobileMenuOpen ? 'Close main menu' : 'Open main menu'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-cyan-400" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-cyan-400" />
               )}
             </button>
           </div>
@@ -166,20 +166,20 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation"
-          className="fixed inset-0 top-[65px] bg-slate-900/60 backdrop-blur-xs z-40 lg:hidden"
+          className="fixed inset-0 top-[65px] bg-black/80 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            className="bg-white w-full max-w-sm ml-auto h-full shadow-2xl p-6 flex flex-col justify-between overflow-y-auto"
+            className="bg-[#090318] border-l border-fuchsia-500/30 w-full max-w-sm ml-auto h-full shadow-2xl p-6 flex flex-col justify-between overflow-y-auto text-white"
             onClick={(e) => e.stopPropagation()}
           >
             <div>
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-fuchsia-500/20">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                   Navigation
                 </span>
-                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-50 text-[#4a044e]">
-                  Nexora Labs Redesign
+                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-fuchsia-950/60 border border-fuchsia-500/40 text-cyan-300">
+                  Karka Infini AI
                 </span>
               </div>
               <nav className="flex flex-col space-y-1">
@@ -195,33 +195,33 @@ export default function Navbar() {
                       onClick={() => setMobileMenuOpen(false)}
                       className={`flex items-center justify-between px-3.5 py-3 rounded-lg text-base font-medium transition-colors ${
                         isActive
-                          ? 'text-blue-600 bg-blue-50 font-semibold'
-                          : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
+                          ? 'text-cyan-300 bg-fuchsia-950/40 border border-fuchsia-500/30 font-bold'
+                          : 'text-slate-300 hover:text-white hover:bg-white/5'
                       }`}
                       aria-current={isActive ? 'page' : undefined}
                     >
                       <span>{link.name}</span>
-                      {isActive && <span className="w-2 h-2 rounded-full bg-blue-600" />}
+                      {isActive && <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00FFFF]" />}
                     </Link>
                   );
                 })}
               </nav>
             </div>
 
-            <div className="pt-6 border-t border-slate-100 mt-6 space-y-3">
+            <div className="pt-6 border-t border-fuchsia-500/20 mt-6 space-y-3">
               <Link
                 href="/contact?type=guidance"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/30 text-center"
+                className="w-full btn-infini-primary inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-bold text-center"
               >
                 <span>Get Career Guidance</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <div className="text-center text-xs text-slate-500 pt-2">
+              <div className="text-center text-xs text-slate-400 pt-2">
                 Need quick help? Call{' '}
                 <a
                   href={`tel:${COMPANY_DETAILS.contact.phone.replace(/\s+/g, '')}`}
-                  className="font-medium text-slate-700 hover:text-blue-600 underline"
+                  className="font-medium text-cyan-400 hover:underline"
                 >
                   {COMPANY_DETAILS.contact.phone}
                 </a>
